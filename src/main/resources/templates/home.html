@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+
+<head th:include="fragment/block :: headerFragment"></head>
+
+<header th:insert="fragment/header :: header(barnav)"></header>
+
+<body>
+
+<div class="container">
+
+    <div class="col-12" id="main">
+        <div id="contents">
+            <div id="countdown">
+
+                <div id="countdown-event">
+                    <div id="countdown-event-legend">Prochain Grand Prix</div>
+                    <div id="countdown-event-name">Australie</div>
+                </div>
+                <div id="countdown-time">
+                    <div id="countdown-time-simple">
+                        <script>var time_left = 21000;
+
+
+                        var obj_decompte;
+                        var temps_reference = new Date().getTime();
+                        var duree_seconde = 1000;
+                        var duree_minute = duree_seconde * 60;
+                        var duree_heure = duree_minute * 60;
+                        var duree_jour = duree_heure * 24;
+
+                        function init() {
+                            obj_decompte = document.getElementById("decompte");
+
+                            loop();
+                        }
+
+                        function loop() {
+                            var ecoule = (new Date().getTime() - temps_reference);
+                            var delai = time_left - ecoule;
+
+                            var jours = Math.floor(delai / duree_jour);
+                            delai -= jours * duree_jour;
+                            var heures = Math.floor(delai / duree_heure);
+                            delai -= heures * duree_heure;
+                            var minutes = Math.floor(delai / duree_minute);
+                            delai -= minutes * duree_minute;
+                            var secondes = Math.floor(delai / duree_seconde);
+                            delai -= secondes * duree_seconde;
+                            var millisecondes = delai;
+
+                            var str = "";
+
+                            if (jours > 0) {
+                                str += jours + " J";
+                                if (jours > 1) str += "";
+                                str += " ";
+                            }
+
+                            if (heures > 0) {
+                                str += heures + " H";
+                                if (heures > 1) str += "";
+                                str += " ";
+                            }
+
+                            if (minutes > 0) {
+                                str += minutes + " M";
+                                if (minutes > 1) str += "";
+                                str += " ";
+                            }
+
+                            if (secondes + millisecondes > 0) {
+                                str += secondes + "." + millisecondes + " S";
+                                if (secondes > 1) str += "";
+                            }
+
+                            obj_decompte.innerHTML = str;
+
+                            setTimeout(loop, 10);
+                        }
+
+                        setTimeout(init, 500);
+
+                        </script>
+                        <div id="decompte">23 H 59 M 3.414 S</div>
+                    </div>
+                </div>
+            </div>
+            <div id="streams">
+
+
+                <div class="itemsContainer" id="container">
+
+
+                    <div class="streamBox isotope-item F1_2019">
+                        <h3>
+        <span class="jeu">
+          <a href="https://www.twitch.tv/CaMaK"><font size="5">CaMaK</font></a>
+        </span>
+
+                            <div class="thumbContainer">
+                                <a href="https://www.twitch.tv/CaMaK" target="_blank"
+                                   title="Nom : CaMaK | Début du live : 2019-10-11 20:49:08 | Temps du live : 00:09:00"><img
+                                        src="https://static-cdn.jtvnw.net/previews-ttv/live_user_camak-320x180.jpg"></a>
+                            </div>
+
+                            <div class="streamInfos">
+          <span class="jeu">
+            <a href="https://www.twitch.tv/CaMaK">#194 RStars - Grand Prix d'Australie - Scuderia Ferrari - !RStars !insta !shop </a>
+          </span>
+                                <ul class="infos">
+                                    <!-- <li class="username">Jeu: &nbsp<a href="https://www.twitch.tv/CaMaK">F1 2019</a></li> -->
+                                    <li class="viewers">750 spectateurs</li>
+                                </ul>
+                            </div>
+                        </h3>
+
+                    </div>
+                    <div class="streamBox isotope-item F1_2019">
+                        <h3>
+        <span class="jeu">
+          <a href="https://www.twitch.tv/Phoenie"><font size="5">Phoenie</font></a>
+        </span>
+
+                            <div class="thumbContainer">
+                                <a href="https://www.twitch.tv/Phoenie" target="_blank"
+                                   title="Nom : Phoenie | Début du live : 2019-10-11 20:42:18 | Temps du live : 00:16:00"><img
+                                        src="https://static-cdn.jtvnw.net/previews-ttv/live_user_phoenie-320x180.jpg"></a>
+                            </div>
+
+                            <div class="streamInfos">
+          <span class="jeu">
+            <a href="https://www.twitch.tv/Phoenie">RStars !! Vis ma vie de patron de RedBull</a>
+          </span>
+                                <ul class="infos">
+                                    <!-- <li class="username">Jeu: &nbsp<a href="https://www.twitch.tv/Phoenie">F1 2019</a></li> -->
+                                    <li class="viewers">204 spectateurs</li>
+                                </ul>
+                            </div>
+                        </h3>
+
+                    </div>
+                    <div class="streamBox isotope-item F1_2019">
+                        <h3>
+        <span class="jeu">
+          <a href="https://www.twitch.tv/Xerackk"><font size="5">Xerackk</font></a>
+        </span>
+
+                            <div class="thumbContainer">
+                                <a href="https://www.twitch.tv/Xerackk" target="_blank"
+                                   title="Nom : Xerackk | Début du live : 2019-10-11 20:55:58 | Temps du live : 00:02:00"><img
+                                        src="https://static-cdn.jtvnw.net/previews-ttv/live_user_xerackk-320x180.jpg"></a>
+                            </div>
+
+                            <div class="streamInfos">
+          <span class="jeu">
+            <a href="https://www.twitch.tv/Xerackk">RStars Championship - Melbourne #01</a>
+          </span>
+                                <ul class="infos">
+                                    <!-- <li class="username">Jeu: &nbsp<a href="https://www.twitch.tv/Xerackk">F1 2019</a></li> -->
+                                    <li class="viewers">84 spectateurs</li>
+                                </ul>
+                            </div>
+                        </h3>
+
+                    </div>
+                    <div class="streamBox isotope-item F1_2019">
+                        <h3>
+        <span class="jeu">
+          <a href="https://www.twitch.tv/Hermanel"><font size="5">Hermanel</font></a>
+        </span>
+
+                            <div class="thumbContainer">
+                                <a href="https://www.twitch.tv/Hermanel" target="_blank"
+                                   title="Nom : Hermanel | Début du live : 2019-10-11 20:55:04 | Temps du live : 00:03:00"><img
+                                        src="https://static-cdn.jtvnw.net/previews-ttv/live_user_hermanel-320x180.jpg"></a>
+                            </div>
+
+                            <div class="streamInfos">
+          <span class="jeu">
+            <a href="https://www.twitch.tv/Hermanel">Rstars - Team Mercedes !rstars #Roadto300 </a>
+          </span>
+                                <ul class="infos">
+                                    <!-- <li class="username">Jeu: &nbsp<a href="https://www.twitch.tv/Hermanel">F1 2019</a></li> -->
+                                    <li class="viewers">50 spectateurs</li>
+                                </ul>
+                            </div>
+                        </h3>
+
+                    </div>
+
+
+                </div><!-- #container -->
+
+
+                <br>
+
+
+                <div id="multi-stream" style="text-align: center;">
+
+                    &nbsp;
+                    <table width="100%">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">
+                                <h2> Multi Stream </h2>
+                            </th>
+                        </tr>
+
+                        <form action="rstarsr.php" method="post"></form>
+                        <tr>
+                            <td align="right" width="50%"><input name="streamS[]" type="checkbox" value="CaMaK">
+                                &nbsp;
+                            </td>
+                            <td align="LEFT">&nbsp; CaMaK</td>
+                        </tr>
+                        <tr>
+                            <td align="right" width="50%"><input name="streamS[]" type="checkbox" value="Phoenie">
+                                &nbsp;
+                            </td>
+                            <td align="LEFT">&nbsp; Phoenie</td>
+                        </tr>
+                        <tr>
+                            <td align="right" width="50%"><input name="streamS[]" type="checkbox" value="Xerackk">
+                                &nbsp;
+                            </td>
+                            <td align="LEFT">&nbsp; Xerackk</td>
+                        </tr>
+                        <tr>
+                            <td align="right" width="50%"><input name="streamS[]" type="checkbox" value="Hermanel">
+                                &nbsp;
+                            </td>
+                            <td align="LEFT">&nbsp; Hermanel</td>
+                        </tr>
+                        <tr></tr>
+
+                        <tr>
+                            <th colspan="2">
+                                <input type="submit" value="Multi Stream">
+                            </th>
+                            <th>
+                            </th>
+                        </tr>
+
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+
+                <br>
+
+
+                <!-- </div> -->
+
+
+                <!-- Servi par le cache -->      </div>
+        </div>
+        <div id="sidebar">
+            <div class="sidebar-title">Streamers</div>
+
+            <p>
+                <a class="streamer" href="https://www.twitch.tv/Xerackk" target="_blank">
+                    <span class="streamer-name">Audric Bourdais</span>
+                    <span class="streamer-twitch-name">Xerackk</span>
+                    <span class="streamer-description">Organisateur &amp; Commentateur</span>
+                </a>
+                <a class="streamer" href="https://www.twitch.tv/Sansha" style="border-left-color: yellow"
+                   target="_blank">
+                    <span class="streamer-name">Marcelle Vasseur</span>
+                    <span class="streamer-twitch-name">Sansha</span>
+                    <span class="streamer-description">Directrice Renault</span>
+                </a>
+                <a class="streamer" href="https://www.twitch.tv/OliverStaton" style="border-left-color: orange"
+                   target="_blank">
+                    <span class="streamer-name">Zak Crown</span>
+                    <span class="streamer-twitch-name">OliverStaton</span>
+                    <span class="streamer-description">Directeur McLaren</span>
+                </a>
+                <a class="streamer" href="https://www.twitch.tv/Naevuis" style="border-left-color: darkred"
+                   target="_blank">
+                    <span class="streamer-name">Matteo Salvini</span>
+                    <span class="streamer-twitch-name">Naevuis</span>
+                    <span class="streamer-description">Directeur Alfa Romeo Racing</span>
+                </a>
+                <a class="streamer" href="https://www.twitch.tv/Phoenie" style="border-left-color: blue"
+                   target="_blank">
+                    <span class="streamer-name">Jean Rott</span>
+                    <span class="streamer-twitch-name">Phoenie</span>
+                    <span class="streamer-description">Directeur Red Bull Racing</span>
+                </a>
+                <a class="streamer" href="https://www.twitch.tv/Hermanel" style="border-left-color: cyan"
+                   target="_blank">
+                    <span class="streamer-name">Hans Schneckenburgermann </span>
+                    <span class="streamer-twitch-name">Hermanel</span>
+                    <span class="streamer-description">Directeur Mercedes</span>
+                </a>
+                <a class="streamer" href="https://www.twitch.tv/CaMaK" style="border-left-color: red"
+                   target="_blank">
+                    <span class="streamer-name">Pablo Monzini</span>
+                    <span class="streamer-twitch-name">CaMaK</span>
+                    <span class="streamer-description">Directeur Scuderia Ferrari</span>
+                </a>
+                <span class="streamer" style="border-left-color: gray">
+          <span class="streamer-name">Chris Palamélaba</span>
+          <span class="streamer-description">Directeur Haas F1</span>
+        </span>
+            </p>
+
+            <div class="sidebar-title">Actualité</div>
+
+            <iframe allowfullscreen="true" allowtransparency="true"
+                    class="twitter-timeline twitter-timeline-rendered"
+                    data-widget-id="profile:Gazette_Rstars" frameborder="0"
+                    id="twitter-widget-0"
+                    scrolling="no"
+                    style="position: static; visibility: visible; display: inline-block; width: 100%; height: 600px; padding: 0px; border: none; max-width: 100%; min-width: 180px; margin-top: 0px; margin-bottom: 0px; min-height: 200px;"
+                    title="Twitter Timeline"></iframe>
+            <script async="" charset="utf-8" src="https://platform.twitter.com/widgets.js"></script>
+        </div>
+    </div>
+</div>
+</div>
+
+<footer th:insert="fragment/footer :: footer"></footer>
+
+
+</body>
+
+</html>
