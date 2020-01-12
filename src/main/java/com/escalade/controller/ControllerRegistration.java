@@ -20,16 +20,16 @@ public class ControllerRegistration {
         this.usersService = usersService;
     }
 
-    @RequestMapping(value = "/newuser", method = RequestMethod.GET)
+    @RequestMapping(value = "/user/registration", method = RequestMethod.GET)
     public String NewUsers(Model model) {
         Users users = new Users();
         model.addAttribute("users", users);
-        model.addAttribute("pageTitle", "New User");
+        model.addAttribute("pageTitle", "Registration");
 
         return "registration";
     }
 
-    @RequestMapping(value = "/newuser", method = RequestMethod.POST)
+    @RequestMapping(value = "/user/registration", method = RequestMethod.POST)
     public String NewUsers(@ModelAttribute Users users, BindingResult result, Model model) {
         if (result.hasErrors()) {
             model.addAttribute("users", users);

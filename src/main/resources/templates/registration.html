@@ -8,31 +8,34 @@
 
 
 <body>
-<div class="card">
-    <form method="post" th:action="@{/newuser}" th:object="${users}">
+<div class="panel col-md-5">
+    <div class="panel panel-primary">
+        <div class="panel-heading">Registration Form</div>
+        <form method="post" th:action="@{/newuser}" th:object="${users}">
 
-        <div class="form-group" th:class="${#fields.hasErrors('name')}? has-error">
-            <label for="name">
-                <h1> name : </h1>
-            </label>
-            <input class="form-contro" id="name" placeholder="username" th:field="*{name}" type="text">
-        </div>
+            <div class="form-group" th:class="${#fields.hasErrors('name')}? has-error">
+                <label for="name">
+                    <h1> name : </h1>
+                </label>
+                <input class="form-contro" id="name" placeholder="username" th:field="*{name}" type="text">
+            </div>
 
-        <div class="form-group" th:class="${#fields.hasErrors('email')}? has-error">
-            <label for="email">
-                <h1> email : </h1>
-            </label>
-            <input class="form-contro" id="email" placeholder="email" th:field="*{email}" type="text">
-        </div>
+            <div class="form-group" th:class="${#fields.hasErrors('email')}? has-error">
+                <label for="email">
+                    <h1> email : </h1>
+                </label>
+                <input class="form-contro" id="email" placeholder="email" th:field="*{email}" type="text">
+            </div>
 
-        <div class="form-group" th:class="${#fields.hasErrors('password')}? has-error">
-            <label for="password">
-                <h1> password : </h1>
-            </label>
-            <input class="form-contro" id="password" placeholder="password" th:field="*{password}" type="text">
-        </div>
-        <input class="btn btn-light" type="submit" value="Create"/>
-    </form>
+            <div class="form-group" th:class="${#fields.hasErrors('password')}? has-error">
+                <label for="password">
+                    <h1> password : </h1>
+                </label>
+                <input class="form-contro" id="password" placeholder="password" th:field="*{password}" type="text">
+            </div>
+            <input class="btn btn-light" type="submit" value="Create"/>
+        </form>
+    </div>
 </div>
 
 
