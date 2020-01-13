@@ -1,6 +1,7 @@
 package com.escalade.services;
 
 import com.escalade.entity.Users;
+import com.escalade.error.UserAlreadyExistException;
 import com.escalade.repositories.RolesRepository;
 import com.escalade.repositories.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,9 @@ public class UsersService {
 
 
     public Users registerNewUserAccount(final Users users) {
+        if (emailExists(users.getEmail())) {
+            throw new UserAlreadyExistException("There is an account with that email adress: " + users.getEmail());
+        }
 
         users.setName(users.getName());
         users.setPassword(passwordEncoder.encode(users.getPassword()));
@@ -31,5 +35,11 @@ public class UsersService {
 
         return usersRepository.save(users);
     }
+
+    private boolean emailExists(final String email) {
+        return usersRepository.findByEmail(email) != null;
+    }
 }
+
+
 
