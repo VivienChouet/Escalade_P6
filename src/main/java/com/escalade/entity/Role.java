@@ -44,4 +44,9 @@ public class Role {
     public void setUsers(List<Users> users) {
         this.users = users;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

@@ -2,6 +2,8 @@
 <html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <html xmlns:th="http://www.thymeleaf.org">
+
+
 <head>
     <meta charset="UTF-8">
 
@@ -27,35 +29,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/classement">classement</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Ecuries F1
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/renault">Renault</a>
-                        <a class="dropdown-item" href="/alfaromeo">Alfa Romeo</a>
-                        <a class="dropdown-item" href="/redbullracing">Red Bull Racing</a>
-                        <a class="dropdown-item" href="/mercedes">Mercedes</a>
-                        <a class="dropdown-item" href="/ferrari">Ferrari</a>
-                        <a class="dropdown-item" href="/hass">Hass F1</a>
-                        <div class="dropdown-divider"></div>
-
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#candidature">Candidature</a>
                 </li>
 
-                <li class="nav-item dropdown" sec:authorize="isAuthenticated()">
-                    <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle"
-                       data-toggle="dropdown" href="#" role="button">
-                        Ajout / Modification
-                    </a>
-                    <div aria-labelledby="navbarDropdown" class="dropdown-menu">
-                        <a class="dropdown-item" href="/addPilote">Ajout Pilote</a>
-                        <a class="dropdown-item" href="/addResultat">Ajout Resultat</a>
-                        <div class="dropdown-divider"></div>
-                    </div>
-                </li>
                 <li class="nav-item" sec:authorize="!isAuthenticated()">
                     <a class="nav-link" th:href="@{/user/registration}">Enregistrement</a>
                 </li>
@@ -65,7 +42,11 @@
                 <li class="nav-item" sec:authorize="isAuthenticated()">
                     <a class="nav-link" th:href="@{/logout}">logout</a></li>
                 </li>
-
+                <sec:authorize access="hasRole('ROLE_ADMIN')">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/admin}">Gestion Admin</a></li>
+                    </li>
+                </sec:authorize>
             </ul>
         </div>
     </nav>

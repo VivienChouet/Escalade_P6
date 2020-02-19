@@ -28,6 +28,7 @@
                             </label>
                             <input class="form-control" id="name" placeholder="username" th:field="*{name}" type="text">
                             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                            <span class="text-danger" th:errors="*{name}" th:if="${#fields.hasErrors('name')}"></span>
                         </div>
 
                         <div class="form-group has-feedback" th:class="${#fields.hasErrors('email')}? has-error">
@@ -36,6 +37,7 @@
                             </label>
                             <input class="form-control" id="email" placeholder="email" th:field="*{email}" type="text">
                             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                            <span class="text-danger" th:errors="*{email}" th:if="${#fields.hasErrors('email')}"></span>
                         </div>
 
                         <div class="form-group has-feedback" th:class="${#fields.hasErrors('password')}? has-error">
@@ -45,6 +47,8 @@
                             <input class="form-control" id="password" placeholder="password" th:field="*{password}"
                                    type="text">
                             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                            <span class="text-danger" th:errors="*{password}"
+                                  th:if="${#fields.hasErrors('password')}"></span>
                         </div>
                         <div class="row">
                             <div class="form-group col-xs-offset-8 col-xs-4" style="padding-top: 20px">

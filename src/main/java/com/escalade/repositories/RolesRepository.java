@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RolesRepository extends JpaRepository<Role, Integer> {
 
-    Role findByName(String name);
+    Role findByName(String role);
 
     @Override
     void delete(Role role);

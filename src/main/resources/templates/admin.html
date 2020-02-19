@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+
+<head th:include="fragment/block :: headerFragment"></head>
+
+<header th:insert="fragment/header :: header(barnav)"></header>
+
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="card col-md3" style="width: 100%">
+            <div class="card-img-top" src="assets/Banniere.jpg"></div>
+            <div class="card-body">
+                <div class="panel-heading"> Liste des personnes inscrites</div>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Adresse Email</th>
+                            <th scope="col">Nom</th>
+                            <th scope="col">Date d'inscription</th>
+                            <th scope="col">Role</th>
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="user : ${users}">
+                            <td th:text="${user.email}"></td>
+                            <td th:text="${user.name}"></td>
+                            <td th:text="${user.createdAt}"></td>
+                            <td th:text="${user.roles}"></td>
+                            <td><a th:href="@{/update/{id}(id=${user.id})}">Edit</a></td>
+                            <td><a th:href="@{/delete/{id}(id=${user.id})}">Delete</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:insert="fragment/footer :: footer"></footer>
+</body>
+</html>

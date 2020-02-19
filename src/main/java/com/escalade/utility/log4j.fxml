@@ -1,0 +1,9 @@
+<?import org.springframework.context.annotation.Configuration?>
+<?import java.io.Console?>
+<Configuration status="debug" name="Escalade" packages="">
+    <Appenders>
+        <Console name="stdout" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %p %m%n"/>
+        </Console>
+    </Appenders>
+</Configuration>
