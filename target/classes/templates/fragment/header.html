@@ -43,9 +43,9 @@
                     <a class="nav-link" th:href="@{/logout}">logout</a></li>
                 </li>
                 <sec:authorize access="hasRole('ROLE_ADMIN')">
-                <li class="nav-item">
-                    <a class="nav-link" th:href="@{/admin}">Gestion Admin</a></li>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/admin}">Gestion Admin</a></li>
+                    </li>
                 </sec:authorize>
             </ul>
         </div>

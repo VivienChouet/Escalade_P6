@@ -4,6 +4,7 @@ import com.escalade.entity.Role;
 import com.escalade.entity.Users;
 import com.escalade.services.RoleService;
 import com.escalade.services.UsersService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,8 +16,9 @@ import java.util.List;
 @Controller
 public class ControllerAdmin {
 
-    private final UsersService usersService;
-    private final RoleService roleService;
+    @Autowired
+    UsersService usersService;
+    RoleService roleService;
 
     public ControllerAdmin(UsersService usersService, RoleService roleService) {
         this.usersService = usersService;

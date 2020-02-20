@@ -30,6 +30,9 @@ public class Users {
     @Column(name = "createdat")
     @CreationTimestamp
     private Date createdAt;
+    @Column(name = "updateAt")
+    @CreationTimestamp
+    private Date updateAt;
 
     @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(
@@ -47,6 +50,14 @@ public class Users {
 
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public Date getUpdateAt() {
+        return updateAt;
+    }
+
+    public void setUpdateAt(Date updateAt) {
+        this.updateAt = updateAt;
     }
 
     public Integer getId() {
@@ -96,6 +107,7 @@ public class Users {
     public void setTopo(List<Topo> topo) {
         this.topo = topo;
     }
+
 
     @Override
     public String toString() {

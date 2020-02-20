@@ -1,8 +1,10 @@
 package com.escalade.entity;
 
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 
@@ -25,6 +27,12 @@ public class Topo {
     @Column(nullable = false, unique = true)
     @NotEmpty
     private String contactemail;
+    @Column(name = "createdat")
+    @CreationTimestamp
+    private Date createdAt;
+    @Column(name = "updateAt")
+    @CreationTimestamp
+    private Date updateAt;
 
     @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(
@@ -47,6 +55,22 @@ public class Topo {
 
     public void setTelephone(String telephone) {
         this.telephone = telephone;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Date getUpdateAt() {
+        return updateAt;
+    }
+
+    public void setUpdateAt(Date updateAt) {
+        this.updateAt = updateAt;
     }
 
     public String getContactemail() {

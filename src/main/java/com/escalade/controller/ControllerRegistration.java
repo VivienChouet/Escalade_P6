@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class ControllerRegistration {
 
-    private final UsersService usersService;
+    @Autowired
+    UsersService usersService;
 
     @Autowired
     public ControllerRegistration(UsersService usersService) {
