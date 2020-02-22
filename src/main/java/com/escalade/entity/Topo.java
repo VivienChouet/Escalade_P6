@@ -1,7 +1,6 @@
 package com.escalade.entity;
 
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -16,16 +15,16 @@ public class Topo {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     @Column(nullable = false, unique = true)
-    @NotEmpty
+
     private String name;
     @Column(nullable = false, unique = true)
-    @NotEmpty
+
     private String adresse;
     @Column(nullable = false, unique = true)
-    @NotEmpty
+
     private String telephone;
     @Column(nullable = false, unique = true)
-    @NotEmpty
+
     private String contactemail;
     @Column(name = "createdat")
     @CreationTimestamp

@@ -4,6 +4,9 @@ import com.escalade.entity.Role;
 import com.escalade.entity.Users;
 import com.escalade.services.RoleService;
 import com.escalade.services.UsersService;
+import com.escalade.utility.LoggingController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +18,8 @@ import java.util.List;
 
 @Controller
 public class ControllerAdmin {
+
+    Logger logger = LoggerFactory.getLogger(LoggingController.class);
 
     @Autowired
     UsersService usersService;
@@ -43,9 +48,8 @@ public class ControllerAdmin {
         model.addAttribute("roles", roles);
         model.addAttribute("user", user);
         model.addAttribute("pageTitle", "Update");
-
-        System.out.println("roles " + roles);
-        System.out.println("user" + user);
+        logger.info("list des roles : " + roles);
+        logger.info("Info user de : " + user);
         return "update_user";
     }
 
@@ -54,7 +58,7 @@ public class ControllerAdmin {
         System.out.println("user" + user + "ok");
         if (result.hasErrors()) {
             model.addAttribute("user", user);
-            System.out.println(user + "error");
+            logger.error(user + " :  error");
             return "home";
         }
         usersService.ChangeRoleUser(user);

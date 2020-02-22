@@ -1,0 +1,17 @@
+Site internet conçu pour répondre aux besoin du projet 6 du parcours dévellopeur JAVA de openclassroom.
+
+Description :
+
+Ce site internet à pour but de recueillir différents TOPO receuillant chacun différente voie d'éscalade. Les utilisateurs pourront par le biais de ce site échanger sur les différents site d'escalade.
+Il pourront également réserver un site si celui-ci leurs convient et laisser des commentaire sur celui-ci.
+
+Correction apporté :
+
+- Ajout de la fonction updateat sur l'entity user
+- Ajout des logs sur les différents service
+
+
+Bug à corriger :
+
+- La vérification des emails lors de l'enregistrement d'un nouveau membres n'est pas fonctionnel et reconnait toutes les adresse email comme existante.
+- La suppression d'un membre n'est pas fonctionnel en raison de l'id qui est utilisé sur différentes table (mettre en place un delete sur toutes les tables)
