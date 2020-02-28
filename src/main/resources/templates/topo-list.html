@@ -6,7 +6,35 @@
 
 <header th:insert="fragment/header :: header(barnav)"></header>
 <body>
-
+<div class="row">
+    <div class="container">
+        <div class="card">
+            <div class="table">
+                <div class="card-body">
+                    <div class="panel-heading"> Liste des topos</div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <thread>
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Lieux</th>
+                                    <th>desription</th>
+                                </tr>
+                            </thread>
+                        </table>
+                        <tbody>
+                        <tr th:each="topo : ${topo}">
+                            <td th:text="${topo.name}"></td>
+                            <td th:text="${topo.lieux}"></td>
+                            <td th:text="${topo.description}"></td>
+                        </tr>
+                        </tbody>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 <footer th:insert="fragment/footer :: footer"></footer>
 </html>

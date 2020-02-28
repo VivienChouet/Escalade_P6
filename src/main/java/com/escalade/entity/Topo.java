@@ -19,13 +19,10 @@ public class Topo {
     private String name;
     @Column(nullable = false, unique = true)
 
-    private String adresse;
+    private String lieux;
     @Column(nullable = false, unique = true)
 
-    private String telephone;
-    @Column(nullable = false, unique = true)
-
-    private String contactemail;
+    private String description;
     @Column(name = "createdat")
     @CreationTimestamp
     private Date createdAt;
@@ -39,21 +36,19 @@ public class Topo {
             joinColumns = {@JoinColumn(name = "TOPO_ID", referencedColumnName = "ID")},
             inverseJoinColumns = {@JoinColumn(name = "USER_ID", referencedColumnName = "ID")})
     private List<Users> users;
+    @ManyToMany(mappedBy = "topo")
+    private List<Site> site;
 
-    public String getAdresse() {
-        return adresse;
+    public String getLieux() {
+        return lieux;
     }
 
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
+    public void setLieux(String adresse) {
+        this.lieux = adresse;
     }
 
-    public String getTelephone() {
-        return telephone;
-    }
-
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
+    public String getDescription() {
+        return description;
     }
 
     public Date getCreatedAt() {
@@ -70,14 +65,6 @@ public class Topo {
 
     public void setUpdateAt(Date updateAt) {
         this.updateAt = updateAt;
-    }
-
-    public String getContactemail() {
-        return contactemail;
-    }
-
-    public void setContactemail(String contactemail) {
-        this.contactemail = contactemail;
     }
 
     public Integer getId() {
@@ -102,6 +89,18 @@ public class Topo {
 
     public void setUsers(List<Users> users) {
         this.users = users;
+    }
+
+    public void setDescription(String telephone) {
+        this.description = telephone;
+    }
+
+    public List<Site> getSite() {
+        return site;
+    }
+
+    public void setSite(List<Site> site) {
+        this.site = site;
     }
 
     @Override
