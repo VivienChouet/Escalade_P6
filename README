@@ -9,6 +9,7 @@ Correction apporté :
 
 - Ajout de la fonction updateat sur l'entity user
 - Ajout des logs sur les différents service
+- Ajout des Topos + Site
 
 
 Bug à corriger :
@@ -16,3 +17,6 @@ Bug à corriger :
 - La vérification des emails lors de l'enregistrement d'un nouveau membres n'est pas fonctionnel et reconnait toutes les adresse email comme existante.
 - La suppression d'un membre n'est pas fonctionnel en raison de l'id qui est utilisé sur différentes table (mettre en place un delete sur toutes les tables).
 - Le changement de role n'est pas encore foncionnel méthode à créer dans le service.
+- Le système de liaison entre les topo -> user non fonctionnel
+- Le système de liaison entre les sites -> topo non fonctionnel
+- Le système de sauvegarde de l'utilisateur qui créer le topo non fonctionnel

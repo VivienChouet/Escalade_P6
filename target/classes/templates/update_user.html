@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="fragment/block :: headerFragment"></head>
+
+<header th:insert="fragment/header :: header(barnav)"></header>
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="card">
+            <div class="container">
+                <div class="row">
+                    <div class="card col-md3" style="width: 100%">
+                        <div class="card-img-top" src="assets/Banniere.jpg"></div>
+                        <div class="card-body">
+                            <div class="panel-heading"> Liste des personnes inscrites</div>
+                            <div class="panel-body">
+
+                                <label for="name">
+                                    name :
+                                </label>
+                                <span class="form-control" id="name" placeholder="username" th:text="${user.name}"
+                                      type="text">
+                                </span>
+                                <form method="post" th:action="@{/update_user}" th:object="${user}">
+                                    <select th:field="*{roles[0]}">
+                                        <option th:each="role : ${roles}"
+                                                th:text="${role.name}"
+                                                th:value="${role.id}"></option>
+                                    </select>
+                                    <button class="btn btn-primary btn-block btn-flat"
+                                            style="justify-content: center;padding-top: 2px" type="submit">update
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<footer th:insert="fragment/footer :: footer"></footer>
+</html>
