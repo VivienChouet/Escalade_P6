@@ -33,7 +33,9 @@ public class TopoService {
         topo.setName(topo.getName());
         topo.setLieux((topo.getLieux()));
         topo.setDescription(topo.getDescription());
+
         logger.debug("Register New Topo : " + topo);
+        topoRepository.save(topo);
 
 
     }

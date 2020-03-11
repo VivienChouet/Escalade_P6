@@ -8,12 +8,44 @@
 <header th:insert="fragment/header :: header(barnav)"></header>
 
 <body>
-<div class="row">
-    <div class="container">
-        <div class="card">
 
+<div class="row" style="padding-top: 5px;justify-content: center">
+    <div class="card col-10">
+        <div class="card-body">
+            <div class="panel-heading">
+                <h1> Liste des topos</h1>
+                <form class="form-inline">
+                    <input aria-label="Search" class="form-control mr-sm-2" placeholder="Search" type="search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+
+            <div class="panel-body">
+                <table class="table">
+                    <thread>
+                        <tr>
+                            <th scope="col">Nom</th>
+                            <th scope="col">Adresse</th>
+                            <th scope="col">Contact</th>
+                            <!-- <th scope="col">Auteur</th> -->
+                            <th scope="col">Info</th>
+                        </tr>
+                    </thread>
+                    <tbody>
+                    <tr th:each="site : ${site}">
+                        <td th:text="${site.name}"></td>
+                        <td th:text="${site.adresse}"></td>
+                        <td th:text="${site.contact}"></td>
+                        <!-- Mettre en place la colonne Auteur à partir de la table croisé topo_user -->
+                        <td><a th:href="@{/site/{id}(id=${site.id})}"> Plus d'infos </a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
+</div>
+
 </div>
 </body>
 <footer th:insert="fragment/footer :: footer"></footer>

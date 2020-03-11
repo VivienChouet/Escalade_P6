@@ -26,7 +26,6 @@ public class ControllerRegistration {
         Users users = new Users();
         model.addAttribute("users", users);
         model.addAttribute("pageTitle", "Registration");
-
         return "registration";
     }
 
@@ -39,9 +38,7 @@ public class ControllerRegistration {
         }
         System.out.println(users);
         usersService.registerNewUserAccount(users);
-
         return "home";
-
     }
 
 }

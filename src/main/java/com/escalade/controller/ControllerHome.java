@@ -16,9 +16,7 @@ public class ControllerHome {
 
     @RequestMapping(value = "/")
     public String Home(Model model, HttpServletRequest request) {
-
         model.addAttribute("pageTitle", "Home Page");
-
         return "home";
         // test //
     }

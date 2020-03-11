@@ -17,7 +17,7 @@ a:hover, a:focus, a:active {
 
 /*Main*/
 body {
-    background: url('../assets/Background F1.jpg') no-repeat center center fixed;
+    background: url('../assets/Background.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 
@@ -100,85 +100,80 @@ html, body {
         padding-left: 0;
     }
 
-@media only screen and (min-width: 0px) and (max-width: 580px) {
-    .streamBox {
+    @media only screen and (min-width: 0px) and (max-width: 580px) {
+        .streamBox {
+            margin: 0;
+            width: 100%;
+            float: left;
+        }
+    }
+
+
+    /* ---------------------------------------------------------------------------------------- */
+    /* ---------------------------------------------------------------------------------------- */
+    /* LAYOUT */
+    * {
+        box-sizing: border-box;
+        padding: 0;
         margin: 0;
-        width: 100%;
-        float: left;
     }
-}
 
+    html, body {
+        height: 100%;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+    }
 
-/* ---------------------------------------------------------------------------------------- */
-/* ---------------------------------------------------------------------------------------- */
+    body {
+        display: flex;
+        flex-direction: column;
+    }
 
-/* LAYOUT */
-
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
-
-html, body {
-    height: 100%;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-}
-
-#main {
-    background: linear-gradient(0, #333, #111);
-    display: flex;
-    flex-direction: row;
-    flex: 1;
-}
-
-@media only screen and (max-width: 959px) {
     #main {
-        flex-direction: column-reverse;
+        background: linear-gradient(0, #333, #111);
+        display: flex;
+        flex-direction: row;
+        flex: 1;
     }
-}
 
-/* COMMON */
+    @media only screen and (max-width: 959px) {
+        #main {
+            flex-direction: column-reverse;
+        }
+    }
 
-a {
-    text-decoration: none;
-}
+    /* COMMON */
+    a {
+        text-decoration: none;
+    }
 
-a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
+    a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
 
-p {
-    margin-bottom: 20px;
-}
+    p {
+        margin-bottom: 20px;
+    }
 
 
-/* CONTENTS */
+    /* CONTENTS */
+    #contents {
+        height: 100%;
+        flex: 3;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+    }
 
-#contents {
-    height: 100%;
-    flex: 3;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-}
+    /*Multi Stream*/
+    multi-stream {
 
-/*Multi Stream*/
+    }
 
-multi-stream {
-
-}
-
-/* FOOTER */
-
-#footer {
-    background-color: #111;
-    padding: 10px;
-    color: #888;
+    /* FOOTER */
+    #footer {
+        background-color: #111;
+        padding: 10px;
+        color: #888;
+    }
 }

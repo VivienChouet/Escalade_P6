@@ -51,6 +51,10 @@ public class Topo {
         return description;
     }
 
+    public void setDescription(String telephone) {
+        this.description = telephone;
+    }
+
     public Date getCreatedAt() {
         return createdAt;
     }
@@ -91,10 +95,6 @@ public class Topo {
         this.users = users;
     }
 
-    public void setDescription(String telephone) {
-        this.description = telephone;
-    }
-
     public List<Site> getSite() {
         return site;
     }
@@ -105,7 +105,12 @@ public class Topo {
 
     @Override
     public String toString() {
-        return name;
+        return "Topo{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", lieux='" + lieux + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 }
 
