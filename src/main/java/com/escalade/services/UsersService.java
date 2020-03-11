@@ -8,6 +8,7 @@ import com.escalade.utility.LoggingController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -49,7 +50,7 @@ public class UsersService {
         users.setEmail(users.getEmail());
         users.setRoles(Arrays.asList(rolesRepository.findByName(role)));
         usersRepository.save(users);
-        logger.info("registerNewUserAccount success");
+        logger.debug("registerNewUserAccount");
     }
 
     /**
@@ -59,34 +60,45 @@ public class UsersService {
      */
     //  @PreAuthorize("hasRole('ROLE_ADMIN')")
     public void ChangeRoleUser(Users role) {
-        logger.trace("ChangeRoleUser launch");
-        role.setRoles(Arrays.asList(rolesRepository.findByName("role")));
 
+        role.setRoles(Arrays.asList(rolesRepository.findByName("role")));
+        logger.debug("ChangeRoleUser : " + role);
         usersRepository.save(role);
-        logger.trace("ChangeRoleUser success");
+
+    }
+
+    /**
+     * @return
+     */
+    public String UserLogged() {
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        logger.debug("UserLogged = " + username);
+        return username;
     }
 
 
     public List<Users> findAll() {
-        logger.info("findAll List User");
+        logger.debug("findAll List User");
         return usersRepository.findAll();
     }
 
+
     public Optional<Users> findById(final Integer id) {
-        logger.info("findById Id  = " + id);
+        logger.debug("findById Id  = " + id);
         return usersRepository.findById(id);
     }
 
     private boolean emailExists(final String email) {
-        logger.info("find email : " + email);
+        logger.debug("find email : " + email);
         return usersRepository.findByEmail(email) != null;
     }
 
 
     public void delete(Users user) {
-        logger.info("delete : " + user);
+        logger.debug("delete : " + user);
         usersRepository.delete(user);
     }
+
 }
 
 

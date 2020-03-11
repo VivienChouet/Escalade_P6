@@ -16,41 +16,26 @@ public class ControllerTopo {
     @Autowired
     TopoService topoService;
 
-    @RequestMapping(value = "/topo")
-    public String topo() {
 
-        return "topo_gestion";
-    }
-
-
-    @RequestMapping(value = "/topo/gestion", method = RequestMethod.GET)
-    public String creationtopo(Model model) {
+    @RequestMapping(value = "topo/gestion", method = RequestMethod.POST)
+    public String CreationTopo(@ModelAttribute BindingResult result, Model model) {
         Topo topo = new Topo();
         model.addAttribute("topo", topo);
-        model.addAttribute("pageTitle", "Nouveau Topo");
-
+        model.addAttribute("topoList", topoService.findAll());
+        model.addAttribute("pageTitle", "Gestion Topo");
         return "topo_gestion";
     }
 
-    @RequestMapping(value = "/topo/creation", method = RequestMethod.POST)
-    public String creationtopo(@ModelAttribute Topo topo, BindingResult result, Model model) {
-        if (result.hasErrors()) {
-            model.addAttribute("topo", topo);
-            System.out.println(topo);
-
-            return "topo_gestion";
-        }
-
-        System.out.println(topo);
-
-
-        return "topo-creation";
+    @RequestMapping(value = "topo/gestion", method = RequestMethod.GET)
+    public String CreationTopo(Topo topo) {
+        topoService.RegisterNewTopo(topo);
+        return "home";
     }
 
     @RequestMapping(value = "topo/list")
-    public String listtopo(Model model) {
-        Topo topo = new Topo();
-        model.addAttribute("topo", topoService.findAll());
+    public String LlistTopo(Model model) {
+
+        model.addAttribute("topoList", topoService.findAll());
 
         return "topo-list";
     }

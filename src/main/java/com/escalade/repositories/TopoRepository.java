@@ -4,4 +4,6 @@ import com.escalade.entity.Topo;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface TopoRepository extends JpaRepository<Topo, Integer> {
+
+
 }
