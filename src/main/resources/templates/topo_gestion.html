@@ -13,22 +13,39 @@
                 <form method="post" th:action="@{/topo/gestion}" th:object="${topo}">
                     <div class="card-panel">
                         <div class="row">
-                            <label>Nom du Topo :</label>
-                            <input th:field="*{name}">
+                            <div class="form-group has-feedback" th:class="${#fields.hasErrors('name')}? has-error">
+                                <label>Nom du Topo :</label>
+                                <input class="form-control" id="name" placeholder="nom" th:field="*{name}">
+                                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                                <span class="text-danger" th:errors="*{name}"
+                                      th:if="${#fields.hasErrors('name')}"></span>
+                            </div>
 
-                            <label>Secteur :</label>
-                            <input th:field="*{lieux}">
-                        </div>
-                        <div class="row">
-                            <label>Description :</label>
-                            <input th:field="*{description}">
-                        </div>
-                        <div class="row">
-                            <div class="form-group col-xs-offset-8 col-xs-4" style="padding-top: 20px">
-                                <button class="btn btn-primary btn-block btn-flat" type="submit">register</button>
+                            <div class="form-group has-feedback" th:class="${#fields.hasErrors('name')}? has-error">
+                                <label>Secteur :</label>
+                                <input class="form-control" id="lieux" placeholder="Lieux" th:field="*{lieux}">
+                                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                                <span class="text-danger" th:errors="*{lieux}"
+                                      th:if="${#fields.hasErrors('Lieux')}"></span>
+
                             </div>
                         </div>
-                    </div>
+                        <div class="row">
+                            <div class="form-group has-feedback" th:class="${#fields.hasErrors('name')}? has-error">
+                                <label>Description :</label>
+                                <input class="form-control" id="descritpion" placeholder="Description du topo"
+                                       th:field="*{description}">
+                                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                                <span class="text-danger" th:errors="*{description}"
+                                      th:if="${#fields.hasErrors('description')}"></span>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-xs-offset-8 col-xs-4" style="padding-top: 20px">
+                                    <button class="btn btn-primary btn-block btn-flat" type="submit">Enregistrer
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                 </form>
             </div>
 
