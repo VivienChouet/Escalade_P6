@@ -68,9 +68,9 @@ public class UsersService {
     }
 
     /**
-     * @return
+     * @return adress email
      */
-    public String UserLogged() {
+    public String UserLoggedEmail() {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         logger.debug("UserLogged = " + username);
         return username;

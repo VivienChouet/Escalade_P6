@@ -1,13 +1,13 @@
 package com.escalade.services;
 
 import com.escalade.entity.Topo;
+import com.escalade.entity.Users;
 import com.escalade.repositories.TopoRepository;
 import com.escalade.repositories.UsersRepository;
 import com.escalade.utility.LoggingController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,7 +17,11 @@ public class TopoService {
 
     @Autowired
     TopoRepository topoRepository;
+
+    @Autowired
     UsersRepository usersRepository;
+
+    @Autowired
     UsersService usersService;
 
     Logger logger = LoggerFactory.getLogger(LoggingController.class);
@@ -29,14 +33,17 @@ public class TopoService {
     }
 
     public void RegisterNewTopo(final Topo topo) {
-        String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        topo.setName(topo.getName());
-        topo.setLieux((topo.getLieux()));
-        topo.setDescription(topo.getDescription());
-
-        logger.debug("Register New Topo : " + topo);
+        String username = new UsersService().UserLoggedEmail();
+        Users users = usersRepository.findByEmail(username);
+        logger.info("user = " + users);
+        topo.setUsers(users);
+        logger.info("Register New Topo : " + topo);
         topoRepository.save(topo);
+    }
 
-
+    public Topo findByTopo() {
+        String username = new UsersService().UserLoggedEmail();
+        Users users = usersRepository.findByEmail(username);
+        return topoRepository.findByUsers_Id(users.getId());
     }
 }

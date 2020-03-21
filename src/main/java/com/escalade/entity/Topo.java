@@ -30,13 +30,10 @@ public class Topo {
     @CreationTimestamp
     private Date updateAt;
 
-    @ManyToMany(cascade = CascadeType.MERGE)
-    @JoinTable(
-            name = "topo_user",
-            joinColumns = {@JoinColumn(name = "TOPO_ID", referencedColumnName = "ID")},
-            inverseJoinColumns = {@JoinColumn(name = "USER_ID", referencedColumnName = "ID")})
-    private List<Users> users;
-    @ManyToMany(mappedBy = "topo")
+    @ManyToOne()
+    private Users users;
+
+    @OneToMany(mappedBy = "topo")
     private List<Site> site;
 
     public String getLieux() {
@@ -87,11 +84,11 @@ public class Topo {
         this.name = name;
     }
 
-    public List<Users> getUsers() {
+    public Users getUsers() {
         return users;
     }
 
-    public void setUsers(List<Users> users) {
+    public void setUsers(Users users) {
         this.users = users;
     }
 
@@ -110,6 +107,10 @@ public class Topo {
                 ", name='" + name + '\'' +
                 ", lieux='" + lieux + '\'' +
                 ", description='" + description + '\'' +
+                ", createdAt=" + createdAt +
+                ", updateAt=" + updateAt +
+                ", users=" + users +
+                ", site=" + site +
                 '}';
     }
 }

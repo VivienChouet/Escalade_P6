@@ -28,38 +28,12 @@ public class Site {
     @Column(name = "updateat")
     @CreationTimestamp
     private Date updateAt;
-    @ManyToMany(mappedBy = "site")
+
+    @ManyToOne()
+    private Topo topo;
+
+    @OneToMany(mappedBy = "site")
     private List<Voie> voie;
-    @ManyToMany(cascade = CascadeType.MERGE)
-    @JoinTable(
-            name = "site_topo",
-            joinColumns = {@JoinColumn(name = "SITE_ID", referencedColumnName = "ID")},
-            inverseJoinColumns = {@JoinColumn(name = "TOPO_ID", referencedColumnName = "ID")})
-    private List<Topo> topo;
-
-    public List<Voie> getVoie() {
-        return voie;
-    }
-
-    public void setVoie(List<Voie> voie) {
-        this.voie = voie;
-    }
-
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Date getUpdateAt() {
-        return updateAt;
-    }
-
-    public void setUpdateAt(Date updateAt) {
-        this.updateAt = updateAt;
-    }
 
     public Integer getId() {
         return id;
@@ -101,4 +75,35 @@ public class Site {
         this.reservation = reservation;
     }
 
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Date getUpdateAt() {
+        return updateAt;
+    }
+
+    public void setUpdateAt(Date updateAt) {
+        this.updateAt = updateAt;
+    }
+
+    public Topo getTopo() {
+        return topo;
+    }
+
+    public void setTopo(Topo topo) {
+        this.topo = topo;
+    }
+
+    public List<Voie> getVoie() {
+        return voie;
+    }
+
+    public void setVoie(List<Voie> voie) {
+        this.voie = voie;
+    }
 }

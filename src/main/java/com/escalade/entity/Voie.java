@@ -4,7 +4,6 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Table(name = "voie")
@@ -15,7 +14,7 @@ public class Voie {
 
     private String name;
 
-    private int longeur;
+    private int longueur;
 
     private String difficulté;
 
@@ -26,21 +25,8 @@ public class Voie {
     @CreationTimestamp
     private Date updateAt;
 
-
-    @ManyToMany(cascade = CascadeType.MERGE)
-    @JoinTable(
-            name = "voie_site",
-            joinColumns = {@JoinColumn(name = "VOIE_ID", referencedColumnName = "ID")},
-            inverseJoinColumns = {@JoinColumn(name = "SITE_ID", referencedColumnName = "ID")})
-    private List<Site> site;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    @ManyToOne()
+    private Site site;
 
     public String getName() {
         return name;
@@ -50,12 +36,12 @@ public class Voie {
         this.name = name;
     }
 
-    public int getLongeur() {
-        return longeur;
+    public int getLongueur() {
+        return longueur;
     }
 
-    public void setLongeur(int longeur) {
-        this.longeur = longeur;
+    public void setLongueur(int longueur) {
+        this.longueur = longueur;
     }
 
     public String getDifficulté() {
@@ -82,4 +68,11 @@ public class Voie {
         this.updateAt = updateAt;
     }
 
+    public Site getSite() {
+        return site;
+    }
+
+    public void setSite(Site site) {
+        this.site = site;
+    }
 }

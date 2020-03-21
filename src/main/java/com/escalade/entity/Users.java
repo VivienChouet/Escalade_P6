@@ -41,7 +41,7 @@ public class Users {
             inverseJoinColumns = {@JoinColumn(name = "ROLE_ID", referencedColumnName = "ID")})
     private List<Role> roles;
 
-    @ManyToMany(mappedBy = "users")
+    @OneToMany(mappedBy = "users")
     private List<Topo> topo;
 
     public Date getCreatedAt() {

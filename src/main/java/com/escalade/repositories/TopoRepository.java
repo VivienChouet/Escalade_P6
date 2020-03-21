@@ -5,5 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface TopoRepository extends JpaRepository<Topo, Integer> {
 
+    Topo findByUsers_Id(Integer users);
+
 
 }

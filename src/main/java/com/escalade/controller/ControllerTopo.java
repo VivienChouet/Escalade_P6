@@ -25,13 +25,12 @@ public class ControllerTopo {
 
     @RequestMapping(value = "/topo/gestion", method = RequestMethod.GET)
     public String CreationTopo(Model model) {
-        logger.debug("topo page");
         Topo topo = new Topo();
         List<Topo> ListTopo = topoService.findAll();
         model.addAttribute("topo", topo);
         model.addAttribute("topoList", ListTopo);
         model.addAttribute("pageTitle", "Gestion Topo");
-        return "topo-gestion";
+        return "topo/topo-gestion";
     }
 
     @RequestMapping(value = "/topo/gestion", method = RequestMethod.POST)
@@ -39,9 +38,9 @@ public class ControllerTopo {
         if (result.hasErrors()) {
             model.addAttribute("topo", topo);
             logger.warn("error " + topo);
-            return "topo-gestion";
+            return "topo/topo-gestion";
         }
-        logger.info("topo page");
+
         topoService.RegisterNewTopo(topo);
         return "home";
     }
@@ -49,7 +48,7 @@ public class ControllerTopo {
     @RequestMapping(value = "/topo/list")
     public String LlistTopo(Model model) {
         model.addAttribute("topoList", topoService.findAll());
-        return "topo-list";
+        return "topo/topo-list";
     }
 
 }
