@@ -33,7 +33,7 @@ public class TopoService {
     }
 
     public void RegisterNewTopo(final Topo topo) {
-        String username = new UsersService().UserLoggedEmail();
+        String username = usersService.UserLoggedEmail();
         Users users = usersRepository.findByEmail(username);
         logger.info("user = " + users);
         topo.setUsers(users);
@@ -41,9 +41,15 @@ public class TopoService {
         topoRepository.save(topo);
     }
 
-    public Topo findByTopo() {
-        String username = new UsersService().UserLoggedEmail();
+
+    public List<Topo> findByTopo() {
+        String username = usersService.UserLoggedEmail();
         Users users = usersRepository.findByEmail(username);
         return topoRepository.findByUsers_Id(users.getId());
+    }
+
+    public void updateTopo(Topo topo) {
+        logger.info("update topo = " + topo);
+        topoRepository.save(topo);
     }
 }

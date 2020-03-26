@@ -22,15 +22,23 @@ public class SiteService {
         return siteRepository.findAll();
     }
 
-    public void NewSite(Site site) {
-        siteRepository.save(site);
+    public void newSite(Site site) {
         logger.info("New Site = " + site);
+        siteRepository.save(site);
+
     }
 
-    public void UpdateSite(Site site) {
-        siteRepository.save(site);
+    public void updateSite(Site site) {
         logger.info("Update Site = " + site);
+        siteRepository.save(site);
+
     }
+
+    public Site findById(Integer id) {
+        logger.info("findById = " + id);
+        return siteRepository.findById(id).get();
+    }
+
 
     // Création méthode si l'entity a déja une date de parution si vraie alors maj date de parution avec date actuelle sinon = null
     // Idem
