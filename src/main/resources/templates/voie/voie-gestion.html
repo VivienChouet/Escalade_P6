@@ -11,32 +11,42 @@
 <div class="row">
     <div class="container">
         <div class="card">
-            <form method="post" th:action="@{/site/gestion}" th:object="${site}">
+            <form method="post" th:action="@{/voie/gestion}" th:object="${voie}">
                 <div class="card-panel">
                     <div class="row" style="justify-content: space-around">
 
                         <div class="form-group has-feedback" th:class="${#fields.hasErrors('name')}? has-error">
-                            <label>Nom du site :</label>
+                            <label>Nom de la Voie :</label>
                             <input class="form-control" id="name" placeholder="nom" th:field="*{name}">
                             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                             <span class="text-danger" th:errors="*{name}"
                                   th:if="${#fields.hasErrors('name')}"></span>
                         </div>
 
-                        <div class="form-group has-feedback" th:class="${#fields.hasErrors('name')}? has-error">
-                            <label>Adresse :</label>
-                            <input class="form-control" id="adresse" placeholder="adresse" th:field="*{adresse}">
+                        <div class="form-group has-feedback" th:class="${#fields.hasErrors('longueur')}? has-error">
+                            <label>Longueur :</label>
+                            <input class="form-control" id="longueur" placeholder="longueur" th:field="*{longueur}">
                             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                            <span class="text-danger" th:errors="*{adresse}"
-                                  th:if="${#fields.hasErrors('adresse')}"></span>
+                            <span class="text-danger" th:errors="*{longueur}"
+                                  th:if="${#fields.hasErrors('longueur')}"></span>
                         </div>
-                        <div class="form-group has-feedback" th:class="${#fields.hasErrors('name')}? has-error">
-                            <label>Contact :</label>
-                            <input class="form-control" id="contact" placeholder="contact" th:field="*{contact}">
-                            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                            <span class="text-danger" th:errors="*{contact}"
-                                  th:if="${#fields.hasErrors('contact')}"></span>
+                        <div class="form-group has-feedback" th:class="${#fields.hasErrors('difficulte')}? has-error">
+                            <label>Difficulté :</label>
+                            <select class="form-control" id="difficulte" th:field="*{difficulte}">
+                                <option th:value="facile">Facile</option>
+                                <option th:value="intermediaire">Intermediaire</option>
+                                <option th:value="difficile">Difficile</option>
+                            </select>
                         </div>
+                        <div class="form-group has-feedback" th:class="${#fields.hasErrors('site')}? has-error">
+                            <label>Site :</label>
+                            <select class="form-control" th:field="*{site}">
+                                <option th:each="site : ${site}"
+                                        th:text="${site.name}"
+                                        th:value="${site.id}"></option>
+                            </select>
+                        </div>
+
 
                         <!--  Mettre en place un select permettant de choisir un topo parmis les topos en possesion de la personne logged  -->
 

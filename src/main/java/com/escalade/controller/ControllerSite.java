@@ -2,8 +2,10 @@ package com.escalade.controller;
 
 import com.escalade.entity.Site;
 import com.escalade.entity.Topo;
+import com.escalade.entity.Voie;
 import com.escalade.services.SiteService;
 import com.escalade.services.TopoService;
+import com.escalade.services.VoieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,18 +22,15 @@ public class ControllerSite {
     SiteService siteService;
     @Autowired
     TopoService topoService;
-
-    @RequestMapping(value = "/site/{id}")
-    public String siteList(Model model, @PathVariable Integer id) {
-        return "site-gestion";
-    }
+    @Autowired
+    VoieService voieService;
 
     @RequestMapping(value = "/site/gestion", method = RequestMethod.GET)
     public String siteGestion(Model model) {
         Site site = new Site();
-        List<Topo> topo = topoService.findByTopo();
+        List<Topo> topos = topoService.findByTopo();
         model.addAttribute("site", site);
-        model.addAttribute("topos", topo);
+        model.addAttribute("topos", topos);
         model.addAttribute("pageTitle", "Gestion Site");
         return "site/site-gestion";
     }
@@ -51,21 +50,33 @@ public class ControllerSite {
 
     @RequestMapping(value = "/site/update/{id}", method = RequestMethod.GET)
     public String updateSite(@PathVariable("id") Integer id, Model model) {
+
         Site site = this.siteService.findById(id);
         List<Topo> topos = this.topoService.findByTopo();
+        List<Voie> voies = this.voieService.findBySite(id);
         model.addAttribute("site", site);
         model.addAttribute("topos", topos);
-        model.addAttribute("pageTitle", "Update Site");
-        return "site/site-update";
+        model.addAttribute("voies", voies);
+
+        if (siteService.correspondanceUser(id) == true) {
+            model.addAttribute("pageTitle", "Update Site");
+            return "site/site-update";
+        }
+
+        return "site/site-info";
     }
 
     @RequestMapping(value = "/site/update/{id}", method = RequestMethod.POST)
     public String updateSite(Site site) {
         System.out.println("site = " + site);
         siteService.updateSite(site);
-
-
         return "site/site-list";
+    }
+
+    @RequestMapping(value = "/site/infos/{id}")
+    public String infoSite(@PathVariable("id") Integer id, Model model) {
+
+        return "site/site-info";
     }
 
 }

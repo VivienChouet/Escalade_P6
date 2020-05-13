@@ -38,7 +38,7 @@ public class ControllerAdmin {
         Users users = new Users();
         model.addAttribute("users", usersService.findAll());
         model.addAttribute("pageTitle", "Gestion Admin");
-        //request.isUserInRole("ADMIN");
+        request.isUserInRole("ADMIN");
         return "admin/admin";
     }
 

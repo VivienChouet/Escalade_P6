@@ -16,14 +16,14 @@ public class Voie {
 
     private int longueur;
 
-    private String difficulté;
+    private String difficulte;
 
     @CreationTimestamp
-    @Column(name = "createdat")
-    private Date createdAt;
-    @Column(name = "updateat")
+    @Column(name = "created_at")
+    private Date created_at;
+    @Column(name = "update_at")
     @CreationTimestamp
-    private Date updateAt;
+    private Date update_at;
 
     @ManyToOne()
     private Site site;
@@ -44,28 +44,28 @@ public class Voie {
         this.longueur = longueur;
     }
 
-    public String getDifficulté() {
-        return difficulté;
+    public String getDifficulte() {
+        return difficulte;
     }
 
-    public void setDifficulté(String difficulté) {
-        this.difficulté = difficulté;
+    public void setDifficulte(String difficulté) {
+        this.difficulte = difficulté;
     }
 
-    public Date getCreatedAt() {
-        return createdAt;
+    public Date getCreated_at() {
+        return created_at;
     }
 
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
+    public void setCreated_at(Date createdAt) {
+        this.created_at = createdAt;
     }
 
-    public Date getUpdateAt() {
-        return updateAt;
+    public Date getUpdate_at() {
+        return update_at;
     }
 
-    public void setUpdateAt(Date updateAt) {
-        this.updateAt = updateAt;
+    public void setUpdate_at(Date updateAt) {
+        this.update_at = updateAt;
     }
 
     public Site getSite() {
@@ -74,5 +74,14 @@ public class Voie {
 
     public void setSite(Site site) {
         this.site = site;
+    }
+
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

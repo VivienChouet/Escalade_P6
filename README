@@ -20,4 +20,3 @@ Bug à corriger :
 - La suppression d'un membre n'est pas fonctionnel en raison de l'id qui est utilisé sur différentes table (mettre en place un delete sur toutes les tables).
 - Le changement de role n'est pas encore foncionnel méthode à créer dans le service.
 - Si un utilisateur à plusieurs ou aucun topo la page site/gestion se met en erreur.
-- La page site-update se met en erreur lors de l'envoi du formulaire "Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: "update"]"

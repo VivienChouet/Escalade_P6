@@ -48,8 +48,29 @@ public class TopoService {
         return topoRepository.findByUsers_Id(users.getId());
     }
 
-    public void updateTopo(Topo topo) {
+    public void updateTopo(final Topo topo) {
         logger.info("update topo = " + topo);
+        String username = usersService.UserLoggedEmail();
+        Users users = usersRepository.findByEmail(username);
+        topo.setUsers(users);
         topoRepository.save(topo);
     }
+
+    public Topo findById(Integer id) {
+        logger.info("findById = " + id);
+        return topoRepository.findById(id).get();
+    }
+
+    public List<Topo> research(String name, String lieux) {
+        logger.info("Recherche name = " + name + " lieux = " + lieux);
+        return topoRepository.findByNameAndLieux(name, lieux);
+    }
+
+    public boolean correspondanceUser(Integer id) {
+        Integer users = usersService.userLoggedId();
+        Topo topo = topoRepository.findById(id).get();
+        Users user = topo.getUsers();
+        return user.getId() == users;
+    }
+
 }

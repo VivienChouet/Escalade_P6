@@ -23,15 +23,15 @@ public class Site {
     private String reservation;
 
     @CreationTimestamp
-    @Column(name = "createdat")
-    private Date createdAt;
-    @Column(name = "updateat")
+    @Column(name = "created_at")
+    private Date created_at;
+    @Column(name = "update_at")
     @CreationTimestamp
-    private Date updateAt;
-
+    private Date update_at;
+    @ManyToOne()
+    private Users users;
     @ManyToOne()
     private Topo topo;
-
     @OneToMany(mappedBy = "site")
     private List<Voie> voie;
 
@@ -75,20 +75,20 @@ public class Site {
         this.reservation = reservation;
     }
 
-    public Date getCreatedAt() {
-        return createdAt;
+    public Date getCreated_at() {
+        return created_at;
     }
 
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
+    public void setCreated_at(Date created_at) {
+        this.created_at = created_at;
     }
 
-    public Date getUpdateAt() {
-        return updateAt;
+    public Date getUpdate_at() {
+        return update_at;
     }
 
-    public void setUpdateAt(Date updateAt) {
-        this.updateAt = updateAt;
+    public void setUpdate_at(Date update_at) {
+        this.update_at = update_at;
     }
 
     public Topo getTopo() {
@@ -105,5 +105,13 @@ public class Site {
 
     public void setVoie(List<Voie> voie) {
         this.voie = voie;
+    }
+
+    public Users getUsers() {
+        return users;
+    }
+
+    public void setUsers(Users users) {
+        this.users = users;
     }
 }

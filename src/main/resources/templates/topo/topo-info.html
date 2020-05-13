@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="fragment/block :: headerFragment"></head>
+
+<header th:insert="fragment/header :: header(barnav)"></header>
+<body>
+<div class="row" style="padding-top: 5px;justify-content: center">
+    <div class="card col-10">
+        <div class="card-body">
+            <div class="panel-heading">
+                <h1> Liste des topos</h1>
+                <form class="form-inline" th:action="@{checkReservation}">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                        Reserver
+                    </button>
+                </form>
+            </div>
+            <div class="panel-body">
+                <table class="table">
+                    <thread>
+                        <tr>
+                            <th scope="col">Nom</th>
+                            <th scope="col">Lieux</th>
+                            <th scope="col">Desription</th>
+                            <th scope="col">Info</th>
+                        </tr>
+                    </thread>
+                    <tbody>
+                    <tr th:each="topo : ${topo}">
+                        <td th:text="${topo.name}"></td>
+                        <td th:text="${topo.lieux}"></td>
+                        <td th:text="${topo.description}"></td>
+                        <td><a th:href="@{/topo/update/{id}(id=${topo.id})}"> Plus d'infos </a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="card col-10">
+        <div class="card-body">
+            <div class="panel-heading">
+                <h1> Liste des topos</h1>
+                <form class="form-inline" th:action="@{recherche}">
+                    <input aria-label="name" class="form-control mr-sm-2" name="name" placeholder="name"
+                           th:value="${name}"
+                           type="name">
+                    <input aria-label="lieux" class="form-control mr-sm-2" name="lieux" placeholder="lieux"
+                           th:value="${lieux}"
+                           type="lieux">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+            <div class="panel-body">
+                <table class="table">
+                    <thread>
+                        <tr>
+                            <th scope="col">Nom</th>
+                            <th scope="col">Adresse</th>
+                            <th scope="col">Contact</th>
+                            <th scope="col">Info</th>
+                        </tr>
+                    </thread>
+                    <tbody>
+                    <tr th:each="sites : ${sites}">
+                        <td th:text="${sites.name}"></td>
+                        <td th:text="${sites.adresse}"></td>
+                        <td th:text="${sites.contact}"></td>
+
+                        <td><a th:href="@{/site/update/{id}(id=${sites.id})}"> Plus d'infos </a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+<footer th:insert="fragment/footer :: footer"></footer>
+</html>

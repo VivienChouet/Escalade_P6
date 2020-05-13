@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+
+<head th:include="fragment/block :: headerFragment"></head>
+
+<header th:insert="fragment/header :: header(barnav)"></header>
+
+<body>
+
+<div class="row" style="padding-top: 5px;justify-content: center">
+    <div class="card col-10">
+        <div class="card-body">
+            <div class="panel-heading">
+                <h1> Infos du site : </h1>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Réserver</button>
+            </div>
+
+            <div class="panel-body">
+                <table class="table">
+                    <thread>
+                        <tr>
+                            <th scope="col">Nom</th>
+                            <th scope="col">Adresse</th>
+                            <th scope="col">Contact</th>
+                            <!-- <th scope="col">Auteur</th> -->
+
+                        </tr>
+                    </thread>
+                    <tbody>
+                    <tr th:each="site : ${site}">
+                        <td th:text="${site.name}"></td>
+                        <td th:text="${site.adresse}"></td>
+                        <td th:text="${site.contact}"></td>
+                        <!-- Mettre en place la colonne Auteur à partir de la table croisé topo_user -->
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="card col-10">
+        <div class="card-body">
+            <div class="panel-heading">
+                <h1>Liste des voies du site</h1>
+            </div>
+            <div class="panel-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Longueur</th>
+                        <th scope="col">Difficulté</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="voies : ${voies}">
+                        <td th:text="${voies.name}"/>
+                        <td th:text="${voies.longueur}"/>
+                        <td th:text="${voies.difficulte}"/>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+<footer th:insert="fragment/footer :: footer"></footer>
+
+
+</html>

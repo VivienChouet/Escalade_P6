@@ -22,14 +22,14 @@
                             <span class="text-danger" th:errors="*{name}"
                                   th:if="${#fields.hasErrors('name')}"></span>
                         </div>
-                        <div class="form-group has-feedback" th:class="${#fields.hasErrors('name')}? has-error">
+                        <div class="form-group has-feedback" th:class="${#fields.hasErrors('lieux')}? has-error">
                             <label>Adresse :</label>
-                            <input class="form-control" id="adresse" placeholder="lieux" th:field="*{lieux}">
+                            <input class="form-control" id="lieux" placeholder="lieux" th:field="*{lieux}">
                             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                             <span class="text-danger" th:errors="*{lieux}"
                                   th:if="${#fields.hasErrors('lieux')}"></span>
                         </div>
-                        <div class="form-group has-feedback" th:class="${#fields.hasErrors('name')}? has-error">
+                        <div class="form-group has-feedback" th:class="${#fields.hasErrors('description')}? has-error">
                             <label>Contact :</label>
                             <input class="form-control" id="description" placeholder="description"
                                    th:field="*{description}">

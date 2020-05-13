@@ -27,12 +27,12 @@ public class Users {
     @NotEmpty
     @Size(min = 4)
     private String password;
-    @Column(name = "createdat")
+    @Column(name = "created_at")
     @CreationTimestamp
-    private Date createdAt;
-    @Column(name = "updateAt")
+    private Date created_at;
+    @Column(name = "update_at")
     @CreationTimestamp
-    private Date updateAt;
+    private Date update_at;
 
     @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(
@@ -41,23 +41,32 @@ public class Users {
             inverseJoinColumns = {@JoinColumn(name = "ROLE_ID", referencedColumnName = "ID")})
     private List<Role> roles;
 
+    @ManyToMany(cascade = CascadeType.MERGE)
+    @JoinTable(
+            name = "reservation",
+            joinColumns = {@JoinColumn(name = "userResevation", referencedColumnName = "ID")},
+            inverseJoinColumns = {@JoinColumn(name = "topo", referencedColumnName = "ID")})
+    private List<Reservation> reservations;
+
     @OneToMany(mappedBy = "users")
     private List<Topo> topo;
+    @OneToMany(mappedBy = "users")
+    private List<Site> site;
 
-    public Date getCreatedAt() {
-        return createdAt;
+    public Date getCreated_at() {
+        return created_at;
     }
 
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
+    public void setCreated_at(Date createdAt) {
+        this.created_at = createdAt;
     }
 
-    public Date getUpdateAt() {
-        return updateAt;
+    public Date getUpdate_at() {
+        return update_at;
     }
 
-    public void setUpdateAt(Date updateAt) {
-        this.updateAt = updateAt;
+    public void setUpdate_at(Date updateAt) {
+        this.update_at = updateAt;
     }
 
     public Integer getId() {
@@ -116,7 +125,7 @@ public class Users {
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", createdAt=" + createdAt +
+                ", createdAt=" + created_at +
                 ", roles=" + roles +
                 '}';
     }

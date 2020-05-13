@@ -12,9 +12,9 @@
 
 <header th:fragment="header(barnav)">
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-bottom: 10px">
         <a class="navbar-brand" href="#">
-            <img alt="" class="d-inline-block align-top" height="95 px" src="static/assets/escalade-logo.png"
+            <img alt="" class="d-inline-block align-top" height="100px" src="static/assets/escalade-logo.png"
                  width="200px">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -32,7 +32,8 @@
                        data-toggle="dropdown"
                        href="#" id="dropdownTopo" role="button">Topo</a>
                     <div aria-labelledby="dropdownTopo" class="dropdown-menu">
-                        <a class="dropdown-item" href="/topo/gestion">Ajout</a>
+                        <a class="dropdown-item" href="/topo/gestion"
+                           sec:authorize="isAuthenticated()">Ajout</a>
                         <a class="dropdown-item" href="/topo/list">Liste</a>
                     </div>
                 </li>
@@ -41,7 +42,8 @@
                        data-toggle="dropdown"
                        href="#" id="dropdownSite" role="button">Site</a>
                     <div aria-labelledby="dropdownSite" class="dropdown-menu">
-                        <a class="dropdown-item" href="/site/gestion">Ajout</a>
+                        <a class="dropdown-item" href="/site/gestion"
+                           sec:authorize="isAuthenticated()">Ajout</a>
                         <a class="dropdown-item" href="/site/list">Liste</a>
                     </div>
                 </li>
@@ -51,7 +53,8 @@
                        data-toggle="dropdown"
                        href="#" id="dropdownVoie" role="button">Voie</a>
                     <div aria-labelledby="dropdownVoie" class="dropdown-menu">
-                        <a class="dropdown-item" href="/voie/gestion">Ajout</a>
+                        <a class="dropdown-item" href="/voie/gestion"
+                           sec:authorize="isAuthenticated()">Ajout</a>
                         <a class="dropdown-item" href="/voie/list">Liste</a>
                     </div>
                 </li>

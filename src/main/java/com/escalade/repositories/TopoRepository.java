@@ -7,7 +7,10 @@ import java.util.List;
 
 public interface TopoRepository extends JpaRepository<Topo, Integer> {
 
+
     List<Topo> findByUsers_Id(Integer users);
+
+    List<Topo> findByNameAndLieux(String name, String lieux);
 
 
 }

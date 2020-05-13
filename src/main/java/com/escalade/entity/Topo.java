@@ -11,28 +11,24 @@ import java.util.List;
 @Table(name = "topo")
 public class Topo {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     @Column(nullable = false, unique = true)
-
     private String name;
     @Column(nullable = false, unique = true)
-
     private String lieux;
     @Column(nullable = false, unique = true)
-
     private String description;
-    @Column(name = "createdat")
+    @Column(name = "created_at")
     @CreationTimestamp
-    private Date createdAt;
-    @Column(name = "updateAt")
+    private Date created_at = new Date();
+    @Column(name = "update_at")
     @CreationTimestamp
-    private Date updateAt;
-
+    private Date update_at = new Date();
     @ManyToOne()
     private Users users;
-
     @OneToMany(mappedBy = "topo")
     private List<Site> site;
 
@@ -52,20 +48,20 @@ public class Topo {
         this.description = telephone;
     }
 
-    public Date getCreatedAt() {
-        return createdAt;
+    public Date getCreated_at() {
+        return created_at;
     }
 
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
+    public void setCreated_at(Date createdAt) {
+        this.created_at = createdAt;
     }
 
-    public Date getUpdateAt() {
-        return updateAt;
+    public Date getUpdate_at() {
+        return update_at;
     }
 
-    public void setUpdateAt(Date updateAt) {
-        this.updateAt = updateAt;
+    public void setUpdate_at(Date updateAt) {
+        this.update_at = updateAt;
     }
 
     public Integer getId() {
@@ -107,8 +103,8 @@ public class Topo {
                 ", name='" + name + '\'' +
                 ", lieux='" + lieux + '\'' +
                 ", description='" + description + '\'' +
-                ", createdAt=" + createdAt +
-                ", updateAt=" + updateAt +
+                ", createdAt=" + created_at +
+                ", updateAt=" + update_at +
                 ", users=" + users +
                 ", site=" + site +
                 '}';

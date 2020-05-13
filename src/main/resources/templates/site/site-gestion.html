@@ -40,7 +40,7 @@
                         <div class="form-group has-feedback" th:class="${#fields.hasErrors('name')}? has-error">
                             <label>Topo :</label>
                             <select class="form-control" th:field="*{topo}">
-                                <option th:each="topo : ${topo}"
+                                <option th:each="topo : ${topos}"
                                         th:text="${topo.name}"
                                         th:value="${topo.id}"></option>
                             </select>
