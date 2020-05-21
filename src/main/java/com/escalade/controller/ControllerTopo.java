@@ -87,11 +87,12 @@ public class ControllerTopo {
         return "topo/topo-recherche";
     }
 
-    @RequestMapping(value = "/topo/checkReservation", method = RequestMethod.POST)
-    public String infoTopo(Model model, @PathVariable("id") Integer id) {
+    @RequestMapping(value = "/topo/reservation/{id}", method = RequestMethod.POST)
+    public String infoTopo(@PathVariable("id") Integer id, Model model) {
         Topo topo = this.topoService.findById(id);
-        model.addAttribute("Topo", topo);
-        reservationService.newReservation();
+        model.addAttribute("topo", topo);
+        reservationService.newReservation(id);
+        topoService.newReservation(id);
         return "topo/topo-info";
     }
 

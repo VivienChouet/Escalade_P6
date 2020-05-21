@@ -32,8 +32,8 @@
                        data-toggle="dropdown"
                        href="#" id="dropdownTopo" role="button">Topo</a>
                     <div aria-labelledby="dropdownTopo" class="dropdown-menu">
-                        <a sec:authorize="isAuthenticated()" class="dropdown-item"
-                           href="/topo/gestion">Ajout</a>
+                        <a class="dropdown-item" href="/topo/gestion"
+                           sec:authorize="isAuthenticated()">Ajout</a>
                         <a class="dropdown-item" href="/topo/list">Liste</a>
                     </div>
                 </li>
@@ -42,8 +42,8 @@
                        data-toggle="dropdown"
                        href="#" id="dropdownSite" role="button">Site</a>
                     <div aria-labelledby="dropdownSite" class="dropdown-menu">
-                        <a sec:authorize="isAuthenticated()" class="dropdown-item"
-                           href="/site/gestion">Ajout</a>
+                        <a class="dropdown-item" href="/site/gestion"
+                           sec:authorize="isAuthenticated()">Ajout</a>
                         <a class="dropdown-item" href="/site/list">Liste</a>
                     </div>
                 </li>
@@ -53,8 +53,8 @@
                        data-toggle="dropdown"
                        href="#" id="dropdownVoie" role="button">Voie</a>
                     <div aria-labelledby="dropdownVoie" class="dropdown-menu">
-                        <a sec:authorize="isAuthenticated()" class="dropdown-item"
-                           href="/voie/gestion">Ajout</a>
+                        <a class="dropdown-item" href="/voie/gestion"
+                           sec:authorize="isAuthenticated()">Ajout</a>
                         <a class="dropdown-item" href="/voie/list">Liste</a>
                     </div>
                 </li>

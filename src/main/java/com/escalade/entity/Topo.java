@@ -21,9 +21,17 @@ public class Topo {
     private String lieux;
     @Column(nullable = false, unique = true)
     private String description;
-    @Column(name = "created_at")
+
+    @Column(name = "created_at", updatable = false)
     @CreationTimestamp
     private Date created_at = new Date();
+    @Column(name = "available")
+    private boolean available;
+
+    public boolean isAvailable() {
+        return available;
+    }
+
     @Column(name = "update_at")
     @CreationTimestamp
     private Date update_at = new Date();
@@ -31,6 +39,10 @@ public class Topo {
     private Users users;
     @OneToMany(mappedBy = "topo")
     private List<Site> site;
+
+    public void setAvailable(boolean available) {
+        this.available = available;
+    }
 
     public String getLieux() {
         return lieux;
@@ -103,12 +115,14 @@ public class Topo {
                 ", name='" + name + '\'' +
                 ", lieux='" + lieux + '\'' +
                 ", description='" + description + '\'' +
-                ", createdAt=" + created_at +
-                ", updateAt=" + update_at +
+                ", created_at=" + created_at +
+                ", update_at=" + update_at +
                 ", users=" + users +
                 ", site=" + site +
+                ", available=" + available +
                 '}';
     }
 }
+
 
 

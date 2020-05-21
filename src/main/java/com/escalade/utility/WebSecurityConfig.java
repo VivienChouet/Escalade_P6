@@ -68,7 +68,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .rememberMe()
                 //.key("my-secure-key")
                 .rememberMeCookieName("my-remember-me-cookie")
-                .tokenRepository(persistentTokenRepository())
+                //.tokenRepository(persistentTokenRepository())
                 .tokenValiditySeconds(24 * 60 * 60)
                 .and()
                 .exceptionHandling()

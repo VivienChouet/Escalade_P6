@@ -37,6 +37,7 @@ public class TopoService {
         Users users = usersRepository.findByEmail(username);
         logger.info("user = " + users);
         topo.setUsers(users);
+        topo.setAvailable(true);
         logger.info("Register New Topo : " + topo);
         topoRepository.save(topo);
     }
@@ -54,6 +55,14 @@ public class TopoService {
         Users users = usersRepository.findByEmail(username);
         topo.setUsers(users);
         topoRepository.save(topo);
+    }
+
+    public void newReservation(Integer id) {
+        Topo topo = this.topoRepository.findById(id).get();
+        topo.setAvailable(false);
+        logger.info("topo = " + topo);
+        topoRepository.save(topo);
+
     }
 
     public Topo findById(Integer id) {

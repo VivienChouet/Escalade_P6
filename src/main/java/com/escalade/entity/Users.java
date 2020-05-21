@@ -41,12 +41,6 @@ public class Users {
             inverseJoinColumns = {@JoinColumn(name = "ROLE_ID", referencedColumnName = "ID")})
     private List<Role> roles;
 
-    @ManyToMany(cascade = CascadeType.MERGE)
-    @JoinTable(
-            name = "reservation",
-            joinColumns = {@JoinColumn(name = "userResevation", referencedColumnName = "ID")},
-            inverseJoinColumns = {@JoinColumn(name = "topo", referencedColumnName = "ID")})
-    private List<Reservation> reservations;
 
     @OneToMany(mappedBy = "users")
     private List<Topo> topo;
