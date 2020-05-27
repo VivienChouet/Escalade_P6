@@ -12,10 +12,6 @@
 <div class="row" style="padding-top: 5px;justify-content: center">
     <div class="card col-10">
         <div class="card-body">
-            <div class="panel-heading">
-                <h1> Infos du site : </h1>
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Réserver</button>
-            </div>
 
             <div class="panel-body">
                 <table class="table">
@@ -65,8 +61,35 @@
             </div>
         </div>
     </div>
+    <div class="card col-10">
+        <div class="card-body">
+            <div class="panel-heading">
+                <h1>Commentaire : </h1>
+                <div class="card col-9">
+                    <div class="panel-heading">
+                        <h1> Ajout d'un commentaire </h1>
+                    </div>
+                    <div class="panel-body">
+                        <form method="post" th:action="@{site/info/commentaire}" th:object="${commentaire}">
+                            <div>
+                                <label>Commentaire :</label>
+                                <input class="form-control" th:name="*{content}" type="text">
+                            </div>
+                            <div class="row" style="padding-top: 20px; justify-content: center; align-content: center">
+                                <div class="form-group col-xs-offset-8 col-xs-4">
+                                    <button class="btn btn-primary btn-block btn-flat" type="submit">Enregistrer
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
 
-</div>
+                    </div>
+                    <div class="panel-body">
+
+                    </div>
+
+
+                </div>
 </body>
 <footer th:insert="fragment/footer :: footer"></footer>
 

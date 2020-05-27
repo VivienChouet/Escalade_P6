@@ -16,6 +16,28 @@ public class Message {
     @Column(nullable = false)
     private String content;
 
+    @Column
+    private Integer id_site;
+
+    @Column
+    private Integer id_user;
+
+    public Integer getId_site() {
+        return id_site;
+    }
+
+    public void setId_site(Integer id_site) {
+        this.id_site = id_site;
+    }
+
+    public Integer getId_user() {
+        return id_user;
+    }
+
+    public void setId_user(Integer id_user) {
+        this.id_user = id_user;
+    }
+
     public Integer getId() {
         return id;
     }

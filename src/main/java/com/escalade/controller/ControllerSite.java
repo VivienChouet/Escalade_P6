@@ -1,8 +1,10 @@
 package com.escalade.controller;
 
+import com.escalade.entity.Message;
 import com.escalade.entity.Site;
 import com.escalade.entity.Topo;
 import com.escalade.entity.Voie;
+import com.escalade.services.MessageService;
 import com.escalade.services.SiteService;
 import com.escalade.services.TopoService;
 import com.escalade.services.VoieService;
@@ -24,6 +26,8 @@ public class ControllerSite {
     TopoService topoService;
     @Autowired
     VoieService voieService;
+    @Autowired
+    MessageService messageService;
 
     @RequestMapping(value = "/site/gestion", method = RequestMethod.GET)
     public String siteGestion(Model model) {
@@ -75,7 +79,16 @@ public class ControllerSite {
 
     @RequestMapping(value = "/site/infos/{id}")
     public String infoSite(@PathVariable("id") Integer id, Model model) {
+        Message message = new Message();
+        model.addAttribute("commentaire", message);
+        return "site/site-info";
+    }
 
+    @RequestMapping(value = "site/info/commentaire")
+    public String ajoutCommentaire(@PathVariable("id") Integer id, Model model) {
+        Message message = new Message();
+        model.addAttribute("commentaire", message);
+        messageService.AjoutCommentaire(id, message);
         return "site/site-info";
     }
 
