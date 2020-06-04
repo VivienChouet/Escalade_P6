@@ -11,6 +11,7 @@ import com.escalade.services.VoieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -54,19 +55,18 @@ public class ControllerSite {
 
     @RequestMapping(value = "/site/update/{id}", method = RequestMethod.GET)
     public String updateSite(@PathVariable("id") Integer id, Model model) {
-
         Site site = this.siteService.findById(id);
         List<Topo> topos = this.topoService.findByTopo();
         List<Voie> voies = this.voieService.findBySite(id);
         model.addAttribute("site", site);
         model.addAttribute("topos", topos);
         model.addAttribute("voies", voies);
-
         if (siteService.correspondanceUser(id) == true) {
             model.addAttribute("pageTitle", "Update Site");
             return "site/site-update";
         }
-
+        Message message = new Message();
+        model.addAttribute("message", message);
         return "site/site-info";
     }
 
@@ -77,17 +77,13 @@ public class ControllerSite {
         return "site/site-list";
     }
 
-    @RequestMapping(value = "/site/infos/{id}")
-    public String infoSite(@PathVariable("id") Integer id, Model model) {
-        Message message = new Message();
-        model.addAttribute("commentaire", message);
-        return "site/site-info";
-    }
 
-    @RequestMapping(value = "site/info/commentaire")
-    public String ajoutCommentaire(@PathVariable("id") Integer id, Model model) {
-        Message message = new Message();
-        model.addAttribute("commentaire", message);
+    @RequestMapping(value = "site/info/commentaire/{id}", method = RequestMethod.POST)
+    public String ajoutCommentaire(@PathVariable("id") Integer id, Model model, BindingResult result, Message message) {
+        if (result.hasErrors()) {
+            model.addAttribute("message", message);
+            return "site/site-info";
+        }
         messageService.AjoutCommentaire(id, message);
         return "site/site-info";
     }

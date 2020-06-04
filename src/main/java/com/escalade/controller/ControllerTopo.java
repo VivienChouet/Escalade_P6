@@ -48,7 +48,6 @@ public class ControllerTopo {
             logger.warn("error " + topo);
             return "topo/topo-gestion";
         }
-
         topoService.RegisterNewTopo(topo);
         return "home";
     }

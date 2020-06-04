@@ -51,10 +51,10 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="voies : ${voies}">
-                        <td th:text="${voies.name}"/>
-                        <td th:text="${voies.longueur}"/>
-                        <td th:text="${voies.difficulte}"/>
+                    <tr th:each="voie : ${voies}">
+                        <td th:text="${voie.name}"/>
+                        <td th:text="${voie.longueur}"/>
+                        <td th:text="${voie.difficulte}"/>
                     </tr>
                     </tbody>
                 </table>
@@ -70,10 +70,11 @@
                         <h1> Ajout d'un commentaire </h1>
                     </div>
                     <div class="panel-body">
-                        <form method="post" th:action="@{site/info/commentaire}" th:object="${commentaire}">
+                        <form method="post" th:action="@{site/info/commentaire/{id}(id=${site.id})}"
+                              th:object="${message}">
                             <div>
                                 <label>Commentaire :</label>
-                                <input class="form-control" th:name="*{content}" type="text">
+                                <input class="form-control" th:field="*{content}">
                             </div>
                             <div class="row" style="padding-top: 20px; justify-content: center; align-content: center">
                                 <div class="form-group col-xs-offset-8 col-xs-4">
@@ -82,13 +83,9 @@
                                 </div>
                             </div>
                         </form>
-
                     </div>
                     <div class="panel-body">
-
                     </div>
-
-
                 </div>
 </body>
 <footer th:insert="fragment/footer :: footer"></footer>
