@@ -21,12 +21,14 @@ public class Topo {
     private String lieux;
     @Column(nullable = false, unique = true)
     private String description;
-
     @Column(name = "created_at", updatable = false)
     @CreationTimestamp
     private Date created_at = new Date();
     @Column(name = "available")
     private boolean available;
+    @OneToMany
+    private List<Reservation> reservations;
+
 
     public boolean isAvailable() {
         return available;

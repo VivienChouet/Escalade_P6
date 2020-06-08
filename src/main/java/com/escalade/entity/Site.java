@@ -34,6 +34,8 @@ public class Site {
     private Topo topo;
     @OneToMany(mappedBy = "site")
     private List<Voie> voie;
+    @OneToMany()
+    private List<Message> messages;
 
     public Integer getId() {
         return id;

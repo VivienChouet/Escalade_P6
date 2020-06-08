@@ -46,6 +46,10 @@ public class Users {
     private List<Topo> topo;
     @OneToMany(mappedBy = "users")
     private List<Site> site;
+    @OneToMany(mappedBy = "users")
+    private List<Message> messages;
+    @OneToMany
+    private List<Reservation> reservations;
 
     public Date getCreated_at() {
         return created_at;

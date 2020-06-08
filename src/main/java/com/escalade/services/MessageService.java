@@ -20,10 +20,7 @@ public class MessageService {
 
 
     public void AjoutCommentaire(Integer id, Message message) {
-        Integer userslogged = usersService.userLoggedId();
-        logger.info("user logged = " + userslogged);
-        message.setId_user(userslogged);
-        message.setId_site(id);
+
         messageRepository.save(message);
     }
 

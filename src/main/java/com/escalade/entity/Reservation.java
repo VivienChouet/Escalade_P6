@@ -10,9 +10,11 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     @Column(name = "user_reservation")
-    private Integer userResevation;
+    @ManyToOne
+    private Users userResevation;
     @Column(name = "topo")
-    private Integer topo;
+    @ManyToOne
+    private Topo topo;
     @Column(name = "reservation_status")
     private String reservationStatus;
 
@@ -24,19 +26,19 @@ public class Reservation {
         this.id = id;
     }
 
-    public Integer getUserResevation() {
+    public Users getUserResevation() {
         return userResevation;
     }
 
-    public void setUserResevation(Integer userResevation) {
+    public void setUserResevation(Users userResevation) {
         this.userResevation = userResevation;
     }
 
-    public Integer getTopo() {
+    public Topo getTopo() {
         return topo;
     }
 
-    public void setTopo(Integer topo) {
+    public void setTopo(Topo topo) {
         this.topo = topo;
     }
 

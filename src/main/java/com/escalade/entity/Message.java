@@ -13,28 +13,23 @@ public class Message {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Column(nullable = false)
+    @Column(name = "content", nullable = false)
     private String content;
 
-    @Column
-    private Integer id_site;
+    @Column(name = "id_site")
+    @ManyToOne
+    private Site id_site;
 
-    @Column
-    private Integer id_user;
+    @Column(name = "id_user")
+    @ManyToOne
+    private Users id_user;
 
-    public Integer getId_site() {
-        return id_site;
-    }
 
-    public void setId_site(Integer id_site) {
-        this.id_site = id_site;
-    }
-
-    public Integer getId_user() {
+    public Users getId_user() {
         return id_user;
     }
 
-    public void setId_user(Integer id_user) {
+    public void setId_user(Users id_user) {
         this.id_user = id_user;
     }
 
