@@ -1,6 +1,7 @@
 package com.escalade.services;
 
 import com.escalade.entity.Reservation;
+import com.escalade.entity.Users;
 import com.escalade.repositories.ReservationRepository;
 import com.escalade.repositories.TopoRepository;
 import com.escalade.utility.LoggingController;
@@ -25,11 +26,12 @@ public class ReservationService {
 
     Reservation reservation = new Reservation();
 
+
     public void newReservation(Integer id) {
-        Integer userslogged = usersService.userLoggedId();
+        Users userslogged = usersService.usersLogged();
         logger.info("user logged = " + userslogged);
         reservation.setUserResevation(userslogged);
-        reservation.setTopo(id);
+        reservation.setTopo(topoRepository.findById(id).get());
         reservation.setReservationStatus("En attente de validation");
         logger.info("reservation = " + reservation);
         reservationRepository.save(reservation);

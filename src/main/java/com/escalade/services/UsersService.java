@@ -77,6 +77,15 @@ public class UsersService {
     }
 
     /**
+     * @return Object Users
+     */
+    public Users usersLogged() {
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        Users users = usersRepository.findByEmail(username);
+        return users;
+    }
+
+    /**
      * @return User_id Logged
      */
     public Integer userLoggedId() {

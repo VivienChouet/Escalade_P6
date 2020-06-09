@@ -20,8 +20,6 @@ public class Site {
 
     private String contact;
 
-    private String reservation;
-
     @CreationTimestamp
     @Column(name = "created_at")
     private Date created_at;
@@ -31,11 +29,20 @@ public class Site {
     @ManyToOne()
     private Users users;
     @ManyToOne()
+
     private Topo topo;
     @OneToMany(mappedBy = "site")
     private List<Voie> voie;
-    @OneToMany()
+    @OneToMany(mappedBy = "site")
     private List<Message> messages;
+
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
+    }
 
     public Integer getId() {
         return id;
@@ -69,13 +76,6 @@ public class Site {
         this.contact = contact;
     }
 
-    public String getReservation() {
-        return reservation;
-    }
-
-    public void setReservation(String reservation) {
-        this.reservation = reservation;
-    }
 
     public Date getCreated_at() {
         return created_at;

@@ -9,10 +9,10 @@ public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @Column(name = "user_reservation")
+
     @ManyToOne
     private Users userResevation;
-    @Column(name = "topo")
+
     @ManyToOne
     private Topo topo;
     @Column(name = "reservation_status")

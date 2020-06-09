@@ -7,7 +7,7 @@ import javax.persistence.*;
  * @author Ramesh Fadatare
  */
 @Entity
-@Table(name = "messages")
+@Table(name = "message")
 public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,21 +16,29 @@ public class Message {
     @Column(name = "content", nullable = false)
     private String content;
 
-    @Column(name = "id_site")
+
     @ManyToOne
-    private Site id_site;
+    private Site site;
 
-    @Column(name = "id_user")
+
     @ManyToOne
-    private Users id_user;
+    private Users users;
 
 
-    public Users getId_user() {
-        return id_user;
+    public Users getUsers() {
+        return users;
     }
 
-    public void setId_user(Users id_user) {
-        this.id_user = id_user;
+    public void setUsers(Users id_user) {
+        this.users = id_user;
+    }
+
+    public Site getSite() {
+        return site;
+    }
+
+    public void setSite(Site id_site) {
+        this.site = id_site;
     }
 
     public Integer getId() {
