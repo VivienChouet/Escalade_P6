@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.List;
 
 @Controller
-public class ControllerSite {
+public class SiteController {
 
     @Autowired
     SiteService siteService;
@@ -33,7 +33,7 @@ public class ControllerSite {
     @RequestMapping(value = "/site/gestion", method = RequestMethod.GET)
     public String siteGestion(Model model) {
         Site site = new Site();
-        List<Topo> topos = topoService.findByTopo();
+        List<Topo> topos = topoService.findCreatorOfTopo();
         model.addAttribute("site", site);
         model.addAttribute("topos", topos);
         model.addAttribute("pageTitle", "Gestion Site");
@@ -56,7 +56,7 @@ public class ControllerSite {
     @RequestMapping(value = "/site/update/{id}", method = RequestMethod.GET)
     public String updateSite(@PathVariable("id") Integer id, Model model) {
         Site site = this.siteService.findById(id);
-        List<Topo> topos = this.topoService.findByTopo();
+        List<Topo> topos = this.topoService.findCreatorOfTopo();
         List<Voie> voies = this.voieService.findBySite(id);
         model.addAttribute("site", site);
         model.addAttribute("topos", topos);

@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
-public class ControllerTopo {
+public class TopoController {
 
     @Autowired
     TopoService topoService;
@@ -55,7 +55,7 @@ public class ControllerTopo {
     @RequestMapping(value = "/topo/list")
     public String listTopo(Model model, String search) {
         model.addAttribute("search", search);
-        model.addAttribute("topoList", topoService.findAll());
+        model.addAttribute("topoList", topoService.listTopoPublic());
         return "topo/topo-list";
     }
 
@@ -65,6 +65,7 @@ public class ControllerTopo {
         Topo topo = this.topoService.findById(id);
         model.addAttribute("topo", topo);
         model.addAttribute("pageTitle", "Update Topo");
+        logger.info("Log Topo GET = " + topo);
         if (topoService.correspondanceUser(id) == true) {
             model.addAttribute("pageTitle", "Update Topo");
             return "topo/topo-update";
@@ -75,6 +76,7 @@ public class ControllerTopo {
     @RequestMapping(value = "/topo/update/{id}", method = RequestMethod.POST)
     public String updateTopo(@PathVariable("id") Integer id, Topo topo) {
         topo.setId(id);
+        logger.info("Log Topo POST = " + topo);
         topoService.updateTopo(topo);
         return "topo/topo-list";
     }
@@ -94,5 +96,18 @@ public class ControllerTopo {
         topoService.newReservation(id);
         return "topo/topo-info";
     }
+
+    @RequestMapping(value = "/topo/officialTopo/{id}", method = RequestMethod.POST)
+    public String officielTopo(@PathVariable("id") Integer id) {
+        topoService.setOfficialTopo(id);
+        return "home";
+    }
+
+    @RequestMapping(value = "/topo/unofficialTopo/{id}", method = RequestMethod.POST)
+    public String unofficielTopo(@PathVariable("id") Integer id) {
+        topoService.setUnOfficialTopo(id);
+        return "home";
+    }
+
 
 }

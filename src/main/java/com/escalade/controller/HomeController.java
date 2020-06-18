@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
-public class ControllerHome {
+public class HomeController {
 
     @Autowired
     UsersService usersService;

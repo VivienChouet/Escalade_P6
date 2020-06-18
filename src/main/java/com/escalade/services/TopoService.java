@@ -38,23 +38,28 @@ public class TopoService {
         logger.info("user = " + users);
         topo.setUsers(users);
         topo.setAvailable(true);
+        topo.setOfficialTopo(false);
         logger.info("Register New Topo : " + topo);
         topoRepository.save(topo);
     }
 
 
-    public List<Topo> findByTopo() {
+    public List<Topo> findCreatorOfTopo() {
         String username = usersService.UserLoggedEmail();
         Users users = usersRepository.findByEmail(username);
         return topoRepository.findByUsers_Id(users.getId());
     }
 
     public void updateTopo(final Topo topo) {
+        Topo updateTopo;
+        updateTopo = topoRepository.findById(topo.getId()).get();
         logger.info("update topo = " + topo);
-        String username = usersService.UserLoggedEmail();
-        Users users = usersRepository.findByEmail(username);
-        topo.setUsers(users);
-        topoRepository.save(topo);
+        updateTopo.setLieux(topo.getLieux());
+        updateTopo.setDescription(topo.getDescription());
+        updateTopo.setName(topo.getName());
+        updateTopo.setStatutPublic(topo.isStatutPublic());
+        updateTopo.setUpdate_at(topo.getUpdate_at());
+        topoRepository.save(updateTopo);
     }
 
     public void newReservation(Integer id) {
@@ -80,6 +85,23 @@ public class TopoService {
         Topo topo = topoRepository.findById(id).get();
         Users user = topo.getUsers();
         return user.getId() == users;
+    }
+
+    public List<Topo> listTopoPublic() {
+        return topoRepository.findByStatutPublic(true);
+    }
+
+    public void setOfficialTopo(Integer id) {
+        Topo topo = topoRepository.findById(id).get();
+        topo.setOfficialTopo(true);
+        topoRepository.save(topo);
+    }
+
+    public void setUnOfficialTopo(Integer id) {
+        Topo topo = topoRepository.findById(id).get();
+        topo.setOfficialTopo(false);
+        topoRepository.save(topo);
+
     }
 
 }

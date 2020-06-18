@@ -37,8 +37,28 @@
                             <span class="text-danger" th:errors="*{description}"
                                   th:if="${#fields.hasErrors('description')}"></span>
                         </div>
+                    </div>
 
+                    <div class="row" style="justify-content: center">
+                        <div class="form-check">
+                            <input checked class="form-check-input" id="publicNotAvailable"
+                                   th:name="*{statutPublic}"
+                                   th:value="false" type="radio">
+                            <label class="form-check-label" for="publicNotAvailable">
+                                Ne pas rendre ce topo public
+                            </label>
+                        </div>
+                    </div>
 
+                    <div class="row" style="justify-content: center; margin-top: 5px">
+                        <div class="form-check">
+                            <input class="form-check-input" id="publicAvailable" th:name="*{statutPublic}"
+                                   th:value="true"
+                                   type="radio">
+                            <label class="form-check-label" for="publicAvailable">
+                                Rendre ce topo public
+                            </label>
+                        </div>
                     </div>
                     <div class="row" style="padding-top: 20px; justify-content: center; align-content: center">
                         <div class="form-group col-xs-offset-8 col-xs-4">

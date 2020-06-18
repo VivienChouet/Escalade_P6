@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class ControllerRegistration {
+public class RegistrationController {
 
     @Autowired
     UsersService usersService;
 
     @Autowired
-    public ControllerRegistration(UsersService usersService) {
+    public RegistrationController(UsersService usersService) {
         this.usersService = usersService;
     }
 

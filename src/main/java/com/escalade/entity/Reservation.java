@@ -12,7 +12,6 @@ public class Reservation {
 
     @ManyToOne
     private Users userResevation;
-
     @ManyToOne
     private Topo topo;
     @Column(name = "reservation_status")

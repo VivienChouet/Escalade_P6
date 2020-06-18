@@ -19,21 +19,19 @@ public class Topo {
     private String name;
     @Column(nullable = false, unique = true)
     private String lieux;
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String description;
     @Column(name = "created_at", updatable = false)
     @CreationTimestamp
     private Date created_at = new Date();
     @Column(name = "available")
     private boolean available;
+    @Column(name = "statut_public")
+    private boolean statutPublic;
+    @Column(name = "officialTopo")
+    private boolean officialTopo;
     @OneToMany
     private List<Reservation> reservations;
-
-
-    public boolean isAvailable() {
-        return available;
-    }
-
     @Column(name = "update_at")
     @CreationTimestamp
     private Date update_at = new Date();
@@ -41,6 +39,34 @@ public class Topo {
     private Users users;
     @OneToMany(mappedBy = "topo")
     private List<Site> site;
+
+    public boolean isOfficialTopo() {
+        return officialTopo;
+    }
+
+    public void setOfficialTopo(boolean officialTopo) {
+        this.officialTopo = officialTopo;
+    }
+
+    public boolean isStatutPublic() {
+        return statutPublic;
+    }
+
+    public void setStatutPublic(boolean statutPublic) {
+        this.statutPublic = statutPublic;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
+    public boolean isAvailable() {
+        return available;
+    }
 
     public void setAvailable(boolean available) {
         this.available = available;
@@ -118,10 +144,12 @@ public class Topo {
                 ", lieux='" + lieux + '\'' +
                 ", description='" + description + '\'' +
                 ", created_at=" + created_at +
+                ", available=" + available +
+                ", statutPublic=" + statutPublic +
+                ", reservations=" + reservations +
                 ", update_at=" + update_at +
                 ", users=" + users +
                 ", site=" + site +
-                ", available=" + available +
                 '}';
     }
 }

@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
-public class ControllerAdmin {
+public class AdminController {
 
     Logger logger = LoggerFactory.getLogger(LoggingController.class);
 
@@ -28,7 +28,7 @@ public class ControllerAdmin {
     UsersService usersService;
     RoleService roleService;
 
-    public ControllerAdmin(UsersService usersService, RoleService roleService) {
+    public AdminController(UsersService usersService, RoleService roleService) {
         this.usersService = usersService;
         this.roleService = roleService;
     }
