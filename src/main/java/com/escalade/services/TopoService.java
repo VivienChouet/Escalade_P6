@@ -104,4 +104,9 @@ public class TopoService {
 
     }
 
+    public List<Topo> listTopoUserLogged() {
+        Integer id = usersService.userLoggedId();
+        return topoRepository.findByUsers_Id(id);
+    }
+
 }

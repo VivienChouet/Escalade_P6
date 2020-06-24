@@ -30,23 +30,24 @@ public class TopoController {
 
     Logger logger = LoggerFactory.getLogger(LoggingController.class);
 
-    @RequestMapping(value = "/topo/gestion", method = RequestMethod.GET)
+    @RequestMapping(value = "/topo/new", method = RequestMethod.GET)
     @RolesAllowed("ADMIN")
     public String CreationTopo(Model model) {
         Topo topo = new Topo();
         List<Topo> ListTopo = topoService.findAll();
         model.addAttribute("topo", topo);
         model.addAttribute("topoList", ListTopo);
-        model.addAttribute("pageTitle", "Gestion Topo");
-        return "topo/topo-gestion";
+        model.addAttribute("pageTitle", "New Topo");
+        return "topo/topo-new";
     }
 
-    @RequestMapping(value = "/topo/gestion", method = RequestMethod.POST)
+    @RequestMapping(value = "/topo/new", method = RequestMethod.POST)
     public String CreationTopo(@ModelAttribute Topo topo, BindingResult result, Model model) {
         if (result.hasErrors()) {
             model.addAttribute("topo", topo);
+            model.addAttribute("pageTitle", "New Topo");
             logger.warn("error " + topo);
-            return "topo/topo-gestion";
+            return "topo/topo-new";
         }
         topoService.RegisterNewTopo(topo);
         return "home";
@@ -55,23 +56,26 @@ public class TopoController {
     @RequestMapping(value = "/topo/list")
     public String listTopo(Model model, String search) {
         model.addAttribute("search", search);
+        model.addAttribute("pageTitle", "List Topo");
         model.addAttribute("topoList", topoService.listTopoPublic());
         return "topo/topo-list";
     }
 
-    @RequestMapping(value = "/topo/update/{id}", method = RequestMethod.GET)
-    public String updateTopo(@PathVariable("id") Integer id, Model model, HttpServletRequest request) {
-        request.isUserInRole("ADMIN");
+    @RequestMapping(value = "topo/gestion", method = RequestMethod.GET)
+    public String gestionTopo(Model model, HttpServletRequest request) {
+        List<Topo> topos = this.topoService.listTopoUserLogged();
+        model.addAttribute("listTopo", topos);
+        model.addAttribute("pageTitle", "Gestion des Topos");
+        return "topo/topo-gestion";
+    }
+
+    @RequestMapping(value = "topo/info/{id}")
+    public String infoTopo(@PathVariable("id") Integer id, Model model) {
         Topo topo = this.topoService.findById(id);
         model.addAttribute("topo", topo);
-        model.addAttribute("pageTitle", "Update Topo");
-        logger.info("Log Topo GET = " + topo);
-        if (topoService.correspondanceUser(id) == true) {
-            model.addAttribute("pageTitle", "Update Topo");
-            return "topo/topo-update";
-        }
         return "topo/topo-info";
     }
+
 
     @RequestMapping(value = "/topo/update/{id}", method = RequestMethod.POST)
     public String updateTopo(@PathVariable("id") Integer id, Topo topo) {
@@ -89,7 +93,7 @@ public class TopoController {
     }
 
     @RequestMapping(value = "/topo/reservation/{id}", method = RequestMethod.POST)
-    public String infoTopo(@PathVariable("id") Integer id, Model model) {
+    public String reservationTopo(@PathVariable("id") Integer id, Model model) {
         Topo topo = this.topoService.findById(id);
         model.addAttribute("topo", topo);
         reservationService.newReservation(id);

@@ -50,6 +50,7 @@ public class SiteController {
     @RequestMapping(value = "site/list")
     public String siteList(Model model) {
         model.addAttribute("site", siteService.findAll());
+        model.addAttribute("pageTitle", "List Site");
         return "site/site-list";
     }
 
@@ -61,6 +62,7 @@ public class SiteController {
         model.addAttribute("site", site);
         model.addAttribute("topos", topos);
         model.addAttribute("voies", voies);
+        model.addAttribute("pageTitle", "List Site");
         if (siteService.correspondanceUser(id) == true) {
             model.addAttribute("pageTitle", "Update Site");
             return "site/site-update";

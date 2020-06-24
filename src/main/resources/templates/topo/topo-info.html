@@ -6,91 +6,91 @@
 
 <header th:insert="fragment/header :: header(barnav)"></header>
 <body>
-<div class="row" style="padding-top: 5px;justify-content: center">
-    <div class="card col-10">
-        <div class="card-body">
-            <div class="panel-heading">
-                <h1> Liste des topos</h1>
-                <form class="form-inline" method="post" th:action="@{/topo/reservation/{id}(id=${topo.id})}"
-                      th:if="${topo.isAvailable() == true}">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-                        Reserver
-                    </button>
-                </form>
-                <form class="form-inline" method="post" th:action="@{/topo/officialTopo/{id}(id=${topo.id})}"
-                      th:if="${topo.officialTopo == false}">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Mettre le topo en topo officiel
-                    </button>
-                </form>
-                <form class="form-inline" method="post" th:action="@{/topo/unofficialTopo/{id}(id=${topo.id})}"
-                      th:if="${topo.officialTopo == true}">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Retirer le topo Officiel
-                    </button>
-                </form>
-                <div class="row" th:if="${topo.officialTopo == true}">
-                    <h1>Topo Officiel</h1>
+<div class="row" style="padding-top: 5px; padding-bottom: 5px; justify-content: space-around">
+
+    <form class="form-inline" method="post" th:action="@{/topo/reservation/{id}(id=${topo.id})}"
+          th:if="${topo.isAvailable() == true}">
+        <button class="btn btn-primary" type="submit">
+            Reserver
+        </button>
+    </form>
+
+
+    <form class="form-inline" method="post" th:action="@{/topo/officialTopo/{id}(id=${topo.id})}"
+          th:if="${topo.officialTopo == false}">
+        <button class="btn btn-primary" type="submit">Mettre le topo en topo officiel
+        </button>
+    </form>
+    <form class="form-inline" method="post" th:action="@{/topo/unofficialTopo/{id}(id=${topo.id})}"
+          th:if="${topo.officialTopo == true}">
+        <button class="btn btn-primary" type="submit">Retirer le topo Officiel
+        </button>
+    </form>
+
+
+</div>
+<div class="card col-10" style="margin: auto">
+    <div class="card-body">
+        <div class="panel-heading">
+            <h1> Details du topo</h1>
+            <div class="row col-1" style="justify-content: flex-end" th:if="${topo.officialTopo == true}">
+                <img class="img-fluid" src="assets/approuved.jpg">
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="row" style="justify-content: center">
+                <div class="col-sm-4">
+                    <div class="card text-center">
+                        <div class="card-header">Nom du topo</div>
+                        <p class="card-text" th:text="*{topo.name}"></p>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card text-center">
+                        <div class="card-header"> Lieux du topo :</div>
+                        <p class="card-text" th:text="*{topo.lieux}"></p>
+                    </div>
                 </div>
             </div>
-
-            <div class="panel-body">
-                <table class="table">
-                    <thread>
-                        <tr>
-                            <th scope="col">Nom</th>
-                            <th scope="col">Lieux</th>
-                            <th scope="col">Desription</th>
-                            <th scope="col">Info</th>
-                        </tr>
-                    </thread>
-                    <tbody>
-                    <tr th:each="topo : ${topo}">
-                        <td th:text="${topo.name}"></td>
-                        <td th:text="${topo.lieux}"></td>
-                        <td th:text="${topo.description}"></td>
-                        <td><a th:href="@{/topo/update/{id}(id=${topo.id})}"> Plus d'infos </a></td>
-                    </tr>
-                    </tbody>
-                </table>
+            <div class="row" style="justify-content: center">
+                <div class="col-sm-8">
+                    <div class="card text-center" style="margin-top: 10px; justify-content: center">
+                        <div class="card-header"> Description du topo :</div>
+                        <p class="card-text" th:text="*{topo.description}"></p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="card col-10">
-        <div class="card-body">
-            <div class="panel-heading">
-                <h1> Liste des topos</h1>
-                <form class="form-inline" th:action="@{recherche}">
-                    <input aria-label="name" class="form-control mr-sm-2" name="name" placeholder="name"
-                           th:value="${name}"
-                           type="name">
-                    <input aria-label="lieux" class="form-control mr-sm-2" name="lieux" placeholder="lieux"
-                           th:value="${lieux}"
-                           type="lieux">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
-            </div>
-            <div class="panel-body">
-                <table class="table">
-                    <thread>
-                        <tr>
-                            <th scope="col">Nom</th>
-                            <th scope="col">Adresse</th>
-                            <th scope="col">Contact</th>
-                            <th scope="col">Info</th>
-                        </tr>
-                    </thread>
-                    <tbody>
-                    <tr th:each="sites : ${sites}">
-                        <td th:text="${sites.name}"></td>
-                        <td th:text="${sites.adresse}"></td>
-                        <td th:text="${sites.contact}"></td>
-
-                        <td><a th:href="@{/site/update/{id}(id=${sites.id})}"> Plus d'infos </a></td>
+</div>
+<div class="card col-10" style="margin-top: 20px; margin-left: auto; margin-right: auto">
+    <div class="card-body">
+        <div class="panel-heading">
+            <h1> Liste des sites</h1>
+        </div>
+        <div class="panel-body">
+            <table class="table">
+                <thread>
+                    <tr>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Adresse</th>
+                        <th scope="col">Contact</th>
+                        <th scope="col">Info</th>
                     </tr>
-                    </tbody>
-                </table>
-            </div>
+                </thread>
+                <tbody>
+                <tr th:each="sites : ${sites}">
+                    <td th:text="${sites.name}"></td>
+                    <td th:text="${sites.adresse}"></td>
+                    <td th:text="${sites.contact}"></td>
+
+                    <td><a th:href="@{/site/update/{id}(id=${sites.id})}"> Plus d'infos </a></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
+</div>
 
 </div>
 </body>
