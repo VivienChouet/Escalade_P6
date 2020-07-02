@@ -47,9 +47,9 @@ public class Users {
     @OneToMany(mappedBy = "users")
     private List<Site> site;
     @OneToMany(mappedBy = "users")
-    private List<Message> messages;
+    private List<Message> message;
     @OneToMany
-    private List<Reservation> reservations;
+    private List<Reservation> reservation;
 
     public List<Site> getSite() {
         return site;
@@ -59,20 +59,21 @@ public class Users {
         this.site = site;
     }
 
-    public List<Message> getMessages() {
-        return messages;
+    public List<Message> getMessage() {
+
+        return message;
     }
 
-    public void setMessages(List<Message> messages) {
-        this.messages = messages;
+    public void setMessage(List<Message> message) {
+        this.message = message;
     }
 
-    public List<Reservation> getReservations() {
-        return reservations;
+    public List<Reservation> getReservation() {
+        return reservation;
     }
 
-    public void setReservations(List<Reservation> reservations) {
-        this.reservations = reservations;
+    public void setReservation(List<Reservation> reservation) {
+        this.reservation = reservation;
     }
 
     public Date getCreated_at() {

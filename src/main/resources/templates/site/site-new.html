@@ -11,11 +11,11 @@
     <div class="container">
         <div class="card col-6">
             <div class="card-heading">
-                <form method="post" th:action="@{/topo/new}" th:object="${topo}">
+                <form method="post" th:action="@{/site/new}" th:object="${site}">
                     <div class="card-panel">
                         <div class="row" style="justify-content: space-around">
                             <div class="form-group has-feedback" th:class="${#fields.hasErrors('name')}? has-error">
-                                <label>Nom du Topo :</label>
+                                <label>Nom du Site :</label>
                                 <input class="form-control" id="name" placeholder="nom" th:field="*{name}">
                                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                                 <span class="text-danger" th:errors="*{name}"
@@ -23,29 +23,34 @@
                             </div>
 
                             <div class="form-group has-feedback" th:class="${#fields.hasErrors('name')}? has-error">
-                                <label>Secteur :</label>
-                                <input class="form-control" id="lieux" placeholder="Lieux" th:field="*{lieux}">
+                                <label>adresse :</label>
+                                <input class="form-control" id="adresse" placeholder="adresse" th:field="*{adresse}">
                                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                                <span class="text-danger" th:errors="*{lieux}"
-                                      th:if="${#fields.hasErrors('Lieux')}"></span>
+                                <span class="text-danger" th:errors="*{adresse}"
+                                      th:if="${#fields.hasErrors('adresse')}"></span>
 
                             </div>
                         </div>
                         <div class="row" style="justify-content: center ; align-content: center">
                             <div class="form-group has-feedback" th:class="${#fields.hasErrors('name')}? has-error">
-                                <label>Description :</label>
-                                <input class="form-control" id="descritpion" placeholder="Description du topo"
-                                       th:field="*{description}">
+                                <label>Contact :</label>
+                                <input class="form-control" id="contact" placeholder="personne a contacter"
+                                       th:field="*{contact}">
                                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                                <span class="text-danger" th:errors="*{description}"
-                                      th:if="${#fields.hasErrors('description')}"></span>
+                                <span class="text-danger" th:errors="*{contact}"
+                                      th:if="${#fields.hasErrors('contact')}"></span>
                             </div>
                         </div>
-                        <div class="row" style="justify-content: center">
-                            <div>
-                                <label>Voulez vous rendre ce topo public</label>
-                                <input th:field="*{statutPublic}" type="checkbox"/>
-                            </div>
+
+                        <div class="form-group has-feedback" th:class="${#fields.hasErrors('name')}? has-error">
+                            <label>Topo :</label>
+                            <select class="form-control" th:field="*{topo}">
+                                <option th:each="topo : ${topos}"
+                                        th:text="${topo.name}"
+                                        th:value="${topo.id}"></option>
+
+                            </select>
+
                         </div>
 
                         <div class="row" style="padding-top: 20px; justify-content: center; align-content: center">

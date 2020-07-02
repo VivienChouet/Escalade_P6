@@ -45,8 +45,10 @@
                        data-toggle="dropdown"
                        href="#" id="dropdownSite" role="button">Site</a>
                     <div aria-labelledby="dropdownSite" class="dropdown-menu">
-                        <a class="dropdown-item" href="/site/list"
+                        <a class="dropdown-item" href="/site/new"
                            sec:authorize="isAuthenticated()">Ajout</a>
+                        <a class="dropdown-item" href="/site/gestion"
+                           sec:authorize="isAuthenticated()">gestion</a>
                         <a class="dropdown-item" href="/site/list">Liste</a>
                     </div>
                 </li>

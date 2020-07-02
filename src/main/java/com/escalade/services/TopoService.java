@@ -2,6 +2,7 @@ package com.escalade.services;
 
 import com.escalade.entity.Topo;
 import com.escalade.entity.Users;
+import com.escalade.repositories.ReservationRepository;
 import com.escalade.repositories.TopoRepository;
 import com.escalade.repositories.UsersRepository;
 import com.escalade.utility.LoggingController;
@@ -20,6 +21,9 @@ public class TopoService {
 
     @Autowired
     UsersRepository usersRepository;
+
+    @Autowired
+    ReservationRepository reservationRepository;
 
     @Autowired
     UsersService usersService;
@@ -70,6 +74,12 @@ public class TopoService {
 
     }
 
+    public void refusedReservation(Integer id) {
+        Topo topo = this.topoRepository.findById(id).get();
+        topo.setAvailable(true);
+        topoRepository.save(topo);
+    }
+
     public Topo findById(Integer id) {
         logger.info("findById = " + id);
         return topoRepository.findById(id).get();
@@ -77,14 +87,14 @@ public class TopoService {
 
     public List<Topo> research(String name, String lieux) {
         logger.info("Recherche name = " + name + " lieux = " + lieux);
-        return topoRepository.findByNameAndLieux(name, lieux);
+        return topoRepository.findByNameOrLieux(name, lieux);
     }
 
     public boolean correspondanceUser(Integer id) {
         Integer users = usersService.userLoggedId();
         Topo topo = topoRepository.findById(id).get();
         Users user = topo.getUsers();
-        return user.getId() == users;
+        return user.getId().equals(users);
     }
 
     public List<Topo> listTopoPublic() {
@@ -108,5 +118,6 @@ public class TopoService {
         Integer id = usersService.userLoggedId();
         return topoRepository.findByUsers_Id(id);
     }
+
 
 }

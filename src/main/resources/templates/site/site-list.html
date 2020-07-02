@@ -37,7 +37,7 @@
                         <td th:text="${site.adresse}"></td>
                         <td th:text="${site.contact}"></td>
                         <!-- Mettre en place la colonne Auteur à partir de la table croisé topo_user -->
-                        <td><a th:href="@{/site/update/{id}(id=${site.id})}"> Plus d'infos </a></td>
+                        <td><a th:href="@{/site/info/{id}(id=${site.id})}"> Plus d'infos </a></td>
                     </tr>
                     </tbody>
                 </table>

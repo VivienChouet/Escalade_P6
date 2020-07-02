@@ -6,35 +6,14 @@
 
 <header th:insert="fragment/header :: header(barnav)"></header>
 <body>
-<div class="row" style="padding-top: 5px; padding-bottom: 5px; justify-content: space-around">
-
-    <form class="form-inline" method="post" th:action="@{/topo/reservation/{id}(id=${topo.id})}"
-          th:if="${topo.isAvailable() == true}">
-        <button class="btn btn-primary" type="submit">
-            Reserver
-        </button>
-    </form>
 
 
-    <form class="form-inline" method="post" th:action="@{/topo/officialTopo/{id}(id=${topo.id})}"
-          th:if="${topo.officialTopo == false}">
-        <button class="btn btn-primary" type="submit">Mettre le topo en topo officiel
-        </button>
-    </form>
-    <form class="form-inline" method="post" th:action="@{/topo/unofficialTopo/{id}(id=${topo.id})}"
-          th:if="${topo.officialTopo == true}">
-        <button class="btn btn-primary" type="submit">Retirer le topo Officiel
-        </button>
-    </form>
-
-
-</div>
 <div class="card col-10" style="margin: auto">
     <div class="card-body">
         <div class="panel-heading">
             <h1> Details du topo</h1>
             <div class="row col-1" style="justify-content: flex-end" th:if="${topo.officialTopo == true}">
-                <img class="img-fluid" src="assets/approuved.jpg">
+                <img class="img-fluid" src="/assets/approuved.jpg">
             </div>
         </div>
         <div class="panel-body">
@@ -60,6 +39,28 @@
                     </div>
                 </div>
             </div>
+
+            <div class="row" style="padding-top: 5px; padding-bottom: 5px; justify-content: space-around">
+
+                <form class="form-inline" method="post" th:action="@{/topo/reservation/{id}(id=${topo.id})}"
+                      th:if="${topo.isAvailable() == true}">
+                    <button class="btn btn-primary" type="submit">
+                        Reserver
+                    </button>
+                </form>
+
+
+                <form class="form-inline" method="post" th:action="@{/topo/officialTopo/{id}(id=${topo.id})}"
+                      th:if="${topo.officialTopo == false}">
+                    <button class="btn btn-primary" type="submit">Mettre le topo en topo officiel
+                    </button>
+                </form>
+                <form class="form-inline" method="post" th:action="@{/topo/unofficialTopo/{id}(id=${topo.id})}"
+                      th:if="${topo.officialTopo == true}">
+                    <button class="btn btn-primary" type="submit">Retirer le topo Officiel
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
@@ -84,7 +85,7 @@
                     <td th:text="${sites.adresse}"></td>
                     <td th:text="${sites.contact}"></td>
 
-                    <td><a th:href="@{/site/update/{id}(id=${sites.id})}"> Plus d'infos </a></td>
+                    <td><a th:href="@{/site/info/{id}(id=${info.id})}"> Plus d'infos </a></td>
                 </tr>
                 </tbody>
             </table>

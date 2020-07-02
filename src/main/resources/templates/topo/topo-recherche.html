@@ -12,9 +12,12 @@
             <div class="panel-heading">
                 <h1> Liste des topos</h1>
                 <form class="form-inline" th:action="@{recherche}">
-                    <input aria-label="Search" class="form-control mr-sm-2" name="search" placeholder="Search"
-                           th:value="${search}"
-                           type="search">
+                    <input aria-label="name" class="form-control mr-sm-2" name="name" placeholder="name"
+                           th:value="${name}"
+                           type="name">
+                    <input aria-label="lieux" class="form-control mr-sm-2" name="lieux" placeholder="lieux"
+                           th:value="${lieux}"
+                           type="lieux">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
             </div>

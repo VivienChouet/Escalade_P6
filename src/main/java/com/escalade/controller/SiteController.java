@@ -15,6 +15,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -30,7 +31,7 @@ public class SiteController {
     @Autowired
     MessageService messageService;
 
-    @RequestMapping(value = "/site/gestion", method = RequestMethod.GET)
+    @RequestMapping(value = "/site/gestion")
     public String siteGestion(Model model) {
         Site site = new Site();
         List<Topo> topos = topoService.findCreatorOfTopo();
@@ -38,12 +39,6 @@ public class SiteController {
         model.addAttribute("topos", topos);
         model.addAttribute("pageTitle", "Gestion Site");
         return "site/site-gestion";
-    }
-
-    @RequestMapping(value = "/site/gestion", method = RequestMethod.POST)
-    public String siteGestion(Site site) {
-        siteService.newSite(site);
-        return "site/site-list";
     }
 
 
@@ -58,27 +53,45 @@ public class SiteController {
     public String updateSite(@PathVariable("id") Integer id, Model model) {
         Site site = this.siteService.findById(id);
         List<Topo> topos = this.topoService.findCreatorOfTopo();
-        List<Voie> voies = this.voieService.findBySite(id);
         model.addAttribute("site", site);
         model.addAttribute("topos", topos);
-        model.addAttribute("voies", voies);
-        model.addAttribute("pageTitle", "List Site");
-        if (siteService.correspondanceUser(id) == true) {
-            model.addAttribute("pageTitle", "Update Site");
-            return "site/site-update";
-        }
-        Message message = new Message();
-        model.addAttribute("message", message);
-        return "site/site-info";
+        model.addAttribute("pageTitle", "Update Site");
+        return "site/site-update";
     }
 
     @RequestMapping(value = "/site/update/{id}", method = RequestMethod.POST)
-    public String updateSite(Site site) {
+    public ModelAndView updateSite(Site site) {
         System.out.println("site = " + site);
         siteService.updateSite(site);
-        return "site/site-list";
+        return new ModelAndView("redirect:/site/list");
     }
 
+    @RequestMapping(value = "site/new", method = RequestMethod.GET)
+    public String ajoutSite(Model model) {
+        Site site = new Site();
+        List<Topo> topos = this.topoService.findCreatorOfTopo();
+        model.addAttribute("site", site);
+        model.addAttribute("topos", topos);
+        return "site/site-new";
+    }
+
+    @RequestMapping(value = "site/new", method = RequestMethod.POST)
+    public ModelAndView ajoutSite(Site site) {
+        siteService.newSite(site);
+        return new ModelAndView("redirect:/site/list");
+    }
+
+    @RequestMapping(value = "site/info/{id}")
+    public String detailSite(@PathVariable("id") Integer id, Model model) {
+        Site site = siteService.findById(id);
+        List<Voie> voie = voieService.findBySite(id);
+        Message message = new Message();
+        model.addAttribute("site", site);
+        model.addAttribute("voie", voie);
+        model.addAttribute("message", message);
+
+        return "site/site-info";
+    }
 
     @RequestMapping(value = "site/info/commentaire/{id}", method = RequestMethod.POST)
     public String ajoutCommentaire(@PathVariable("id") Integer id, Model model, BindingResult result, Message message) {

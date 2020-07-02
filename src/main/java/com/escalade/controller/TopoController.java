@@ -1,5 +1,7 @@
 package com.escalade.controller;
 
+import com.escalade.entity.Reservation;
+import com.escalade.entity.Site;
 import com.escalade.entity.Topo;
 import com.escalade.services.ReservationService;
 import com.escalade.services.SiteService;
@@ -12,6 +14,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.annotation.security.RolesAllowed;
 import javax.servlet.http.HttpServletRequest;
@@ -64,7 +68,9 @@ public class TopoController {
     @RequestMapping(value = "topo/gestion", method = RequestMethod.GET)
     public String gestionTopo(Model model, HttpServletRequest request) {
         List<Topo> topos = this.topoService.listTopoUserLogged();
+        List<Reservation> reservations = this.reservationService.findReservationNeededAction();
         model.addAttribute("listTopo", topos);
+        model.addAttribute("listReservation", reservations);
         model.addAttribute("pageTitle", "Gestion des Topos");
         return "topo/topo-gestion";
     }
@@ -72,17 +78,26 @@ public class TopoController {
     @RequestMapping(value = "topo/info/{id}")
     public String infoTopo(@PathVariable("id") Integer id, Model model) {
         Topo topo = this.topoService.findById(id);
+        List<Site> sites = this.siteService.findByIdTopo(id);
         model.addAttribute("topo", topo);
+        model.addAttribute("site", sites);
         return "topo/topo-info";
     }
 
 
     @RequestMapping(value = "/topo/update/{id}", method = RequestMethod.POST)
-    public String updateTopo(@PathVariable("id") Integer id, Topo topo) {
+    public ModelAndView updateTopo(@PathVariable("id") Integer id, Topo topo, RedirectAttributes attributes) {
         topo.setId(id);
         logger.info("Log Topo POST = " + topo);
         topoService.updateTopo(topo);
-        return "topo/topo-list";
+        return new ModelAndView("redirect:/topo/list");
+    }
+
+    @RequestMapping(value = "/topo/update/{id}", method = RequestMethod.GET)
+    public String updateTopo(@PathVariable("id") Integer id, Model model) {
+        Topo topo = this.topoService.findById(id);
+        model.addAttribute("topo", topo);
+        return "topo/topo-update";
     }
 
 
@@ -113,5 +128,30 @@ public class TopoController {
         return "home";
     }
 
+    @RequestMapping(value = "/topo/reservation/{id}", method = RequestMethod.GET)
+    public String gestionReservation(@PathVariable("id") Integer id, Model model) {
+        Topo topo = this.topoService.findById(id);
+        Reservation reservationNotClosed = this.reservationService.findByTopo_idAndNotClosed(id);
+        List<Reservation> reservations = this.reservationService.listFindByTopo_id(id);
+        model.addAttribute("topo", topo);
+        model.addAttribute("reservationNotClosed", reservationNotClosed);
+        model.addAttribute("reservationTopo", reservations);
+        return "topo/topo-gestionReservation";
+
+    }
+
+    @RequestMapping(value = "/topo/reservation_accepted/{id}")
+    public String reservationAccepted(@PathVariable("id") Integer id) {
+        reservationService.acceptationReservation(id);
+        return "home";
+    }
+
+    @RequestMapping(value = "/topo/reservation_refused/{id}")
+    public String reservationRefused(@PathVariable("id") Integer id) {
+        reservationService.refuseReservation(id);
+        Integer topo_id = this.reservationService.findTopoId(id);
+        topoService.refusedReservation(topo_id);
+        return "home";
+    }
 
 }

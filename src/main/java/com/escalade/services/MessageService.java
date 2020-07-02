@@ -10,6 +10,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class MessageService {
 
@@ -31,6 +33,10 @@ public class MessageService {
         message.setUsers(userslogged);
         message.setSite(siteRepository.findById(id).get());
         messageRepository.save(message);
+    }
+
+    public List<Message> findBySiteId(Integer id) {
+        return messageRepository.findBySite_id(id);
     }
 
 }
