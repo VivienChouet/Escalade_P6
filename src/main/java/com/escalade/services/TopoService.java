@@ -74,7 +74,7 @@ public class TopoService {
 
     }
 
-    public void refusedReservation(Integer id) {
+    public void setAvailableTopo(Integer id) {
         Topo topo = this.topoRepository.findById(id).get();
         topo.setAvailable(true);
         topoRepository.save(topo);

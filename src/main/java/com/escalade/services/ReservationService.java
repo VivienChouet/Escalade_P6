@@ -31,8 +31,6 @@ public class ReservationService {
     @Autowired
     ReservationRepository reservationRepository;
 
-    Reservation reservation = new Reservation();
-
 
     public void newReservation(Integer id) {
         Users userslogged = usersService.usersLogged();
@@ -44,7 +42,7 @@ public class ReservationService {
         reservation.setAcceptedReservation(false);
         reservation.setCloseReservation(false);
         reservation.setCreated_at(new Date());
-        logger.info("reservation = " + reservation);
+        logger.info("New reservation = " + id);
         reservationRepository.save(reservation);
     }
 
@@ -59,25 +57,32 @@ public class ReservationService {
         reservation.setUpdate_at(new Date());
         reservation.setAcceptedReservation(true);
         reservationRepository.save(reservation);
-        logger.info("Reservation accpeted : " + reservation);
+        logger.info("Reservation accpeted : " + id);
 
     }
 
     public void refuseReservation(Integer id) {
         Reservation reservation = this.reservationRepository.findById(id).get();
-        Topo topo = this.reservation.getTopo();
         reservation.setReservationStatus("Reservation refusée");
         reservation.setUpdate_at(new Date());
         reservation.setCloseReservation(true);
         reservationRepository.save(reservation);
-        logger.info("Reservation refused : " + reservation);
+        logger.info("Reservation refused : " + id);
     }
 
-    public void endReservation() {
+    public void endReservation(Integer id) {
+        Reservation reservation = this.reservationRepository.findById(id).get();
+        reservation.setReservationStatus("Reservation terminée");
+        reservation.setUpdate_at(new Date());
+        reservation.setCloseReservation(true);
+        reservationRepository.save(reservation);
+        logger.info("Reservation terminée" + id);
+
 
     }
 
     public Reservation findByTopo_idAndNotClosed(Integer id) {
+        logger.info("find by topo_id and not closed");
         return reservationRepository.findByTopo_IdAndCloseReservation(id, false);
     }
 
@@ -88,12 +93,38 @@ public class ReservationService {
     public Integer findTopoId(Integer id) {
         Reservation reservation = this.reservationRepository.findById(id).get();
         Topo topo = reservation.getTopo();
+        logger.info("Find Topo Id = " + topo.getId());
         return topo.getId();
     }
 
     public List<Reservation> findReservationNeededAction() {
         Users userslogged = usersService.usersLogged();
+        logger.info("Find Rerservation who needed action");
         return reservationRepository.findByCloseReservationAndAcceptedReservationAndTopo_Users(false, false, userslogged);
+    }
+
+
+    public List<Reservation> findByUsersAndNotClosed() {
+        Users userslogged = usersService.usersLogged();
+        logger.info("find List reservation  on user logged");
+        return reservationRepository.findByUsersAndCloseReservation(userslogged, false);
+    }
+
+    public List<Reservation> findByUsersAndClosed() {
+        Users userslogged = usersService.usersLogged();
+        logger.info("find List reservation  on user logged");
+        return reservationRepository.findByUsersAndCloseReservation(userslogged, true);
+    }
+
+    public Reservation findByIdAndNotClosed(Integer id) {
+        return reservationRepository.findByIdAndCloseReservation(id, false);
+    }
+
+    public List<Reservation> listTopoFindByIdReservation(Integer id) {
+        Reservation reservation = this.reservationRepository.findById(id).get();
+        Topo topo = reservation.getTopo();
+
+        return reservationRepository.findByTopo_Id(topo.getId());
     }
 
 

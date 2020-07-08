@@ -40,10 +40,12 @@
                 </div>
             </div>
 
-            <div class="row" style="padding-top: 5px; padding-bottom: 5px; justify-content: space-around">
+            <div class="row" style="padding-top: 10px; padding-bottom:5px; justify-content: space-around">
 
-                <form class="form-inline" method="post" th:action="@{/topo/reservation/{id}(id=${topo.id})}"
-                      th:if="${topo.isAvailable() == true}">
+                <form class="form-inline" method="post"
+                      th:action="@{/topo/reservation/{id}(id=${topo.id})}"
+                      th:if="${topo.isAvailable() == true}"
+                >
                     <button class="btn btn-primary" type="submit">
                         Reserver
                     </button>

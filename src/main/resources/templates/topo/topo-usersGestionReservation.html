@@ -46,44 +46,26 @@
         </div>
     </div>
     <div class="row" style="justify-content: center ; padding-top: 10px"
-         th:if="${reservationNotClosed.acceptedReservation} == false">
+         th:if="${reservationNotClosed.acceptedReservation} == true">
         <div class="card col-10">
             <div class="card-body">
                 <div class="card-heading">
-                    <h1>Réservation en attente :</h1>
+                    <h1>Réservation en cours voulez vous mettre un terme a votre reservatione :</h1>
                 </div>
-                <div class="card-body">
-                    <div class="row" style="justify-content: center">
-                        <div class="col-sm-8">
-                            <div class="card text-center">
-                                <div class="card-header">
-                                    Nom de la personne demandant la réservation :
-                                </div>
-                                <div class="card-text" th:text="*{reservationNotClosed.users.name}">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel-body" style="padding-top: 5px">
-                        <div class="row" style="justify-content: space-around">
-                            <div class="col-sm-4">
-                                <form th:action="@{/topo/reservation_accepted/{id}(id=${reservationNotClosed.id})}">
-                                    <button class="btn btn-primary btn-block btn-flat" type="submit">Accepter
-                                    </button>
-                                </form>
-                            </div>
-                            <div class="col-sm-4">
-                                <form th:action="@{/topo/reservation_refused/{id}(id=${reservationNotClosed.id})}">
-                                    <button class="btn btn-primary btn-block btn-flat" type="submit">Refuser
-                                    </button>
-                                </form>
-                            </div>
+                <div class="panel-body" style="padding-top: 5px">
+                    <div class="row" style="justify-content: space-around">
+                        <div class="col-sm-4">
+                            <form th:action="@{/topo/reservationEnded/{id}(id=${reservationNotClosed.id})}">
+                                <button class="btn btn-primary btn-block btn-flat" type="submit">Terminer ma reservation
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 <div class="card col-10" style="margin-top: 20px; margin-left: auto; margin-right: auto">
     <div class="card-body">

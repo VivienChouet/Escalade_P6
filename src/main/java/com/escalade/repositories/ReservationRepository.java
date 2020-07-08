@@ -13,4 +13,10 @@ public interface ReservationRepository extends JpaRepository<Reservation, Intege
     List<Reservation> findByTopo_Id(Integer id);
 
     List<Reservation> findByCloseReservationAndAcceptedReservationAndTopo_Users(Boolean close, Boolean accepted, Users users);
+
+    List<Reservation> findByUsers(Users userslogged);
+
+    List<Reservation> findByUsersAndCloseReservation(Users userslogged, boolean b);
+
+    Reservation findByIdAndCloseReservation(Integer id, boolean b);
 }

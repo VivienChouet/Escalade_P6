@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="fragment/block :: headerFragment"></head>
+
+<header th:insert="fragment/header :: header(barnav)"></header>
+<body>
+<div class="container">
+    <div class="row" style="justify-content: center">
+        <div class="card col-10">
+            <div class="card-heading">
+                <h1>Liste de vos réservations en cours</h1>
+            </div>
+            <div class="card-panel">
+                <table class="table">
+                    <thread>
+                        <tr>
+                            <th scope="col">Nom</th>
+                            <th scope="col">Lieux</th>
+                            <th scope="col">Desription</th>
+                            <th scope="col">Statut de la réservation</th>
+                            <th scope="col">détails</th>
+                        </tr>
+                    </thread>
+                    <tbody>
+                    <tr th:each="reservationsNotClosed : ${reservationsNotClosed}">
+                        <td th:text="${reservationsNotClosed.topo.name}"></td>
+                        <td th:text="${reservationsNotClosed.topo.lieux}"></td>
+                        <td th:text="${reservationsNotClosed.topo.description}"></td>
+                        <td th:if="${reservationsNotClosed.reservationStatus}"></td>
+                        <td><a th:href="@{/topo/myreservation/{id}(id=${reservationsNotClosed.id})}"> détails </a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="justify-content: center; padding-top: 5px">
+        <div class="card col-10">
+            <div class="card-heading">
+                <h1>Liste de vos réservations en cours</h1>
+            </div>
+            <div class="card-panel">
+                <table class="table">
+                    <thread>
+                        <tr>
+                            <th scope="col">Nom</th>
+                            <th scope="col">Lieux</th>
+                            <th scope="col">Desription</th>
+                            <th scope="col">Statut de la réservation</th>
+                            <th scope="col">détails</th>
+                        </tr>
+                    </thread>
+                    <tbody>
+                    <tr th:each="reservationsClosed : ${reservationClosed}">
+                        <td th:text="${reservationsClosed.topo.name}"></td>
+                        <td th:text="${reservationsClosed.topo.lieux}"></td>
+                        <td th:text="${reservationsClosed.topo.description}"></td>
+                        <td th:if="${reservationsClosed.reservationStatus}"></td>
+                        <td><a th:href="@{/topo/info/{id}(id=${reservationsClosed.topo.id})}"> détails </a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<footer th:insert="fragment/footer :: footer"></footer>
+</html>
