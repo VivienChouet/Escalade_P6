@@ -27,6 +27,20 @@ public class Reservation {
     @CreationTimestamp
     private Date created_at = new Date();
 
+    @Override
+    public String toString() {
+        return "Reservation{" +
+                "id=" + id +
+                ", users=" + users +
+                ", topo=" + topo +
+                ", reservationStatus='" + reservationStatus + '\'' +
+                ", closeReservation=" + closeReservation +
+                ", acceptedReservation=" + acceptedReservation +
+                ", update_at=" + update_at +
+                ", created_at=" + created_at +
+                '}';
+    }
+
     public Users getUsers() {
         return users;
     }

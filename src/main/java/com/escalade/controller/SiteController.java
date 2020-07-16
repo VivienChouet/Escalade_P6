@@ -11,10 +11,10 @@ import com.escalade.services.VoieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -33,9 +33,9 @@ public class SiteController {
 
     @RequestMapping(value = "/site/gestion")
     public String siteGestion(Model model) {
-        Site site = new Site();
+        List<Site> sites = siteService.findByUserId();
         List<Topo> topos = topoService.findCreatorOfTopo();
-        model.addAttribute("site", site);
+        model.addAttribute("sites", sites);
         model.addAttribute("topos", topos);
         model.addAttribute("pageTitle", "Gestion Site");
         return "site/site-gestion";
@@ -43,7 +43,8 @@ public class SiteController {
 
 
     @RequestMapping(value = "site/list")
-    public String siteList(Model model) {
+    public String siteList(Model model, String search) {
+        model.addAttribute("search", search);
         model.addAttribute("site", siteService.findAll());
         model.addAttribute("pageTitle", "List Site");
         return "site/site-list";
@@ -85,22 +86,45 @@ public class SiteController {
     public String detailSite(@PathVariable("id") Integer id, Model model) {
         Site site = siteService.findById(id);
         List<Voie> voie = voieService.findBySite(id);
-        Message message = new Message();
+        Message newComment = new Message();
+        List<Message> listComment = messageService.findBySiteId(id);
         model.addAttribute("site", site);
         model.addAttribute("voie", voie);
-        model.addAttribute("message", message);
-
+        model.addAttribute("newComment", newComment);
+        model.addAttribute("listComment", listComment);
         return "site/site-info";
     }
 
     @RequestMapping(value = "site/info/commentaire/{id}", method = RequestMethod.POST)
-    public String ajoutCommentaire(@PathVariable("id") Integer id, Model model, BindingResult result, Message message) {
-        if (result.hasErrors()) {
-            model.addAttribute("message", message);
-            return "site/site-info";
-        }
+    public ModelAndView ajoutCommentaire(@PathVariable("id") Integer id, Message message) {
+
         messageService.AjoutCommentaire(id, message);
-        return "site/site-info";
+        return new ModelAndView("redirect:/site/info/{id}");
+    }
+
+    @RequestMapping(value = "site/commentaire/gestion/{id}")
+    public String modificationCommentaire(@PathVariable("id") Integer id, Model model) {
+        Site site = siteService.findById(id);
+        List<Voie> voie = voieService.findBySite(id);
+        Message modifyComment = new Message();
+        List<Message> listComment = messageService.findBySiteId(id);
+        model.addAttribute("site", site);
+        model.addAttribute("voie", voie);
+        model.addAttribute("modifyComment", modifyComment);
+        model.addAttribute("listComment", listComment);
+        return "site/site-updatecomment";
+    }
+
+    @RequestMapping(value = "site/commentaire/modify/{id}", method = RequestMethod.POST)
+    public ModelAndView modidificationCommentaireForms(@PathVariable("id") Integer id, Message message) {
+        messageService.updateComment(id, message);
+        return new ModelAndView("redirect:/site/list");
+    }
+
+    @RequestMapping(value = "/site/recherche")
+    public String rechercheSite(Model model, @RequestParam(name = "name") String name, @RequestParam(name = "contact") String contact) {
+        model.addAttribute("siteList", siteService.research(name, contact));
+        return "site/site-recherche";
     }
 
 }

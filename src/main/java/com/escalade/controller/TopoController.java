@@ -82,9 +82,7 @@ public class TopoController {
     public String infoTopo(@PathVariable("id") Integer id, Model model) {
         Topo topo = this.topoService.findById(id);
         List<Site> sites = this.siteService.findByIdTopo(id);
-        Boolean correspondanceUser = this.topoService.correspondanceUser(id);
         model.addAttribute("topo", topo);
-        model.addAttribute("users", correspondanceUser);
         model.addAttribute("site", sites);
         return "topo/topo-info";
     }
@@ -139,6 +137,7 @@ public class TopoController {
         List<Reservation> reservations = this.reservationService.listFindByTopo_id(id);
         model.addAttribute("reservationNotClosed", reservationNotClosed);
         model.addAttribute("reservationTopo", reservations);
+        logger.info("statut de la réservation : " + reservationNotClosed.getReservationStatus());
         return "topo/topo-gestionReservation";
 
     }

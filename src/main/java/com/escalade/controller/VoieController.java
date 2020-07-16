@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -22,22 +23,21 @@ public class VoieController {
     @Autowired
     SiteService siteService;
 
-    @RequestMapping(value = "voie/gestion", method = RequestMethod.GET)
-    public String GestionVoie(Model model) {
+    @RequestMapping(value = "/voie/new", method = RequestMethod.GET)
+    public String ajoutVoie(Model model) {
         Voie voie = new Voie();
         List<Site> site = siteService.findByUser();
         model.addAttribute("pageTitle", "Gestion Voie");
-        model.addAttribute("site", site);
+        model.addAttribute("sites", site);
         model.addAttribute("voie", voie);
-        return "voie/voie-gestion";
+        return "voie/voie-new";
     }
 
-    @RequestMapping(value = "/voie/gestion", method = RequestMethod.POST)
-    public String voieGestion(Voie voie) {
+    @RequestMapping(value = "/voie/new", method = RequestMethod.POST)
+    public ModelAndView voieGestion(Voie voie) {
         voieService.newVoie(voie);
-        return "voie/voie-list";
+        return new ModelAndView("redirect:/voie/list");
     }
-
 
     @RequestMapping(value = "voie/list")
     public String voieList(Model model) {
@@ -49,7 +49,6 @@ public class VoieController {
     public String updateVoie(@PathVariable("id") Integer id, Model model) {
         Voie voie = this.voieService.findById(id);
         model.addAttribute("voie", voie);
-
         model.addAttribute("pageTitle", "Update voie");
         return "voie/voie-update";
     }
@@ -57,8 +56,6 @@ public class VoieController {
     @RequestMapping(value = "/voie/update/{id}", method = RequestMethod.POST)
     public String updateVoie(Voie voie) {
         voieService.updateVoie(voie);
-
-
         return "voie/voie-list";
     }
 

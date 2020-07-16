@@ -6,13 +6,13 @@
 
 <header th:insert="fragment/header :: header(barnav)"></header>
 
-<div class="containter">
+<div class="containter col-10">
     <div class="row" style="padding-top: 5px; padding-bottom: 5px; justify-content: space-around">
 
     </div>
-    <div class="card col-10" style="margin: auto">
+    <div class="card col-10" style="margin: auto ; padding: 0;">
         <div class="card-body">
-            <div class="panel-heading">
+            <div class="card-header">
                 <h1> Details du topo</h1>
                 <div class="row col-1" style="justify-content: flex-end"
                      th:if="${reservationNotClosed.topo.officialTopo == true}">

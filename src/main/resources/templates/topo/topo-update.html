@@ -10,7 +10,7 @@
 <body>
 <div class="row">
     <div class="container">
-        <div class="card">
+        <div class="card col-10" style="padding: 0">
             <form method="post" th:action="@{/topo/update/{id}(id=${topo.id})}" th:object="${topo}">
                 <div class="card-panel">
                     <div class="row" style="justify-content: space-around">

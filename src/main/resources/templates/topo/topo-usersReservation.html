@@ -6,10 +6,11 @@
 
 <header th:insert="fragment/header :: header(barnav)"></header>
 <body>
-<div class="container">
-    <div class="row" style="justify-content: center">
-        <div class="card col-10">
-            <div class="card-heading">
+
+<div class="row" style="justify-content: center">
+    <div class="container col-10">
+        <div class="card" style="padding: 0">
+            <div class="card-header">
                 <h1>Liste de vos réservations en cours</h1>
             </div>
             <div class="card-panel">
@@ -24,21 +25,23 @@
                         </tr>
                     </thread>
                     <tbody>
-                    <tr th:each="reservationsNotClosed : ${reservationsNotClosed}">
-                        <td th:text="${reservationsNotClosed.topo.name}"></td>
-                        <td th:text="${reservationsNotClosed.topo.lieux}"></td>
-                        <td th:text="${reservationsNotClosed.topo.description}"></td>
-                        <td th:if="${reservationsNotClosed.reservationStatus}"></td>
-                        <td><a th:href="@{/topo/myreservation/{id}(id=${reservationsNotClosed.id})}"> détails </a></td>
+                    <tr th:each="reservationNotClosed : ${reservationsNotClosed}">
+                        <td th:text="${reservationNotClosed.topo.name}"></td>
+                        <td th:text="${reservationNotClosed.topo.lieux}"></td>
+                        <td th:text="${reservationNotClosed.topo.description}"></td>
+                        <td th:text="${reservationNotClosed.reservationStatus}"></td>
+                        <td><a th:href="@{/topo/myreservation/{id}(id=${reservationNotClosed.id})}"> détails </a></td>
                     </tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-    <div class="row" style="justify-content: center; padding-top: 5px">
-        <div class="card col-10">
-            <div class="card-heading">
+</div>
+<div class="row" style="justify-content: center; padding-top: 5px">
+    <div class="container col-10">
+        <div class="card" style="padding: 0">
+            <div class="card-header">
                 <h1>Liste de vos réservations en cours</h1>
             </div>
             <div class="card-panel">
@@ -57,7 +60,7 @@
                         <td th:text="${reservationsClosed.topo.name}"></td>
                         <td th:text="${reservationsClosed.topo.lieux}"></td>
                         <td th:text="${reservationsClosed.topo.description}"></td>
-                        <td th:if="${reservationsClosed.reservationStatus}"></td>
+                        <td th:text="${reservationsClosed.reservationStatus}"></td>
                         <td><a th:href="@{/topo/info/{id}(id=${reservationsClosed.topo.id})}"> détails </a></td>
                     </tr>
                     </tbody>

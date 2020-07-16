@@ -11,20 +11,15 @@ public class Voie {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-
     private String name;
-
     private int longueur;
-
     private String difficulte;
-
     @CreationTimestamp
     @Column(name = "created_at")
     private Date created_at;
     @Column(name = "update_at")
     @CreationTimestamp
     private Date update_at;
-
     @ManyToOne()
     private Site site;
 

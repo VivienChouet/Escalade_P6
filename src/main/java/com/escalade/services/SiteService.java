@@ -80,6 +80,15 @@ public class SiteService {
         return user.getId() == users;
     }
 
+    public List<Site> findByUserId() {
+        Users users = usersService.usersLogged();
+        return siteRepository.findByUsers(users);
+    }
+
+    public List<Site> research(String name, String contact) {
+        return siteRepository.findByNameOrContact(name, contact);
+    }
+
 
     // Création méthode si l'entity a déja une date de parution si vraie alors maj date de parution avec date actuelle sinon = null
     // Idem

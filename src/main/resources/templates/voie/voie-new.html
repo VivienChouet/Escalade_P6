@@ -2,50 +2,55 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 
-
 <head th:include="fragment/block :: headerFragment"></head>
 
 <header th:insert="fragment/header :: header(barnav)"></header>
-
 <body>
-<div class="row">
-    <div class="container col-10">
-        <div class="card">
-            <form method="post" th:action="@{/voie/update/{id}(id=${voie.id})}" th:object="${voie}">
+
+<div class="row" style="justify-content: center;padding-top: 5px">
+    <div class="container">
+        <div class="card col-10" style="padding : 0">
+            <div class="card-header">
+                <h1>Création d'un nouvelle voie</h1>
+            </div>
+            <form method="post" th:action="@{/voie/new}" th:object="${voie}">
                 <div class="card-panel">
                     <div class="row" style="justify-content: space-around">
 
                         <div class="form-group has-feedback" th:class="${#fields.hasErrors('name')}? has-error">
-                            <label>Nom du site :</label>
+                            <label>Nom de la Voie :</label>
                             <input class="form-control" id="name" placeholder="nom" th:field="*{name}">
                             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                             <span class="text-danger" th:errors="*{name}"
                                   th:if="${#fields.hasErrors('name')}"></span>
                         </div>
-                        <div class="form-group has-feedback" th:class="${#fields.hasErrors('name')}? has-error">
-                            <label>Adresse :</label>
+
+                        <div class="form-group has-feedback" th:class="${#fields.hasErrors('longueur')}? has-error">
+                            <label>Longueur :</label>
                             <input class="form-control" id="longueur" placeholder="longueur" th:field="*{longueur}">
                             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                             <span class="text-danger" th:errors="*{longueur}"
                                   th:if="${#fields.hasErrors('longueur')}"></span>
                         </div>
-                        <div class="form-group has-feedback" th:class="${#fields.hasErrors('di')}? has-error">
-                            <label>Contact :</label>
-                            <input class="form-control" id="contact" placeholder="contact" th:field="*{contact}">
-                            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                            <span class="text-danger" th:errors="*{contact}"
-                                  th:if="${#fields.hasErrors('contact')}"></span>
+                        <div class="form-group has-feedback" th:class="${#fields.hasErrors('difficulte')}? has-error">
+                            <label>Difficulté :</label>
+                            <select class="form-control" id="difficulte" th:field="*{difficulte}">
+                                <option th:value="facile">Facile</option>
+                                <option th:value="intermediaire">Intermediaire</option>
+                                <option th:value="difficile">Difficile</option>
+                            </select>
                         </div>
-                        <div class="form-group has-feedback" th:class="${#fields.hasErrors('name')}? has-error">
-                            <label>Topo :</label>
+                        <div class="form-group has-feedback" th:class="${#fields.hasErrors('site')}? has-error">
+                            <label>Site :</label>
                             <select class="form-control" th:field="*{site}">
                                 <option th:each="site : ${sites}"
                                         th:text="${site.name}"
                                         th:value="${site.id}"></option>
-
                             </select>
-
                         </div>
+
+
+                        <!--  Mettre en place un select permettant de choisir un topo parmis les topos en possesion de la personne logged  -->
 
 
                     </div>
@@ -60,10 +65,7 @@
         </div>
     </div>
 </div>
-
-
+</div>
 </body>
 <footer th:insert="fragment/footer :: footer"></footer>
-
-
 </html>

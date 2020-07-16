@@ -23,7 +23,7 @@ public class MessageService {
     @Autowired
     SiteRepository siteRepository;
 
-
+    @Autowired
     UsersService usersService;
 
 
@@ -39,4 +39,9 @@ public class MessageService {
         return messageRepository.findBySite_id(id);
     }
 
+    public void updateComment(Integer id, Message message) {
+        Message oldMessage = messageRepository.findById(id).get();
+        oldMessage.setContent(message.getContent());
+        messageRepository.save(oldMessage);
+    }
 }

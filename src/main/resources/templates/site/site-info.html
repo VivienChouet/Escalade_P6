@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 
 <head th:include="fragment/block :: headerFragment"></head>
@@ -8,89 +8,124 @@
 <header th:insert="fragment/header :: header(barnav)"></header>
 
 <body>
-
-<div class="card col-10" style="margin: auto">
-    <div class="card-body">
-        <div class="panel-heading">
-            <h1> Details du site</h1>
-        </div>
-        <div class="panel-body">
-            <div class="row" style="justify-content: center">
-                <div class="col-sm-4">
-                    <div class="card text-center">
-                        <div class="card-header">Nom du site</div>
-                        <p class="card-text" th:text="*{site.name}"></p>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="card text-center">
-                        <div class="card-header"> contact :</div>
-                        <p class="card-text" th:text="*{site.contact}"></p>
-                    </div>
-                </div>
+<div class="row">
+    <div class="container col-10">
+        <div class="card col-10" style="margin: auto; padding: 0">
+            <div class="card-header">
+                <h1> Details du site</h1>
             </div>
-            <div class="row" style="justify-content: center">
-                <div class="col-sm-8">
-                    <div class="card text-center" style="margin-top: 10px; justify-content: center">
-                        <div class="card-header">Adresse du site :</div>
-                        <p class="card-text" th:text="*{site.adresse}"></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="card col-10">
-    <div class="card-body">
-        <div class="panel-heading">
-            <h1>Liste des voies du site</h1>
-        </div>
-        <div class="panel-body">
-            <table class="table">
-                <thead>
-                <tr>
-                    <th scope="col">Nom</th>
-                    <th scope="col">Longueur</th>
-                    <th scope="col">Difficulté</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="voie : ${voies}">
-                    <td th:text="${voie.name}"/>
-                    <td th:text="${voie.longueur}"/>
-                    <td th:text="${voie.difficulte}"/>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-<div class="card col-10">
-    <div class="card-body">
-        <div class="panel-heading">
-            <h1>Commentaire : </h1>
-            <div class="card col-9">
-                <div class="panel-heading">
-                    <h1> Ajout d'un commentaire </h1>
-                </div>
-                <div class="panel-body">
-                    <form method="post" th:action="@{site/info/commentaire/{id}(id=${site.id})}"
-                          th:object="${message}">
-                        <div>
-                            <label>Commentaire :</label>
-                            <input class="form-control" th:field="*{content}">
+            <div class="panel-body">
+                <div class="row" style="justify-content: center; padding-top: 2rem">
+                    <div class="col-sm-4">
+                        <div class="card text-center">
+                            <div class="card-header">Nom du site</div>
+                            <p class="card-text" th:text="*{site.name}"></p>
                         </div>
-                        <div class="row" style="padding-top: 20px; justify-content: center; align-content: center">
-                            <div class="form-group col-xs-offset-8 col-xs-4">
-                                <button class="btn btn-primary btn-block btn-flat" type="submit">Enregistrer
-                                </button>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card text-center">
+                            <div class="card-header"> contact :</div>
+                            <p class="card-text" th:text="*{site.contact}"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="justify-content: center">
+                    <div class="col-sm-8">
+                        <div class="card text-center" style="margin-top: 10px; justify-content: center">
+                            <div class="card-header">Adresse du site :</div>
+                            <p class="card-text" th:text="*{site.adresse}"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="row" style="padding-top: 5px">
+    <div class="container col-10">
+        <div class="card col-10" style="margin: auto; padding: 0">
+            <div class="card-header">
+                <h1>Liste des voies du site</h1>
+            </div>
+            <div class="panel-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Longueur</th>
+                        <th scope="col">Difficulté</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="voie : ${site.voie}">
+                        <td th:text="${voie.name}"/>
+                        <td th:text="${voie.longueur}"/>
+                        <td th:text="${voie.difficulte}"/>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="row" sec:authorize="isAuthenticated()">
+    <div class="container col-10" style="padding-top: 5px">
+        <div class="card col-10" style="margin: auto; padding: 0; justify-content: center">
+            <div class="card-header">
+                <h1>Commentaire : </h1>
+            </div>
+            <div class="row" th:each="comment : ${listComment}">
+                <div class="container col-9" style="padding-top: 5px">
+                    <div class="card" style="padding: 0">
+                        <div class="card-header">
+                            <div class="row" style="justify-content: space-around">
+                                <div><h5> Nom : </h5> <a th:text="*{comment.users.name}"/></div>
+                                <div><h5> Date : </h5> <a th:text="*{comment.created_at}"/></div>
                             </div>
                         </div>
-                    </form>
-                </div>
-                <div class="panel-body">
+                        <div class="card-text" th:text="*{comment.content}">
+                        </div>
+                        <div class="container" style="margin: auto ; padding-top: 5px">
+                            <form th:action="@{/site/commentaire/gestion/{id}(id=${site.id})}">
+                                <div class="row"
+                                     style="padding-top: 20px; justify-content: center; align-content: center">
+                                    <div class="form-group col-xs-offset-8 col-xs-4">
+                                        <button class="btn btn-primary btn-block btn-flat" type="submit">Modifier le
+                                            commentaire
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <div class="row" style="padding-top: 5px">
+                <div class="container col-9">
+                    <div class="card" style=" justify-content: center; margin: auto">
+                        <div class="card-header">
+                            <h3> Ajout d'un commentaire </h3>
+                        </div>
+                        <form method="post" th:action="@{/site/info/commentaire/{id}(id=${site.id})}"
+                              th:object="${newComment}">
+                            <div class>
+                                <input class="form-control" th:field="*{content}">
+                            </div>
+                            <div class="row"
+                                 style="padding-top: 20px; justify-content: center; align-content: center">
+                                <div class="form-group col-xs-offset-8 col-xs-4">
+                                    <button class="btn btn-primary btn-block btn-flat" type="submit">Enregistrer
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 <footer th:insert="fragment/footer :: footer"></footer>
 
