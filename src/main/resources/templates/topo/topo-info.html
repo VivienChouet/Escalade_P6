@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head th:include="fragment/block :: headerFragment"></head>
 
@@ -15,7 +15,7 @@
             </div>
             <div class="row col-1" style=" justify-content: flex-end ; padding-top: 5px"
                  th:if="${topo.officialTopo == true}">
-                <img class="img-fluid" src="/assets/approuved.jpg">
+                <img class="img-fluid" src="/assets/approuved.png">
 
             </div>
             <div class="panel-body" style="padding-top: 10px">
@@ -46,14 +46,15 @@
 
                     <form class="form-inline" method="post"
                           th:action="@{/topo/reservation/{id}(id=${topo.id})}"
-                          th:if="${topo.isAvailable() == true && topo.isAvailable() == true}">
+                          th:if="${topo.isAvailable() == true && corrsepondance == false}">
                         <button class="btn btn-primary" type="submit">
                             Reserver
                         </button>
                     </form>
 
 
-                    <form class="form-inline" method="post" th:action="@{/topo/officialTopo/{id}(id=${topo.id})}"
+                    <form class="form-inline" method="post" sec:authorize="hasRole('ADMIN')"
+                          th:action="@{/topo/officialTopo/{id}(id=${topo.id})}"
                           th:if="${topo.officialTopo == false}">
                         <button class="btn btn-primary" type="submit">Mettre le topo en topo officiel
                         </button>

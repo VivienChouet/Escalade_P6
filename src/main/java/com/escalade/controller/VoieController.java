@@ -27,7 +27,7 @@ public class VoieController {
     public String ajoutVoie(Model model) {
         Voie voie = new Voie();
         List<Site> site = siteService.findByUser();
-        model.addAttribute("pageTitle", "Gestion Voie");
+        model.addAttribute("pageTitle", "Ajout Voie");
         model.addAttribute("sites", site);
         model.addAttribute("voie", voie);
         return "voie/voie-new";
@@ -41,6 +41,7 @@ public class VoieController {
 
     @RequestMapping(value = "voie/list")
     public String voieList(Model model) {
+        model.addAttribute("pageTitle", "Liste des Voies");
         model.addAttribute("voie", voieService.findAll());
         return "voie/voie-list";
     }
@@ -48,6 +49,8 @@ public class VoieController {
     @RequestMapping(value = "/voie/update/{id}", method = RequestMethod.GET)
     public String updateVoie(@PathVariable("id") Integer id, Model model) {
         Voie voie = this.voieService.findById(id);
+        List<Site> sites = this.siteService.findByUser();
+        model.addAttribute("sites", sites);
         model.addAttribute("voie", voie);
         model.addAttribute("pageTitle", "Update voie");
         return "voie/voie-update";
@@ -59,4 +62,20 @@ public class VoieController {
         return "voie/voie-list";
     }
 
+    @RequestMapping(value = "/voie/gestion")
+    public String gestionVoie(Model model) {
+        List<Voie> voies = this.voieService.findBySite_User_Id();
+        model.addAttribute("pageTitle", "Gestion Voie");
+        model.addAttribute("voies", voies);
+
+        return "voie/voie-gestion";
+    }
+
+    @RequestMapping(value = "/voie/info/{id}")
+    public String infoVoie(@PathVariable("id") Integer id, Model model) {
+        Voie voie = this.voieService.findById(id);
+        model.addAttribute("pageTitle", "infos Voie");
+        model.addAttribute("voie", voie);
+        return "voie/voie-info";
+    }
 }

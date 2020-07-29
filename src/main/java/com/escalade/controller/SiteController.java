@@ -115,9 +115,22 @@ public class SiteController {
         return "site/site-updatecomment";
     }
 
+    @RequestMapping(value = "site/commentaire/modify/{id}", method = RequestMethod.GET)
+    public String modidificationCommentaireForms(@PathVariable("id") Integer id, Model model) {
+        Message message = this.messageService.findById(id);
+        model.addAttribute("modifyContent", message);
+        return "site/site-updatecomment";
+    }
+
     @RequestMapping(value = "site/commentaire/modify/{id}", method = RequestMethod.POST)
-    public ModelAndView modidificationCommentaireForms(@PathVariable("id") Integer id, Message message) {
+    public ModelAndView modifiactionCommentaireForms(@PathVariable("id") Integer id, Message message) {
         messageService.updateComment(id, message);
+        return new ModelAndView("redirect:/site/list");
+    }
+
+    @RequestMapping(value = "site/commentaire/delete/{id}")
+    public ModelAndView deleteComment(@PathVariable("id") Integer id) {
+        messageService.deleteComment(id);
         return new ModelAndView("redirect:/site/list");
     }
 

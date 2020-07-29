@@ -1,5 +1,6 @@
 package com.escalade.services;
 
+import com.escalade.entity.Users;
 import com.escalade.entity.Voie;
 import com.escalade.repositories.VoieRepository;
 import com.escalade.utility.LoggingController;
@@ -14,6 +15,9 @@ import java.util.List;
 public class VoieService {
     @Autowired
     VoieRepository voieRepository;
+
+    @Autowired
+    UsersService usersService;
 
     Logger logger = LoggerFactory.getLogger(LoggingController.class);
 
@@ -43,4 +47,8 @@ public class VoieService {
     }
 
 
+    public List<Voie> findBySite_User_Id() {
+        Users userlogged = usersService.usersLogged();
+        return voieRepository.findBySiteUsers(userlogged);
+    }
 }

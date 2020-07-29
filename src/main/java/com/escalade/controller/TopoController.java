@@ -82,8 +82,10 @@ public class TopoController {
     public String infoTopo(@PathVariable("id") Integer id, Model model) {
         Topo topo = this.topoService.findById(id);
         List<Site> sites = this.siteService.findByIdTopo(id);
+        boolean corrsepondance = this.topoService.correspondanceUser(id);
         model.addAttribute("topo", topo);
         model.addAttribute("site", sites);
+        model.addAttribute("corrsepondance", corrsepondance);
         return "topo/topo-info";
     }
 

@@ -55,15 +55,10 @@ public class AdminController {
         return "update_user";
     }
 
-    @RequestMapping(value = "/update_user", method = RequestMethod.POST)
-    public String ChangeRole(@ModelAttribute Users user, BindingResult result, Model model) {
+    @RequestMapping(value = "/update_user/{id}", method = RequestMethod.POST)
+    public String ChangeRole(@PathVariable("id") Integer id, @ModelAttribute Users user, BindingResult result, Model model, Role role) {
         System.out.println("user" + user + "ok");
-        if (result.hasErrors()) {
-            model.addAttribute("user", user);
-            logger.error(user + " :  error");
-            return "home";
-        }
-        usersService.ChangeRoleUser(user);
+        usersService.ChangeRoleUser(user, id);
         return "home";
     }
 

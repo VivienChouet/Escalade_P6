@@ -36,6 +36,9 @@ public class RegistrationController {
             System.out.println(users);
             return "registration";
         }
+        if (usersService.emailExists(users.getEmail())) {
+            return "registration";
+        }
         System.out.println(users);
         usersService.registerNewUserAccount(users);
         return "home";

@@ -8,69 +8,6 @@
 <header th:insert="fragment/header :: header(barnav)"></header>
 
 <body>
-<div class="row">
-    <div class="container">
-        <div class="card col-10" style="margin: auto">
-            <div class="card-body">
-                <div class="panel-heading">
-                    <h1> Details du site</h1>
-                </div>
-                <div class="panel-body">
-                    <div class="row" style="justify-content: center">
-                        <div class="col-sm-4">
-                            <div class="card text-center">
-                                <div class="card-header">Nom du site</div>
-                                <p class="card-text" th:text="*{site.name}"></p>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="card text-center">
-                                <div class="card-header"> contact :</div>
-                                <p class="card-text" th:text="*{site.contact}"></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row" style="justify-content: center">
-                        <div class="col-sm-8">
-                            <div class="card text-center" style="margin-top: 10px; justify-content: center">
-                                <div class="card-header">Adresse du site :</div>
-                                <p class="card-text" th:text="*{site.adresse}"></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row" style="padding-top: 5px">
-    <div class="container">
-        <div class="card col-10" style="margin: auto">
-            <div class="card-body">
-                <div class="panel-heading">
-                    <h1>Liste des voies du site</h1>
-                </div>
-                <div class="panel-body">
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th scope="col">Nom</th>
-                            <th scope="col">Longueur</th>
-                            <th scope="col">Difficulté</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr th:each="voie : ${site.voie}">
-                            <td th:text="${voie.name}"/>
-                            <td th:text="${voie.longueur}"/>
-                            <td th:text="${voie.difficulte}"/>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 <div class="row" sec:authorize="isAuthenticated()">
     <div class="container" style="padding-top: 5px">
@@ -78,15 +15,17 @@
             <div class="card-body">
                 <div class="panel-heading">
                     <h1>Commentaire : </h1>
-                    <div class="card col-10" style="padding-top: 5px; margin: auto" th:each="comments : ${listComment}">
+                    <div class="card col-10" style="padding-top: 5px; margin: auto">
 
-                        <div class="card-body">
-                            <div class="card-header">
-                                Nom : <a th:text="*{comments.users.name}"/>
-                                Date : <a th:text="*{comments.created_at}"/>
-                            </div>
-                            <form th:action="@{/site/commentaire/modify/{id}(id=${comments.id})}"
-                                  th:object="${modifyComment}">
+                        <form method="post" th:action="@{/site/commentaire/modify/{id}(id=${modifyComment.id})}"
+                              th:object="${modifyComment}">
+
+                            <div class="card-body">
+                                <div class="card-header">
+                                    Nom : <a th:text="*{users.name}"/>
+                                    Date : <a th:text="*{created_at}"/>
+                                </div>
+
 
                                 <div class="form-group has-feedback"
                                      th:class="${#fields.hasErrors('content')}? has-error">
@@ -102,33 +41,14 @@
                                         mofification
                                     </button>
                                 </div>
-                            </form>
-                        </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="card col-9" style="padding-top: 5px; justify-content: center; margin: auto">
-            <div class="card-header">
-                <h3> Ajout d'un commentaire </h3>
-            </div>
-            <div class="panel-body">
-                <form method="post" th:action="@{/site/info/commentaire/{id}(id=${site.id})}"
-                      th:object="${newComment}">
-                    <div class>
-                        <input class="form-control" th:field="*{content}">
-                    </div>
-                    <div class="row"
-                         style="padding-top: 20px; justify-content: center; align-content: center">
-                        <div class="form-group col-xs-offset-8 col-xs-4">
-                            <button class="btn btn-primary btn-block btn-flat" type="submit">Enregistrer
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
     </div>
+</div>
 </div>
 </div>
 </body>

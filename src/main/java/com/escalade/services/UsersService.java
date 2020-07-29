@@ -8,11 +8,13 @@ import com.escalade.utility.LoggingController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -44,7 +46,7 @@ public class UsersService {
             throw new UserAlreadyExistException("There is an account with that email adress: " + users.getEmail());
 
         }
-        final String role = "USER_ROLES";
+        final String role = "ROLE_USER";
         users.setName(users.getName());
         users.setPassword(passwordEncoder.encode(users.getPassword()));
         users.setEmail(users.getEmail());
@@ -56,14 +58,15 @@ public class UsersService {
     /**
      * Edit the user role only
      *
-     * @param role
+     * @param users
      */
-    //  @PreAuthorize("hasRole('ROLE_ADMIN')")
-    public void ChangeRoleUser(Users role) {
-
-        role.setRoles(Arrays.asList(rolesRepository.findByName("role")));
-        logger.debug("ChangeRoleUser : " + role);
-        usersRepository.save(role);
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    public void ChangeRoleUser(Users users, Integer id) {
+        Users usersold = this.usersRepository.findById(id).get();
+        usersold.setUpdate_at(new Date());
+        usersold.setRoles(users.getRoles());
+        logger.debug("ChangeRoleUser : " + users);
+        usersRepository.save(usersold);
 
     }
 
@@ -108,7 +111,7 @@ public class UsersService {
         return usersRepository.findById(id);
     }
 
-    private boolean emailExists(final String email) {
+    public boolean emailExists(final String email) {
         logger.debug("find email : " + email);
         return usersRepository.findByEmail(email) != null;
     }

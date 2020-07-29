@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+
+<head th:include="fragment/block :: headerFragment"></head>
+
+<header th:insert="fragment/header :: header(barnav)"></header>
+
+<body>
+<div class="row">
+    <div class="container col-10">
+        <div class="card col-10" style="margin: auto; padding: 0">
+            <div class="card-header">
+                <h1> Details de la voie</h1>
+            </div>
+            <div class="panel-body">
+                <div class="row" style="justify-content: center; padding-top: 2rem">
+                    <div class="col-sm-4">
+                        <div class="card text-center">
+                            <div class="card-header">Nom de la voie</div>
+                            <p class="card-text" th:text="*{voie.name}"></p>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="card text-center">
+                            <div class="card-header"> longueur</div>
+                            <p class="card-text" th:text="*{voie.longueur}"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="justify-content: center">
+                    <div class="col-sm-8">
+                        <div class="card text-center" style="margin-top: 10px; justify-content: center">
+                            <div class="card-header">difficulté :</div>
+                            <p class="card-text" th:text="*{voie.difficulte}"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<footer th:insert="fragment/footer :: footer"></footer>
+</html>

@@ -87,12 +87,22 @@
                         </div>
                         <div class="card-text" th:text="*{comment.content}">
                         </div>
-                        <div class="container" style="margin: auto ; padding-top: 5px">
-                            <form th:action="@{/site/commentaire/gestion/{id}(id=${site.id})}">
+                        <div class="container" style="margin: auto ; padding-top: 5px ; justify-content: space-between">
+                            <form th:action="@{/site/commentaire/modify/{id}(id=${comment.id})}">
                                 <div class="row"
                                      style="padding-top: 20px; justify-content: center; align-content: center">
                                     <div class="form-group col-xs-offset-8 col-xs-4">
                                         <button class="btn btn-primary btn-block btn-flat" type="submit">Modifier le
+                                            commentaire
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                            <form th:action="@{/site/commentaire/delete/{id}(id=${comment.id})}">
+                                <div class="row"
+                                     style="padding-top: 20px; justify-content: center; align-content: center">
+                                    <div class="form-group col-xs-offset-8 col-xs-4">
+                                        <button class="btn btn-primary btn-block btn-flat" type="submit">supprimer le
                                             commentaire
                                         </button>
                                     </div>
@@ -126,6 +136,7 @@
             </div>
         </div>
     </div>
+</div>
 </body>
 <footer th:insert="fragment/footer :: footer"></footer>
 

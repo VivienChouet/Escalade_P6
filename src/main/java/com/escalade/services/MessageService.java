@@ -44,4 +44,13 @@ public class MessageService {
         oldMessage.setContent(message.getContent());
         messageRepository.save(oldMessage);
     }
+
+    public void deleteComment(Integer id) {
+        Message message = this.messageRepository.findById(id).get();
+        messageRepository.delete(message);
+    }
+
+    public Message findById(Integer id) {
+        return messageRepository.findById(id).get();
+    }
 }

@@ -6,19 +6,19 @@
 
 <header th:insert="fragment/header :: header(barnav)"></header>
 
-<div class="containter">
-    <div class="row" style="padding-top: 5px; padding-bottom: 5px; justify-content: space-around">
-
-    </div>
-    <div class="card col-10" style="margin: auto ; padding: 0 ">
-        <div class="card-body">
+<body>
+<div class="row">
+    <div class="container col-10">
+        <div class="card" style="margin: auto ; padding: 0">
             <div class="card-header">
                 <h1> Details du topo</h1>
-                <div class="row col-1" style="justify-content: flex-end"
-                     th:if="${reservationNotClosed.topo.officialTopo == true}">
-                    <img class="img-fluid" src="/assets/approuved.jpg">
-                </div>
             </div>
+            <div class="row col-1" style=" justify-content: flex-end ; padding-top: 5px"
+                 th:if="${reservationNotClosed.topo.officialTopo == true}">
+                <img class="img-fluid" src="/assets/approuved.png">
+
+            </div>
+
             <div class="panel-body">
                 <div class="row" style="justify-content: center">
                     <div class="col-sm-4">
@@ -45,27 +45,26 @@
             </div>
         </div>
     </div>
-    <div class="row" style="justify-content: center ; padding-top: 10px"
-         th:if="${reservationNotClosed.acceptedReservation} == true">
-        <div class="card col-10" style="padding: 0">
-            <div class="card-body">
-                <div class="card-heading">
-                    <h1>Réservation en cours voulez vous mettre un terme a votre reservatione :</h1>
-                </div>
-                <div class="panel-body" style="padding-top: 5px">
-                    <div class="row" style="justify-content: space-around">
-                        <div class="col-sm-4">
-                            <form th:action="@{/topo/reservationEnded/{id}(id=${reservationNotClosed.id})}">
-                                <button class="btn btn-primary btn-block btn-flat" type="submit">Terminer ma reservation
-                                </button>
-                            </form>
-                        </div>
+</div>
+<div class="row" th:if="${reservationNotClosed.acceptedReservation} == true">
+    <div class="container col-10">
+        <div class="card" style="margin: auto ; padding: 0">
+            <div class="card-heading">
+                <h1>Réservation en cours voulez vous mettre un terme a votre reservatione :</h1>
+            </div>
+            <div class="panel-body" style="padding-top: 5px">
+                <div class="row" style="justify-content: space-around">
+                    <div class="col-sm-4">
+                        <form th:action="@{/topo/reservationEnded/{id}(id=${reservationNotClosed.id})}">
+                            <button class="btn btn-primary btn-block btn-flat" type="submit">Terminer ma
+                                reservation
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 <div class="card col-10" style="margin-top: 20px; margin-left: auto; margin-right: auto">
     <div class="card-body">
