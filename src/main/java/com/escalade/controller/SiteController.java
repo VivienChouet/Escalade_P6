@@ -118,7 +118,10 @@ public class SiteController {
     @RequestMapping(value = "site/commentaire/modify/{id}", method = RequestMethod.GET)
     public String modidificationCommentaireForms(@PathVariable("id") Integer id, Model model) {
         Message message = this.messageService.findById(id);
+        System.out.println(message);
+        System.out.println("id message" + message.getId());
         model.addAttribute("modifyContent", message);
+        messageService.updateComment(id, message);
         return "site/site-updatecomment";
     }
 

@@ -7,7 +7,6 @@
 <header th:insert="fragment/header :: header(barnav)"></header>
 
 
-
 <body>
 <div class="row" style="justify-content: center; align-content: center; padding-top: 2%">
     <div class="card col-md-4" id="registration"
@@ -35,7 +34,7 @@
                             <label for="email">
                                 email :
                             </label>
-                            <input class="form-control" id="email" placeholder="email" th:field="*{email}" type="text">
+                            <input class="form-control" id="email" placeholder="email" th:field="*{email}" type="email">
                             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                             <span class="text-danger" th:errors="*{email}" th:if="${#fields.hasErrors('email')}"></span>
                         </div>

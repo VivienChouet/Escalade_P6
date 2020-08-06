@@ -69,4 +69,15 @@ public class Message {
     public void setContent(String content) {
         this.content = content;
     }
+
+    @Override
+    public String toString() {
+        return "Message{" +
+                "id=" + id +
+                ", content='" + content + '\'' +
+                ", created_at=" + created_at +
+                ", site=" + site +
+                ", users=" + users +
+                '}';
+    }
 }

@@ -32,9 +32,10 @@
                         <td th:text="${user.email}"></td>
                         <td th:text="${user.name}"></td>
                         <td th:text="${user.created_at}"></td>
-                        <td @{ th:if="${user.roles} == [ROLE_USER] ></td>
-                        <td><a th:href="
-                        /update/{id}(id=${user.id})}">Edit</a></td>
+                        <td th:if="${users.roles.contains('ROLE_USER')}"> User
+                        </td>
+                        <td><a th:href=" @{
+                            /update/{id}(id=${user.id})}">Edit</a></td>
                         <td><a th:href="@{/delete/{id}(id=${user.id})}">Delete</a></td>
                     </tr>
                     </tbody>

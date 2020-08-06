@@ -11,7 +11,7 @@
     <div class="panel col-md-5" id="Login"
          style="width: 100% ;background: whitesmoke; justify-items: center; align-items: center">
         <div class="panel panel-primary">
-            <div class="panel-heading"><h1>Registration Form</h1></div>
+            <div class="panel-heading"><h1>Login Form</h1></div>
             <div class="panel-body">
                 <form action="/" method="post" th:action="@{/login}">
                     <div class="form-group has-feedback">
@@ -42,18 +42,17 @@
                                  th:if="${param.error}">
                                 <p>
                                     <i class="icon fa fa-ban"></i> <span
-                                        th:text="#{error.login_failed}">Invalid Email and
-           Password.</span>
+                                        th:text="#{error.login_failed}">Invalid Email and Password.</span>
                                 </p>
                             </div>
                             <div class="alert alert-info alert-dismissable"
                                  th:if="${param.logout}">
                                 <p>
                                     <i class="icon fa fa-info"></i> <span
-                                        th:text="#{info.logout_success}">You have been logged
-           out.</span>
+                                        th:text="#{info.logout_success}">You have been logged out.</span>
                                 </p>
                             </div>
+
                             <div class="alert alert-warning alert-dismissable"
                                  th:if="${msg!=null}">
                                 <p>
