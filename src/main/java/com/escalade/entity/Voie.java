@@ -43,8 +43,8 @@ public class Voie {
         return difficulte;
     }
 
-    public void setDifficulte(String difficulté) {
-        this.difficulte = difficulté;
+    public void setDifficulte(String difficulte) {
+        this.difficulte = difficulte;
     }
 
     public Date getCreated_at() {

@@ -31,7 +31,9 @@ public class ReservationService {
     @Autowired
     ReservationRepository reservationRepository;
 
-
+    /**
+     * @param id Save Reservation
+     */
     public void newReservation(Integer id) {
         Users userslogged = usersService.usersLogged();
         Reservation reservation = new Reservation();
@@ -51,6 +53,10 @@ public class ReservationService {
         return reservation.getReservationStatus() == "disponible";
     }
 
+    /**
+     * @param id Accepted Reservation
+     */
+
     public void acceptationReservation(Integer id) {
         Reservation reservation = this.reservationRepository.findById(id).get();
         reservation.setReservationStatus("Reservation validée");
@@ -61,6 +67,10 @@ public class ReservationService {
 
     }
 
+    /**
+     * @param id Refuse Reservation
+     */
+
     public void refuseReservation(Integer id) {
         Reservation reservation = this.reservationRepository.findById(id).get();
         reservation.setReservationStatus("Reservation refusée");
@@ -70,6 +80,10 @@ public class ReservationService {
         logger.info("Reservation refused : " + id);
     }
 
+    /**
+     * @param id Close Reservation
+     */
+
     public void endReservation(Integer id) {
         Reservation reservation = this.reservationRepository.findById(id).get();
         reservation.setReservationStatus("Reservation terminée");
@@ -77,19 +91,29 @@ public class ReservationService {
         reservation.setCloseReservation(true);
         reservationRepository.save(reservation);
         logger.info("Reservation terminée" + id);
-
-
     }
 
+    /**
+     * @param id
+     * @return Topo Find By Id && Not Closed
+     */
     public Reservation findByTopo_idAndNotClosed(Integer id) {
         logger.info("find by topo_id and not closed");
         return reservationRepository.findByTopo_IdAndCloseReservation(id, false);
     }
 
+    /**
+     * @param id
+     * @return List Reservation Find By Topo Id
+     */
     public List<Reservation> listFindByTopo_id(Integer id) {
         return reservationRepository.findByTopo_Id(id);
     }
 
+    /**
+     * @param id
+     * @return Topo find By Reservation Id
+     */
     public Integer findTopoId(Integer id) {
         Reservation reservation = this.reservationRepository.findById(id).get();
         Topo topo = reservation.getTopo();
@@ -97,12 +121,18 @@ public class ReservationService {
         return topo.getId();
     }
 
+    /**
+     * @return List Reservation Find By Close False && Accepted False && UsersLogged
+     */
     public List<Reservation> findReservationNeededAction() {
         Users userslogged = usersService.usersLogged();
         logger.info("Find Rerservation who needed action");
         return reservationRepository.findByCloseReservationAndAcceptedReservationAndTopo_Users(false, false, userslogged);
     }
 
+    /**
+     * @return List Reservation Find By UsersLogged && Reservation False
+     */
 
     public List<Reservation> findByUsersAndNotClosed() {
         Users userslogged = usersService.usersLogged();
@@ -110,16 +140,27 @@ public class ReservationService {
         return reservationRepository.findByUsersAndCloseReservation(userslogged, false);
     }
 
+    /**
+     * @return List Reservation Find By UsersLogged && Reservation True
+     */
     public List<Reservation> findByUsersAndClosed() {
         Users userslogged = usersService.usersLogged();
         logger.info("find List reservation  on user logged");
         return reservationRepository.findByUsersAndCloseReservation(userslogged, true);
     }
 
+    /**
+     * @param id
+     * @return Reservation Find By Id && Reservation False
+     */
     public Reservation findByIdAndNotClosed(Integer id) {
         return reservationRepository.findByIdAndCloseReservation(id, false);
     }
 
+    /**
+     * @param id
+     * @return List Reservation Find By Topo Id
+     */
     public List<Reservation> listTopoFindByIdReservation(Integer id) {
         Reservation reservation = this.reservationRepository.findById(id).get();
         Topo topo = reservation.getTopo();

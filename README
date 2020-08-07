@@ -1,22 +1,19 @@
 Site internet conçu pour répondre aux besoin du projet 6 du parcours dévellopeur JAVA de openclassroom.
 
-Description :
 
+Description :
 Ce site internet à pour but de recueillir différents TOPO receuillant chacun différente voie d'éscalade. Les utilisateurs pourront par le biais de ce site échanger sur les différents site d'escalade.
 Il pourront également réserver un site si celui-ci leurs convient et laisser des commentaire sur celui-ci.
 
-Correction apporté :
+Mise en place de l'application de la BDD:
+Base de donné de démo est disponible sous le nom de datademo.sql. Vous trouverez dedans toutes l'implémentation d'un jeux de donnée permettant de tester les fonctionnalités de l'application.
 
-- Ajout de la fonction updateat sur l'entity user
-- Ajout des logs sur les différents service
-- Ajout des Topos + Site
-- Correction des bugs de liaisons
-- Mise en place de la partie update
+Login des utilisateur enregistré dans la version de démonstration (email / mot de passe) :
+Admin@admin.com / admin
+Actuator@actuator.com / actuator
+user1@user.com / user
+user2@user.com / user
 
 
-Bug à corriger :
 
-- La vérification des emails lors de l'enregistrement d'un nouveau membres n'est pas fonctionnel et reconnait toutes les adresse email comme existante.
-- La suppression d'un membre n'est pas fonctionnel en raison de l'id qui est utilisé sur différentes table (mettre en place un delete sur toutes les tables).
-- Le changement de role n'est pas encore foncionnel méthode à créer dans le service.
-- Si un utilisateur à plusieurs ou aucun topo la page site/gestion se met en erreur.
+

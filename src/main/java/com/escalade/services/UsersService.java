@@ -99,27 +99,44 @@ public class UsersService {
         return user_id.getId();
     }
 
+    /**
+     * @return Users
+     */
 
     public List<Users> findAll() {
         logger.debug("findAll List User");
         return usersRepository.findAll();
     }
 
+    /**
+     * @param id
+     * @return List Users
+     */
 
     public Optional<Users> findById(final Integer id) {
         logger.debug("findById Id  = " + id);
         return usersRepository.findById(id);
     }
 
+    /**
+     * @param email
+     * @return null if email exist
+     */
     public boolean emailExists(final String email) {
         logger.debug("find email : " + email);
         return usersRepository.findByEmail(email) != null;
     }
 
+    /**
+     * @param id Delete Users
+     */
+    public void delete(Integer id) {
+        Users users = usersRepository.findById(id).get();
+        usersRepository.delete(users);
+    }
 
-    public void delete(Users user) {
-        logger.debug("delete : " + user);
-        usersRepository.delete(user);
+    public void rolesActuatorOrAdmin() {
+
     }
 
 }

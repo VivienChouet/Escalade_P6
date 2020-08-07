@@ -30,10 +30,16 @@ public class SiteService {
     @Autowired
     TopoRepository topoRepository;
 
+    /**
+     * @return List Site
+     */
     public List<Site> findAll() {
         return siteRepository.findAll();
     }
 
+    /**
+     * @param site Save New Site
+     */
     public void newSite(Site site) {
         logger.info("New Site = " + site);
         logger.info("Update Site = " + site);
@@ -45,6 +51,9 @@ public class SiteService {
 
     }
 
+    /**
+     * @param site Update Site
+     */
     public void updateSite(Site site) {
         logger.info("Update Site = " + site);
         String username = usersService.UserLoggedEmail();
@@ -55,16 +64,27 @@ public class SiteService {
 
     }
 
+    /**
+     * @param id
+     * @return Site By Id
+     */
     public Site findById(Integer id) {
         logger.info("findById = " + id);
         return siteRepository.findById(id).get();
     }
 
+    /**
+     * @param id
+     * @return List Site By Topo Id
+     */
     public List<Site> findByIdTopo(Integer id) {
         logger.info("findByIdTopo = " + id);
         return siteRepository.findBytopo_id(id);
     }
 
+    /**
+     * @return List Site By UserLogged
+     */
     public List<Site> findByUser() {
         String username = usersService.UserLoggedEmail();
         Users users = usersRepository.findByEmail(username);
@@ -80,11 +100,19 @@ public class SiteService {
         return user.getId() == users;
     }
 
+    /**
+     * @return List Site By User Id
+     */
     public List<Site> findByUserId() {
         Users users = usersService.usersLogged();
         return siteRepository.findByUsers(users);
     }
 
+    /**
+     * @param name
+     * @param contact
+     * @return List Site Find By Name Or Contact
+     */
     public List<Site> research(String name, String contact) {
         return siteRepository.findByNameOrContact(name, contact);
     }

@@ -93,7 +93,6 @@ public class TopoController {
     @RequestMapping(value = "/topo/update/{id}", method = RequestMethod.POST)
     public ModelAndView updateTopo(@PathVariable("id") Integer id, Topo topo, RedirectAttributes attributes) {
         topo.setId(id);
-        logger.info("Log Topo POST = " + topo);
         topoService.updateTopo(topo);
         return new ModelAndView("redirect:/topo/list");
     }
@@ -164,7 +163,7 @@ public class TopoController {
         List<Reservation> listReservationClosed = this.reservationService.findByUsersAndClosed();
         model.addAttribute("reservationsNotClosed", listReservationsNotClosed);
         model.addAttribute("reservationClosed", listReservationClosed);
-        logger.info("list reservationClosed = " + listReservationClosed);
+
 
         return "topo/topo-usersReservation";
     }

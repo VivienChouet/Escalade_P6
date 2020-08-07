@@ -87,53 +87,54 @@
                         </div>
                         <div class="card-text" th:text="*{comment.content}">
                         </div>
-                        <div class="container" sec:authorize="hasRole('ACTUATOR')"
-                             style="margin: auto ; padding-top: 5px ; justify-content: space-between">
-                            <form th:action="@{/site/commentaire/modify/{id}(id=${comment.id})}">
-                                <div class="row"
-                                     style="padding-top: 20px; justify-content: center; align-content: center">
-                                    <div class="form-group col-xs-offset-8 col-xs-4">
-                                        <button class="btn btn-primary btn-block btn-flat" type="submit">Modifier le
-                                            commentaire
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                            <form th:action="@{/site/commentaire/delete/{id}(id=${comment.id})}">
-                                <div class="row"
-                                     style="padding-top: 20px; justify-content: center; align-content: center">
-                                    <div class="form-group col-xs-offset-8 col-xs-4">
-                                        <button class="btn btn-primary btn-block btn-flat" type="submit">supprimer le
-                                            commentaire
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+
                     </div>
+                    </form>
                 </div>
             </div>
-            <div class="row" style="padding-top: 5px">
-                <div class="container col-9">
-                    <div class="card" style=" justify-content: center; margin: auto">
-                        <div class="card-header">
-                            <h3> Ajout d'un commentaire </h3>
+        </div>
+    </div>
+    <div class="row" style="padding-top: 5px">
+        <div class="container col-9">
+            <div class="container" sec:authorize="hasRole('ACTUATOR')"
+                 style="margin: auto ; padding-top: 5px ; justify-content: space-between">
+                <form th:action="@{/site/commentaire/modify/{id}(id=${comment.id})}">
+                    <div class="row"
+                         style="padding-top: 20px; justify-content: center; align-content: center">
+                        <div class="form-group col-xs-offset-8 col-xs-4">
+                            <button class="btn btn-primary btn-block btn-flat" type="submit">Modifier le
+                                commentaire
+                            </button>
                         </div>
-                        <form method="post" th:action="@{/site/info/commentaire/{id}(id=${site.id})}"
-                              th:object="${newComment}">
-                            <div class>
-                                <input class="form-control" th:field="*{content}">
-                            </div>
-                            <div class="row"
-                                 style="padding-top: 20px; justify-content: center; align-content: center">
-                                <div class="form-group col-xs-offset-8 col-xs-4">
-                                    <button class="btn btn-primary btn-block btn-flat" type="submit">Enregistrer
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
                     </div>
-                </div>
+                </form>
+                <form th:action="@{/site/commentaire/delete/{id}(id=${comment.id})}">
+                    <div class="row"
+                         style="padding-top: 20px; justify-content: center; align-content: center">
+                        <div class="form-group col-xs-offset-8 col-xs-4">
+                            <button class="btn btn-primary btn-block btn-flat" type="submit">supprimer le
+                                commentaire
+                            </button>
+                        </div>
+                        <div class="card" style=" justify-content: center; margin: auto">
+                            <div class="card-header">
+                                <h3> Ajout d'un commentaire </h3>
+                            </div>
+                            <form method="post" th:action="@{/site/info/commentaire/{id}(id=${site.id})}"
+                                  th:object="${newComment}">
+                                <div class>
+                                    <input class="form-control" th:field="*{content}">
+                                </div>
+                                <div class="row"
+                                     style="padding-top: 20px; justify-content: center; align-content: center">
+                                    <div class="form-group col-xs-offset-8 col-xs-4">
+                                        <button class="btn btn-primary btn-block btn-flat" type="submit">Enregistrer
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
             </div>
         </div>
     </div>
