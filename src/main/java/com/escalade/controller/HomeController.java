@@ -18,6 +18,5 @@ public class HomeController {
     public String Home(Model model, HttpServletRequest request) {
         model.addAttribute("pageTitle", "Home Page");
         return "home";
-        // test //
     }
 }
