@@ -33,7 +33,6 @@ public class TopoService {
     /**
      * @return List Topo
      */
-
     public List<Topo> findAll() {
         logger.debug("findAll List Topo");
         return topoRepository.findAll();
@@ -42,7 +41,6 @@ public class TopoService {
     /**
      * @param topo Save New Topo
      */
-
     public void RegisterNewTopo(final Topo topo) {
         String username = usersService.UserLoggedEmail();
         Users users = usersRepository.findByEmail(username);
@@ -57,7 +55,6 @@ public class TopoService {
     /**
      * @return List Topo By UserLogged
      */
-
     public List<Topo> findCreatorOfTopo() {
         String username = usersService.UserLoggedEmail();
         Users users = usersRepository.findByEmail(username);
@@ -67,7 +64,6 @@ public class TopoService {
     /**
      * @param topo Save Update Topo
      */
-
     public void updateTopo(final Topo topo) {
         Topo updateTopo;
         updateTopo = topoRepository.findById(topo.getId()).get();
@@ -83,7 +79,6 @@ public class TopoService {
     /**
      * @param id Save New Reservation
      */
-
     public void newReservation(Integer id) {
         Topo topo = this.topoRepository.findById(id).get();
         topo.setAvailable(false);
@@ -95,7 +90,6 @@ public class TopoService {
     /**
      * @param id Save Available Topo
      */
-
     public void setAvailableTopo(Integer id) {
         Topo topo = this.topoRepository.findById(id).get();
         topo.setAvailable(true);
@@ -106,7 +100,6 @@ public class TopoService {
      * @param id
      * @return Topo By Id
      */
-
     public Topo findById(Integer id) {
         logger.info("findById = " + id);
         return topoRepository.findById(id).get();
@@ -126,7 +119,6 @@ public class TopoService {
      * @param id
      * @return userLogged == creatorTopo
      */
-
     public boolean correspondanceUser(Integer id) {
         Integer users = usersService.userLoggedId();
         Topo topo = topoRepository.findById(id).get();
@@ -144,7 +136,6 @@ public class TopoService {
     /**
      * @param id Save official Topo
      */
-
     public void setOfficialTopo(Integer id) {
         Topo topo = topoRepository.findById(id).get();
         topo.setOfficialTopo(true);
@@ -154,7 +145,6 @@ public class TopoService {
     /**
      * @param id Save unofficial Topo
      */
-
     public void setUnOfficialTopo(Integer id) {
         Topo topo = topoRepository.findById(id).get();
         topo.setOfficialTopo(false);

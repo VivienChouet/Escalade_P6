@@ -38,7 +38,6 @@ public class UsersService {
      *
      * @param users
      */
-
     public void registerNewUserAccount(final Users users) {
         logger.info("registerNewUserAccount");
         if (emailExists(users.getEmail())) {
@@ -102,7 +101,6 @@ public class UsersService {
     /**
      * @return Users
      */
-
     public List<Users> findAll() {
         logger.debug("findAll List User");
         return usersRepository.findAll();
@@ -110,9 +108,8 @@ public class UsersService {
 
     /**
      * @param id
-     * @return List Users
+     * @return Optional Users
      */
-
     public Optional<Users> findById(final Integer id) {
         logger.debug("findById Id  = " + id);
         return usersRepository.findById(id);

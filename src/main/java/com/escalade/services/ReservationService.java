@@ -56,7 +56,6 @@ public class ReservationService {
     /**
      * @param id Accepted Reservation
      */
-
     public void acceptationReservation(Integer id) {
         Reservation reservation = this.reservationRepository.findById(id).get();
         reservation.setReservationStatus("Reservation validée");
@@ -70,7 +69,6 @@ public class ReservationService {
     /**
      * @param id Refuse Reservation
      */
-
     public void refuseReservation(Integer id) {
         Reservation reservation = this.reservationRepository.findById(id).get();
         reservation.setReservationStatus("Reservation refusée");
@@ -83,7 +81,6 @@ public class ReservationService {
     /**
      * @param id Close Reservation
      */
-
     public void endReservation(Integer id) {
         Reservation reservation = this.reservationRepository.findById(id).get();
         reservation.setReservationStatus("Reservation terminée");
@@ -133,7 +130,6 @@ public class ReservationService {
     /**
      * @return List Reservation Find By UsersLogged && Reservation False
      */
-
     public List<Reservation> findByUsersAndNotClosed() {
         Users userslogged = usersService.usersLogged();
         logger.info("find List reservation  on user logged");
