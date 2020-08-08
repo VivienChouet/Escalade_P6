@@ -5,6 +5,9 @@ Description :
 Ce site internet à pour but de recueillir différents TOPO receuillant chacun différente voie d'éscalade. Les utilisateurs pourront par le biais de ce site échanger sur les différents site d'escalade.
 Il pourront également réserver un site si celui-ci leurs convient et laisser des commentaire sur celui-ci.
 
+Script SQL :
+Pour la construction de la BDD vous trouverez tous les scripts SQL dans le dossier Script SQL
+
 Mise en place de l'application de la BDD:
 Base de donné de démo est disponible sous le nom de data.sql Vous trouverez dedans toutes l'implémentation d'un jeux de donnée permettant de tester les fonctionnalités de l'application.
 
@@ -15,5 +18,5 @@ user2@user.com / user
 
 Pour la configuration de l'application remplacer les données de application.properties par vos données d'accès a votre propre Base De Données
 
-
+La configuration du serveur Tomcat se trouve également dans le fichier application.properties port par défaut est le 8081.
 
