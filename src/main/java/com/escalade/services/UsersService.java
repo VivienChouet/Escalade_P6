@@ -132,9 +132,6 @@ public class UsersService {
         usersRepository.delete(users);
     }
 
-    public void rolesActuatorOrAdmin() {
-
-    }
 
 }
 

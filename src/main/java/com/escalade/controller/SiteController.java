@@ -4,10 +4,7 @@ import com.escalade.entity.Message;
 import com.escalade.entity.Site;
 import com.escalade.entity.Topo;
 import com.escalade.entity.Voie;
-import com.escalade.services.MessageService;
-import com.escalade.services.SiteService;
-import com.escalade.services.TopoService;
-import com.escalade.services.VoieService;
+import com.escalade.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,6 +27,8 @@ public class SiteController {
     VoieService voieService;
     @Autowired
     MessageService messageService;
+    @Autowired
+    UsersService usersService;
 
     @RequestMapping(value = "/site/gestion")
     public String siteGestion(Model model) {
@@ -84,14 +83,17 @@ public class SiteController {
 
     @RequestMapping(value = "site/info/{id}")
     public String detailSite(@PathVariable("id") Integer id, Model model) {
+
         Site site = siteService.findById(id);
         List<Voie> voie = voieService.findBySite(id);
         Message newComment = new Message();
         List<Message> listComment = messageService.findBySiteId(id);
+
         model.addAttribute("site", site);
         model.addAttribute("voie", voie);
         model.addAttribute("newComment", newComment);
         model.addAttribute("listComment", listComment);
+
         return "site/site-info";
     }
 
