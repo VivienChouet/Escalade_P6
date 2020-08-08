@@ -59,7 +59,8 @@
                         <button class="btn btn-primary" type="submit">Mettre le topo en topo officiel
                         </button>
                     </form>
-                    <form class="form-inline" method="post" th:action="@{/topo/unofficialTopo/{id}(id=${topo.id})}"
+                    <form class="form-inline" method="post" sec:authorize="hasRole('ADMIN')"
+                          th:action="@{/topo/unofficialTopo/{id}(id=${topo.id})}"
                           th:if="${topo.officialTopo == true}">
                         <button class="btn btn-primary" type="submit">Retirer le topo Officiel
                         </button>

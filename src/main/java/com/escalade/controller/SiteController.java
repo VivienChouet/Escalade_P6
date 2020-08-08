@@ -72,6 +72,7 @@ public class SiteController {
         List<Topo> topos = this.topoService.findCreatorOfTopo();
         model.addAttribute("site", site);
         model.addAttribute("topos", topos);
+        model.addAttribute("pageTitle", "Création d'un nouveau Site");
         return "site/site-new";
     }
 
@@ -123,6 +124,7 @@ public class SiteController {
         System.out.println(message);
         System.out.println("id message" + message.getId());
         model.addAttribute("modifyContent", message);
+        model.addAttribute("pageTitle", "Modification d'un Site");
         messageService.updateComment(id, message);
         return "site/site-updatecomment";
     }

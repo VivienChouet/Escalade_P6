@@ -86,6 +86,7 @@ public class TopoController {
         model.addAttribute("topo", topo);
         model.addAttribute("site", sites);
         model.addAttribute("corrsepondance", corrsepondance);
+        model.addAttribute("pageTitle", "Info Topo");
         return "topo/topo-info";
     }
 
@@ -101,6 +102,7 @@ public class TopoController {
     public String updateTopo(@PathVariable("id") Integer id, Model model) {
         Topo topo = this.topoService.findById(id);
         model.addAttribute("topo", topo);
+        model.addAttribute("pageTitle", "Update Topo");
         return "topo/topo-update";
     }
 
@@ -138,6 +140,7 @@ public class TopoController {
         List<Reservation> reservations = this.reservationService.listFindByTopo_id(id);
         model.addAttribute("reservationNotClosed", reservationNotClosed);
         model.addAttribute("reservationTopo", reservations);
+
         logger.info("statut de la réservation : " + reservationNotClosed.getReservationStatus());
         return "topo/topo-gestionReservation";
 
@@ -163,7 +166,7 @@ public class TopoController {
         List<Reservation> listReservationClosed = this.reservationService.findByUsersAndClosed();
         model.addAttribute("reservationsNotClosed", listReservationsNotClosed);
         model.addAttribute("reservationClosed", listReservationClosed);
-
+        model.addAttribute("pageTitle", "Vos reservation");
 
         return "topo/topo-usersReservation";
     }
