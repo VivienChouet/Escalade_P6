@@ -1,5 +1,6 @@
 Site internet conçu pour répondre aux besoin du projet 6 du parcours dévellopeur JAVA de openclassroom.
 
+L'ensemble du projet (code source) est disponible sur Github: https://github.com/Slaschh/Escalade_P6
 
 Description :
 Ce site internet à pour but de recueillir différents TOPO receuillant chacun différente voie d'éscalade. Les utilisateurs pourront par le biais de ce site échanger sur les différents site d'escalade.
@@ -16,7 +17,18 @@ Admin@admin.com / admin
 user1@user.com / user
 user2@user.com / user
 
-Pour la configuration de l'application remplacer les données de application.properties par vos données d'accès a votre propre Base De Données
+Déploiement de l'application :
 
-La configuration du serveur Tomcat se trouve également dans le fichier application.properties port par défaut est le 8081.
+Déploiement sans conteneur web
+C'est le mode de déploiement le plus simple car il ne nécessite pas l'installation préalable d'un conteneur web. Pour tester l'application, c'est le mode de déploiement préconisé.
 
+La procédure est la suivante:
+
+cloner le projet githib
+S'assurer que la version de Java utilisée est la version 1.8 et que Maven est installé
+Exécuter la ligne de commande: mvn clean package spring-boot:run
+Ouvrir un browser web à l'adresse http://localhost:8081
+Déploiement dans un conteneur web
+Le format du package spécifié dans le fichier pom.xml est war. Une version du war produit à l'issue de l'étape de packaging par Maven est fournie dans le répertoire target, prêt pour déploiement dans un contenur web. Il est également possible de générer ce même package via la commande mvn clean package.
+
+Si le package target/projet6-0.0.1-SNAPSHOT.war est déployé dans un conteneur web, son URL sera (pour un Tomcat déployé en local disposant de sa configuration par défaut) http://localhost:8081/Projet6-0.0.1-SNAPSHOT
