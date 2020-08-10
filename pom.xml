@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>com.escalade</groupId>
-    <artifactId>Projet 6</artifactId>
+    <artifactId>Projet6</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Escalade</name>
     <description>Projet 6 pour le parcours</description>

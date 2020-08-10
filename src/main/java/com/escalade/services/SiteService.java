@@ -42,7 +42,6 @@ public class SiteService {
      */
     public void newSite(Site site) {
         logger.info("New Site = " + site);
-        logger.info("Update Site = " + site);
         String username = usersService.UserLoggedEmail();
         Users users = usersRepository.findByEmail(username);
         logger.info("user = " + users);
