@@ -1,437 +1,84 @@
-2020-08-10 [restartedMain] INFO  com.escalade.Application - Starting Application on Slasch with PID 10828 (started by Slasch in F:\Projet Divers\Escalade_P6)
-2020-08-10 [restartedMain] INFO  com.escalade.Application - No active profile set, falling back to default profiles: default
-2020-08-10 [restartedMain] INFO  o.s.b.d.restart.ChangeableUrls - The Class-Path manifest attribute in D:\Programation\env\maven\repository\org\glassfish\jaxb\jaxb-runtime\2.3.2\jaxb-runtime-2.3.2.jar referenced one or more files that do not exist: file:/D:/Programation/env/maven/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.xml.bind-api-2.3.2.jar,file:/D:/Programation/env/maven/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/txw2-2.3.2.jar,file:/D:/Programation/env/maven/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/istack-commons-runtime-3.0.8.jar,file:/D:/Programation/env/maven/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/stax-ex-1.8.1.jar,file:/D:/Programation/env/maven/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/FastInfoset-1.2.16.jar,file:/D:/Programation/env/maven/repository/org/glassfish/jaxb/jaxb-runtime/2.3.2/jakarta.activation-api-1.2.1.jar
-2020-08-10 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2020-08-10 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2020-08-10 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
-2020-08-10 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 86ms. Found 7 repository interfaces.
-2020-08-10 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-08-10 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-08-10 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-08-10 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@2e4fd406' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-08-10 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-08-10 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-08-10 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
-2020-08-10 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2020-08-10 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.27]
-2020-08-10 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2020-08-10 [restartedMain] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3363 ms
-2020-08-10 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-08-10 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.17.Final
-2020-08-10 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-08-10 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2020-08-10 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2020-08-10 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2020-08-10 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-08-10 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-08-10 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2020-08-10 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-08-10 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@62266def, org.springframework.security.web.context.SecurityContextPersistenceFilter@3b1de3b, org.springframework.security.web.header.HeaderWriterFilter@404570da, org.springframework.security.web.csrf.CsrfFilter@52e3b4f5, org.springframework.security.web.authentication.logout.LogoutFilter@290ac30f, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7d232736, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@60c480ab, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@472f25ad, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@23e36676, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@45a4561b, org.springframework.security.web.session.SessionManagementFilter@1d1be04c, org.springframework.security.web.access.ExceptionTranslationFilter@2c454d59, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6c2c5ced]
-2020-08-10 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
-2020-08-10 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
-2020-08-10 [restartedMain] INFO  com.escalade.Application - Started Application in 11.6 seconds (JVM running for 14.066)
-2020-08-10 [http-nio-8081-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-08-10 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2020-08-10 [http-nio-8081-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 21 ms
-2020-08-10 [http-nio-8081-exec-10] INFO  c.escalade.utility.LoggingController - findById = 5
-2020-08-10 [http-nio-8081-exec-10] INFO  c.escalade.utility.LoggingController - findByIdTopo = 5
-2020-08-10 [http-nio-8081-exec-10] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
-java.lang.NullPointerException: null
-	at com.escalade.services.UsersService.userLoggedId(UsersService.java:96)
-	at com.escalade.services.TopoService.correspondanceUser(TopoService.java:123)
-	at com.escalade.controller.TopoController.infoTopo(TopoController.java:85)
+2021-06-16 [restartedMain] INFO  com.escalade.Application - Starting Application on DESKTOP-IIRVTB3 with PID 12104 (E:\Programation\Projet\Escalade_P6\target\classes started by vivie in E:\Programation\Projet\Escalade_P6)
+2021-06-16 [restartedMain] INFO  com.escalade.Application - No active profile set, falling back to default profiles: default
+2021-06-16 [restartedMain] ERROR o.s.boot.SpringApplication - Application run failed
+java.lang.NoClassDefFoundError: Could not initialize class org.codehaus.groovy.reflection.ReflectionCache
+	at org.codehaus.groovy.runtime.dgmimpl.NumberNumberMetaMethod.<clinit>(NumberNumberMetaMethod.java:33)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.codehaus.groovy.runtime.metaclass.MetaClassRegistryImpl.createMetaMethodFromClass(MetaClassRegistryImpl.java:258)
+	at org.codehaus.groovy.runtime.metaclass.MetaClassRegistryImpl.<init>(MetaClassRegistryImpl.java:111)
+	at org.codehaus.groovy.runtime.metaclass.MetaClassRegistryImpl.<init>(MetaClassRegistryImpl.java:86)
+	at groovy.lang.GroovySystem.<clinit>(GroovySystem.java:36)
+	at org.springframework.beans.factory.groovy.GroovyBeanDefinitionReader.<init>(GroovyBeanDefinitionReader.java:150)
+	at org.springframework.boot.BeanDefinitionLoader.<init>(BeanDefinitionLoader.java:85)
+	at org.springframework.boot.SpringApplication.createBeanDefinitionLoader(SpringApplication.java:738)
+	at org.springframework.boot.SpringApplication.load(SpringApplication.java:681)
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:392)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:314)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.escalade.Application.main(Application.java:19)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:888)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:126)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:90)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:118)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
-	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
-	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:150)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
-	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:158)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
-	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
-	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
-	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:117)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
-	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92)
-	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
-	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1579)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-2020-08-10 [http-nio-8081-exec-8] INFO  c.escalade.utility.LoggingController - findById = 6
-2020-08-10 [http-nio-8081-exec-8] INFO  c.escalade.utility.LoggingController - findBySite id = 6
-2020-08-10 [http-nio-8081-exec-2] INFO  c.escalade.utility.LoggingController - findAll Voie
-2020-08-10 [http-nio-8081-exec-6] INFO  c.escalade.utility.LoggingController - findById voie = 8
-2020-08-10 [http-nio-8081-exec-10] WARN  o.a.c.util.SessionIdGeneratorBase - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [200] milliseconds.
-2020-08-10 [http-nio-8081-exec-7] INFO  c.escalade.utility.LoggingController - Find Rerservation who needed action
-2020-08-10 [http-nio-8081-exec-1] INFO  c.escalade.utility.LoggingController - find by topo_id and not closed
-2020-08-10 [http-nio-8081-exec-1] INFO  c.escalade.utility.LoggingController - statut de la réservation : En attente de validation
-2020-08-10 [http-nio-8081-exec-5] INFO  c.escalade.utility.LoggingController - Reservation accpeted : 14
-2020-08-10 [http-nio-8081-exec-9] INFO  c.escalade.utility.LoggingController - Find Rerservation who needed action
-2020-08-10 [http-nio-8081-exec-4] INFO  c.escalade.utility.LoggingController - findById = 10
-2020-08-10 [http-nio-8081-exec-9] INFO  c.escalade.utility.LoggingController - findById = 11
-2020-08-10 [http-nio-8081-exec-9] INFO  c.escalade.utility.LoggingController - findBySite id = 11
-2020-08-10 [http-nio-8081-exec-4] INFO  c.escalade.utility.LoggingController - user logged = Users{id=2, name='User 1 ', email='user1@user.com', password='$2a$10$.lATbapsXf6WWr3UCgIOJOK7GlEmwwrLFxjLsE5dcTYbWe6jfjkn.', createdAt=2020-08-07 17:35:08.0, roles=[ROLE_USER]}
-2020-08-10 [http-nio-8081-exec-3] INFO  c.escalade.utility.LoggingController - findById = 11
-2020-08-10 [http-nio-8081-exec-3] INFO  c.escalade.utility.LoggingController - findBySite id = 11
-2020-08-10 [http-nio-8081-exec-8] INFO  c.escalade.utility.LoggingController - findAll Voie
-2020-08-10 [http-nio-8081-exec-3] INFO  c.escalade.utility.LoggingController - find List reservation  on user logged
-2020-08-10 [http-nio-8081-exec-3] INFO  c.escalade.utility.LoggingController - find List reservation  on user logged
-2020-08-10 [http-nio-8081-exec-8] INFO  c.escalade.utility.LoggingController - find List reservation  on user logged
-2020-08-10 [http-nio-8081-exec-8] INFO  c.escalade.utility.LoggingController - find List reservation  on user logged
-2020-08-10 [http-nio-8081-exec-6] INFO  c.escalade.utility.LoggingController - Reservation terminée14
-2020-08-10 [http-nio-8081-exec-6] INFO  c.escalade.utility.LoggingController - Find Topo Id = 10
-2020-08-10 [http-nio-8081-exec-7] INFO  c.escalade.utility.LoggingController - find List reservation  on user logged
-2020-08-10 [http-nio-8081-exec-7] INFO  c.escalade.utility.LoggingController - find List reservation  on user logged
-2020-08-10 [http-nio-8081-exec-5] INFO  c.escalade.utility.LoggingController - findById = 10
-2020-08-10 [http-nio-8081-exec-5] INFO  c.escalade.utility.LoggingController - findByIdTopo = 10
-2020-08-10 [http-nio-8081-exec-4] INFO  c.escalade.utility.LoggingController - list des roles : [ROLE_USER, ROLE_ADMIN]
-2020-08-10 [http-nio-8081-exec-4] INFO  c.escalade.utility.LoggingController - Info user de : Users{id=2, name='User 1 ', email='user1@user.com', password='$2a$10$.lATbapsXf6WWr3UCgIOJOK7GlEmwwrLFxjLsE5dcTYbWe6jfjkn.', createdAt=2020-08-07 17:35:08.0, roles=[ROLE_USER]}
-2020-08-10 [http-nio-8081-exec-5] INFO  c.escalade.utility.LoggingController - findById = 5
-2020-08-10 [http-nio-8081-exec-5] INFO  c.escalade.utility.LoggingController - findByIdTopo = 5
-2020-08-10 [http-nio-8081-exec-3] INFO  c.escalade.utility.LoggingController - findById = 6
-2020-08-10 [http-nio-8081-exec-3] INFO  c.escalade.utility.LoggingController - findBySite id = 6
-2020-08-10 [http-nio-8081-exec-7] INFO  c.escalade.utility.LoggingController - findById = 6
-2020-08-10 [http-nio-8081-exec-7] INFO  c.escalade.utility.LoggingController - findBySite id = 6
-2020-08-10 [http-nio-8081-exec-6] INFO  c.escalade.utility.LoggingController - findById = 6
-2020-08-10 [http-nio-8081-exec-6] INFO  c.escalade.utility.LoggingController - findBySite id = 6
-2020-08-10 [http-nio-8081-exec-10] INFO  c.escalade.utility.LoggingController - find List reservation  on user logged
-2020-08-10 [http-nio-8081-exec-10] INFO  c.escalade.utility.LoggingController - find List reservation  on user logged
-2020-08-10 [http-nio-8081-exec-3] INFO  c.escalade.utility.LoggingController - findAll Voie
-2020-08-10 [http-nio-8081-exec-9] INFO  c.escalade.utility.LoggingController - find List reservation  on user logged
-2020-08-10 [http-nio-8081-exec-9] INFO  c.escalade.utility.LoggingController - find List reservation  on user logged
-2020-08-10 [http-nio-8081-exec-2] INFO  c.escalade.utility.LoggingController - findAll Voie
-2020-08-10 [http-nio-8081-exec-10] INFO  c.escalade.utility.LoggingController - Find by user = Users{id=1, name='Admin', email='Admin@Admin.com', password='$2a$10$RcpC/PrlQ.q42EcJqM6A.u.Am.nPzT0cwLq93VGUPPAS3TxHYCo22', createdAt=2020-08-07 17:34:43.0, roles=[ROLE_ADMIN]}
-2020-08-10 [http-nio-8081-exec-2] INFO  c.escalade.utility.LoggingController - Find Rerservation who needed action
-2020-08-10 [http-nio-8081-exec-9] INFO  c.escalade.utility.LoggingController - findById = 6
-2020-08-10 [http-nio-8081-exec-9] INFO  c.escalade.utility.LoggingController - findBySite id = 6
-2020-08-10 [http-nio-8081-exec-10] INFO  c.escalade.utility.LoggingController - findAll Voie
-2020-08-10 [http-nio-8081-exec-2] INFO  c.escalade.utility.LoggingController - findAll Voie
-2020-08-10 [http-nio-8081-exec-6] INFO  c.escalade.utility.LoggingController - findById voie = 8
-2020-08-10 [http-nio-8081-exec-3] INFO  c.escalade.utility.LoggingController - findById = 6
-2020-08-10 [http-nio-8081-exec-3] INFO  c.escalade.utility.LoggingController - findBySite id = 6
-2020-08-10 [http-nio-8081-exec-2] INFO  c.escalade.utility.LoggingController - findById = 5
-2020-08-10 [http-nio-8081-exec-2] INFO  c.escalade.utility.LoggingController - findByIdTopo = 5
-2020-08-10 [http-nio-8081-exec-2] ERROR o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
-java.lang.NullPointerException: null
-	at com.escalade.services.UsersService.userLoggedId(UsersService.java:96)
-	at com.escalade.services.TopoService.correspondanceUser(TopoService.java:123)
-	at com.escalade.controller.TopoController.infoTopo(TopoController.java:85)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+2021-06-16 [restartedMain] INFO  com.escalade.Application - Starting Application on DESKTOP-IIRVTB3 with PID 24708 (E:\Programation\Projet\Escalade_P6\target\classes started by vivie in E:\Programation\Projet\Escalade_P6)
+2021-06-16 [restartedMain] INFO  com.escalade.Application - No active profile set, falling back to default profiles: default
+2021-06-16 [restartedMain] ERROR o.s.boot.SpringApplication - Application run failed
+java.lang.NoClassDefFoundError: Could not initialize class org.codehaus.groovy.reflection.ReflectionCache
+	at org.codehaus.groovy.runtime.dgmimpl.NumberNumberMetaMethod.<clinit>(NumberNumberMetaMethod.java:33)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.codehaus.groovy.runtime.metaclass.MetaClassRegistryImpl.createMetaMethodFromClass(MetaClassRegistryImpl.java:258)
+	at org.codehaus.groovy.runtime.metaclass.MetaClassRegistryImpl.<init>(MetaClassRegistryImpl.java:111)
+	at org.codehaus.groovy.runtime.metaclass.MetaClassRegistryImpl.<init>(MetaClassRegistryImpl.java:86)
+	at groovy.lang.GroovySystem.<clinit>(GroovySystem.java:36)
+	at org.springframework.beans.factory.groovy.GroovyBeanDefinitionReader.<init>(GroovyBeanDefinitionReader.java:150)
+	at org.springframework.boot.BeanDefinitionLoader.<init>(BeanDefinitionLoader.java:85)
+	at org.springframework.boot.SpringApplication.createBeanDefinitionLoader(SpringApplication.java:738)
+	at org.springframework.boot.SpringApplication.load(SpringApplication.java:681)
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:392)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:314)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.escalade.Application.main(Application.java:19)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:106)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:888)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:126)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:90)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:118)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
-	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
-	at org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter.doFilter(RememberMeAuthenticationFilter.java:150)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
-	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:158)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
-	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
-	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:200)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
-	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:117)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
-	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92)
-	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
-	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:526)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:861)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1579)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:834)
-2020-08-10 [http-nio-8081-exec-2] INFO  c.escalade.utility.LoggingController - findAll Voie
-2020-08-10 [http-nio-8081-exec-4] INFO  c.escalade.utility.LoggingController - findById = 6
-2020-08-10 [http-nio-8081-exec-4] INFO  c.escalade.utility.LoggingController - findBySite id = 6
-2020-08-10 [http-nio-8081-exec-6] INFO  c.escalade.utility.LoggingController - find List reservation  on user logged
-2020-08-10 [http-nio-8081-exec-6] INFO  c.escalade.utility.LoggingController - find List reservation  on user logged
-2020-08-10 [http-nio-8081-exec-3] INFO  c.escalade.utility.LoggingController - New Site = com.escalade.entity.Site@3a73c316
-2020-08-10 [http-nio-8081-exec-3] INFO  c.escalade.utility.LoggingController - Update Site = com.escalade.entity.Site@3a73c316
-2020-08-10 [http-nio-8081-exec-3] INFO  c.escalade.utility.LoggingController - user = Users{id=2, name='User 1 ', email='user1@user.com', password='$2a$10$.lATbapsXf6WWr3UCgIOJOK7GlEmwwrLFxjLsE5dcTYbWe6jfjkn.', createdAt=2020-08-07 17:35:08.0, roles=[ROLE_USER]}
-2020-08-10 [http-nio-8081-exec-8] INFO  c.escalade.utility.LoggingController - findById = 16
-2020-08-10 [http-nio-8081-exec-8] INFO  c.escalade.utility.LoggingController - findBySite id = 16
-2020-08-10 [http-nio-8081-exec-4] INFO  c.escalade.utility.LoggingController - user logged = Users{id=2, name='User 1 ', email='user1@user.com', password='$2a$10$.lATbapsXf6WWr3UCgIOJOK7GlEmwwrLFxjLsE5dcTYbWe6jfjkn.', createdAt=2020-08-07 17:35:08.0, roles=[ROLE_USER]}
-2020-08-10 [http-nio-8081-exec-3] INFO  c.escalade.utility.LoggingController - findById = 16
-2020-08-10 [http-nio-8081-exec-3] INFO  c.escalade.utility.LoggingController - findBySite id = 16
-2020-08-10 [http-nio-8081-exec-1] INFO  c.escalade.utility.LoggingController - findById = 10
-2020-08-10 [http-nio-8081-exec-1] INFO  c.escalade.utility.LoggingController - findByIdTopo = 10
-2020-08-10 [http-nio-8081-exec-10] INFO  c.escalade.utility.LoggingController - findById = 5
-2020-08-10 [http-nio-8081-exec-10] INFO  c.escalade.utility.LoggingController - findByIdTopo = 5
-2020-08-10 [http-nio-8081-exec-5] INFO  c.escalade.utility.LoggingController - findById = 5
-2020-08-10 [http-nio-8081-exec-5] INFO  c.escalade.utility.LoggingController - user logged = Users{id=2, name='User 1 ', email='user1@user.com', password='$2a$10$.lATbapsXf6WWr3UCgIOJOK7GlEmwwrLFxjLsE5dcTYbWe6jfjkn.', createdAt=2020-08-07 17:35:08.0, roles=[ROLE_USER]}
-2020-08-10 [http-nio-8081-exec-5] INFO  c.escalade.utility.LoggingController - New reservation = 5
-2020-08-10 [http-nio-8081-exec-5] INFO  c.escalade.utility.LoggingController - topo = Topo{id=5, name='Topo Admin 01', lieux='Alpes', description='Topo Admin Alpes', created_at=2020-08-07 18:44:08.0, available=false, statutPublic=true, reservations=[], update_at=2020-08-07 18:44:08.0, users=Users{id=1, name='Admin', email='Admin@Admin.com', password='$2a$10$RcpC/PrlQ.q42EcJqM6A.u.Am.nPzT0cwLq93VGUPPAS3TxHYCo22', createdAt=2020-08-07 17:34:43.0, roles=[ROLE_ADMIN]}, site=[com.escalade.entity.Site@578c6fd5]}
-2020-08-10 [http-nio-8081-exec-10] INFO  c.escalade.utility.LoggingController - find List reservation  on user logged
-2020-08-10 [http-nio-8081-exec-10] INFO  c.escalade.utility.LoggingController - find List reservation  on user logged
-2020-08-10 [http-nio-8081-exec-9] INFO  c.escalade.utility.LoggingController - list des roles : [ROLE_USER, ROLE_ADMIN]
-2020-08-10 [http-nio-8081-exec-9] INFO  c.escalade.utility.LoggingController - Info user de : Users{id=2, name='User 1 ', email='user1@user.com', password='$2a$10$.lATbapsXf6WWr3UCgIOJOK7GlEmwwrLFxjLsE5dcTYbWe6jfjkn.', createdAt=2020-08-07 17:35:08.0, roles=[ROLE_USER]}
-2020-08-10 [http-nio-8081-exec-1] INFO  c.escalade.utility.LoggingController - Find Rerservation who needed action
-2020-08-10 [http-nio-8081-exec-7] INFO  c.escalade.utility.LoggingController - find by topo_id and not closed
-2020-08-10 [http-nio-8081-exec-7] INFO  c.escalade.utility.LoggingController - statut de la réservation : En attente de validation
-2020-08-10 [http-nio-8081-exec-2] INFO  c.escalade.utility.LoggingController - Reservation accpeted : 18
-2020-08-10 [http-nio-8081-exec-5] INFO  c.escalade.utility.LoggingController - find List reservation  on user logged
-2020-08-10 [http-nio-8081-exec-5] INFO  c.escalade.utility.LoggingController - find List reservation  on user logged
-2020-08-10 [http-nio-8081-exec-8] INFO  c.escalade.utility.LoggingController - Find Rerservation who needed action
-2020-08-10 [http-nio-8081-exec-6] INFO  c.escalade.utility.LoggingController - findById = 16
-2020-08-10 [http-nio-8081-exec-6] INFO  c.escalade.utility.LoggingController - findBySite id = 16
-2020-08-10 [http-nio-8081-exec-10] INFO  c.escalade.utility.LoggingController - findById = 16
-2020-08-10 [http-nio-8081-exec-10] INFO  c.escalade.utility.LoggingController - findBySite id = 16
-2020-08-10 [http-nio-8081-exec-4] INFO  c.escalade.utility.LoggingController - findById = 5
-2020-08-10 [http-nio-8081-exec-4] INFO  c.escalade.utility.LoggingController - findByIdTopo = 5
-2020-08-10 [http-nio-8081-exec-4] INFO  c.escalade.utility.LoggingController - findById = 5
-2020-08-10 [http-nio-8081-exec-4] INFO  c.escalade.utility.LoggingController - findByIdTopo = 5
-2020-08-10 [http-nio-8081-exec-9] INFO  c.escalade.utility.LoggingController - findById = 5
-2020-08-10 [http-nio-8081-exec-9] INFO  c.escalade.utility.LoggingController - findByIdTopo = 5
-2020-08-10 [http-nio-8081-exec-6] INFO  c.escalade.utility.LoggingController - findById = 10
-2020-08-10 [http-nio-8081-exec-6] INFO  c.escalade.utility.LoggingController - findByIdTopo = 10
-2020-08-10 [http-nio-8081-exec-7] INFO  c.escalade.utility.LoggingController - findById = 10
-2020-08-10 [http-nio-8081-exec-7] INFO  c.escalade.utility.LoggingController - findByIdTopo = 10
-2020-08-10 [http-nio-8081-exec-5] INFO  c.escalade.utility.LoggingController - findById = 16
-2020-08-10 [http-nio-8081-exec-5] INFO  c.escalade.utility.LoggingController - findBySite id = 16
-2020-08-10 [http-nio-8081-exec-8] INFO  c.escalade.utility.LoggingController - user logged = Users{id=1, name='Admin', email='Admin@Admin.com', password='$2a$10$RcpC/PrlQ.q42EcJqM6A.u.Am.nPzT0cwLq93VGUPPAS3TxHYCo22', createdAt=2020-08-07 17:34:43.0, roles=[ROLE_ADMIN]}
-2020-08-10 [http-nio-8081-exec-10] INFO  c.escalade.utility.LoggingController - findById = 16
-2020-08-10 [http-nio-8081-exec-10] INFO  c.escalade.utility.LoggingController - findBySite id = 16
-2020-08-10 [http-nio-8081-exec-1] INFO  c.escalade.utility.LoggingController - findById = 16
-2020-08-10 [http-nio-8081-exec-1] INFO  c.escalade.utility.LoggingController - findBySite id = 16
-2020-08-10 [http-nio-8081-exec-6] INFO  c.escalade.utility.LoggingController - find List reservation  on user logged
-2020-08-10 [http-nio-8081-exec-6] INFO  c.escalade.utility.LoggingController - find List reservation  on user logged
-2020-08-10 [http-nio-8081-exec-7] INFO  c.escalade.utility.LoggingController - Reservation terminée18
-2020-08-10 [http-nio-8081-exec-7] INFO  c.escalade.utility.LoggingController - Find Topo Id = 5
-2020-08-10 [http-nio-8081-exec-6] INFO  c.escalade.utility.LoggingController - find List reservation  on user logged
-2020-08-10 [http-nio-8081-exec-6] INFO  c.escalade.utility.LoggingController - find List reservation  on user logged
-2020-08-10 [http-nio-8081-exec-5] INFO  c.escalade.utility.LoggingController - findById = 5
-2020-08-10 [http-nio-8081-exec-5] INFO  c.escalade.utility.LoggingController - findByIdTopo = 5
-2020-08-10 [Thread-4] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
-2020-08-10 [Thread-4] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-08-10 [Thread-4] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2020-08-10 [Thread-4] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2020-08-10 [restartedMain] INFO  com.escalade.Application - Starting Application on Slasch with PID 10828 (started by Slasch in F:\Projet Divers\Escalade_P6)
-2020-08-10 [restartedMain] INFO  com.escalade.Application - No active profile set, falling back to default profiles: default
-2020-08-10 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
-2020-08-10 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 53ms. Found 7 repository interfaces.
-2020-08-10 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-08-10 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-08-10 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-08-10 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@11de63ce' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-08-10 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-08-10 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-08-10 [restartedMain] WARN  o.a.tomcat.util.modeler.Registry - The MBean registry cannot be disabled because it has already been initialised
-2020-08-10 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
-2020-08-10 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2020-08-10 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.27]
-2020-08-10 [restartedMain] INFO  o.a.c.c.C.[Tomcat-2].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2020-08-10 [restartedMain] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1858 ms
-2020-08-10 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-08-10 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
-2020-08-10 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
-2020-08-10 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2020-08-10 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-08-10 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-08-10 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2020-08-10 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-08-10 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@15b29e39, org.springframework.security.web.context.SecurityContextPersistenceFilter@52487ae1, org.springframework.security.web.header.HeaderWriterFilter@16b1314d, org.springframework.security.web.csrf.CsrfFilter@10fdd14d, org.springframework.security.web.authentication.logout.LogoutFilter@76859664, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5d8b8e2b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@594302a2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@46676b9e, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@20f3f738, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@48709743, org.springframework.security.web.session.SessionManagementFilter@2cc1a18d, org.springframework.security.web.access.ExceptionTranslationFilter@1693b278, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@33bdc448]
-2020-08-10 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
-2020-08-10 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
-2020-08-10 [restartedMain] INFO  com.escalade.Application - Started Application in 7.058 seconds (JVM running for 12372.008)
-2020-08-10 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
-2020-08-10 [Thread-8] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
-2020-08-10 [Thread-8] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-08-10 [Thread-8] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
-2020-08-10 [Thread-8] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
-2020-08-10 [restartedMain] INFO  com.escalade.Application - Starting Application on Slasch with PID 10828 (started by Slasch in F:\Projet Divers\Escalade_P6)
-2020-08-10 [restartedMain] INFO  com.escalade.Application - No active profile set, falling back to default profiles: default
-2020-08-10 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
-2020-08-10 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 72ms. Found 7 repository interfaces.
-2020-08-10 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-08-10 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-08-10 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-08-10 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@44e39931' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-08-10 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-08-10 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-08-10 [restartedMain] WARN  o.a.tomcat.util.modeler.Registry - The MBean registry cannot be disabled because it has already been initialised
-2020-08-10 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
-2020-08-10 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2020-08-10 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.27]
-2020-08-10 [restartedMain] INFO  o.a.c.c.C.[Tomcat-2].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2020-08-10 [restartedMain] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1080 ms
-2020-08-10 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-08-10 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
-2020-08-10 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
-2020-08-10 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2020-08-10 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-08-10 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-08-10 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2020-08-10 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-08-10 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@52721092, org.springframework.security.web.context.SecurityContextPersistenceFilter@653cbe8e, org.springframework.security.web.header.HeaderWriterFilter@208edf3d, org.springframework.security.web.csrf.CsrfFilter@7ac74436, org.springframework.security.web.authentication.logout.LogoutFilter@20651cc7, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2eccf155, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6a14963, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@508009bd, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@6d731f48, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@54331203, org.springframework.security.web.session.SessionManagementFilter@251ab8ef, org.springframework.security.web.access.ExceptionTranslationFilter@40147d4f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@583bcf90]
-2020-08-10 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
-2020-08-10 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
-2020-08-10 [restartedMain] INFO  com.escalade.Application - Started Application in 6.07 seconds (JVM running for 13483.419)
-2020-08-10 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
-2020-08-10 [Thread-19] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
-2020-08-10 [Thread-19] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2020-08-10 [Thread-19] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
-2020-08-10 [Thread-19] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
-2020-08-10 [restartedMain] INFO  com.escalade.Application - Starting Application on Slasch with PID 10828 (started by Slasch in F:\Projet Divers\Escalade_P6)
-2020-08-10 [restartedMain] INFO  com.escalade.Application - No active profile set, falling back to default profiles: default
-2020-08-10 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data repositories in DEFAULT mode.
-2020-08-10 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 31ms. Found 7 repository interfaces.
-2020-08-10 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-08-10 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-08-10 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-08-10 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@50f2be40' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-08-10 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-08-10 [restartedMain] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2020-08-10 [restartedMain] WARN  o.a.tomcat.util.modeler.Registry - The MBean registry cannot be disabled because it has already been initialised
-2020-08-10 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
-2020-08-10 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2020-08-10 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.27]
-2020-08-10 [restartedMain] INFO  o.a.c.c.C.[Tomcat-2].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2020-08-10 [restartedMain] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 828 ms
-2020-08-10 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-08-10 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Starting...
-2020-08-10 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Start completed.
-2020-08-10 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
-2020-08-10 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-08-10 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2020-08-10 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2020-08-10 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2020-08-10 [restartedMain] INFO  o.s.s.web.DefaultSecurityFilterChain - Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6026122c, org.springframework.security.web.context.SecurityContextPersistenceFilter@da0134d, org.springframework.security.web.header.HeaderWriterFilter@25face8, org.springframework.security.web.csrf.CsrfFilter@4da94c21, org.springframework.security.web.authentication.logout.LogoutFilter@7ead1b20, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3eea7033, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7ab725da, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5f0fe88, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@5432659b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@789082f6, org.springframework.security.web.session.SessionManagementFilter@aef8e75, org.springframework.security.web.access.ExceptionTranslationFilter@28dbf774, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@723d427c]
-2020-08-10 [restartedMain] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
-2020-08-10 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
-2020-08-10 [restartedMain] INFO  com.escalade.Application - Started Application in 4.887 seconds (JVM running for 13526.818)
-2020-08-10 [restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+2021-06-16 [restartedMain] INFO  com.escalade.Application - Starting Application on DESKTOP-IIRVTB3 with PID 26356 (E:\Programation\Projet\Escalade_P6\target\classes started by vivie in E:\Programation\Projet\Escalade_P6)
+2021-06-16 [restartedMain] INFO  com.escalade.Application - No active profile set, falling back to default profiles: default
+2021-06-16 [restartedMain] ERROR o.s.boot.SpringApplication - Application run failed
+java.lang.NoClassDefFoundError: Could not initialize class org.codehaus.groovy.reflection.ReflectionCache
+	at org.codehaus.groovy.runtime.dgmimpl.NumberNumberMetaMethod.<clinit>(NumberNumberMetaMethod.java:33)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.codehaus.groovy.runtime.metaclass.MetaClassRegistryImpl.createMetaMethodFromClass(MetaClassRegistryImpl.java:258)
+	at org.codehaus.groovy.runtime.metaclass.MetaClassRegistryImpl.<init>(MetaClassRegistryImpl.java:111)
+	at org.codehaus.groovy.runtime.metaclass.MetaClassRegistryImpl.<init>(MetaClassRegistryImpl.java:86)
+	at groovy.lang.GroovySystem.<clinit>(GroovySystem.java:36)
+	at org.springframework.beans.factory.groovy.GroovyBeanDefinitionReader.<init>(GroovyBeanDefinitionReader.java:150)
+	at org.springframework.boot.BeanDefinitionLoader.<init>(BeanDefinitionLoader.java:85)
+	at org.springframework.boot.SpringApplication.createBeanDefinitionLoader(SpringApplication.java:738)
+	at org.springframework.boot.SpringApplication.load(SpringApplication.java:681)
+	at org.springframework.boot.SpringApplication.prepareContext(SpringApplication.java:392)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:314)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.escalade.Application.main(Application.java:19)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
