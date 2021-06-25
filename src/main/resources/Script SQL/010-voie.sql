@@ -8,7 +8,7 @@ create table voie
 	name       varchar(255) null,
 	update_at  datetime     null,
 	site_id    int          null
-) engine=MyISAM;
+);
 
 create index FKry0xp2k6722vmxdc95ilxrd9v
 	on voie (site_id);

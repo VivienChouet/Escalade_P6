@@ -7,5 +7,5 @@ create table users
     name       varchar(255) not null,
     password   varchar(255) not null,
     update_at  datetime     null
-) engine=MyISAM;
+) ;
 
