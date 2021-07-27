@@ -133,6 +133,11 @@
       <groupId>org.hibernate</groupId>  
       <artifactId>hibernate-entitymanager</artifactId>  
       <version>5.4.17.Final</version> 
+    </dependency>  
+    <dependency> 
+      <groupId>com.microsoft.azure</groupId>  
+      <artifactId>azure-webapp-maven-plugin</artifactId>  
+      <version>2.0.0</version> 
     </dependency> 
   </dependencies>  
   <build> 
@@ -149,36 +154,36 @@
           <target>1.8</target> 
         </configuration> 
       </plugin>  
-      <plugin>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.14.0</version>
-        <configuration>
-          <schemaVersion>v2</schemaVersion>
-          <subscriptionId>481250de-62fd-4e3f-b236-a10f45f135c9</subscriptionId>
-          <resourceGroup>OpenClassroom</resourceGroup>
-          <appName>PizzeriaOC</appName>
-          <pricingTier>P1v2</pricingTier>
-          <region>francecentral</region>
-          <appServicePlanName>ASP-OpenClassroom-89ab</appServicePlanName>
-          <appServicePlanResourceGroup>OpenClassroom</appServicePlanResourceGroup>
-          <runtime>
-            <os>Windows</os>
-            <javaVersion>Java 11</javaVersion>
-            <webContainer>Tomcat 9.0</webContainer>
-          </runtime>
+      <plugin> 
+        <groupId>com.microsoft.azure</groupId>  
+        <artifactId>azure-webapp-maven-plugin</artifactId>  
+        <version>2.0.0</version>  
+        <configuration> 
+          <subscriptionId>481250de-62fd-4e3f-b236-a10f45f135c9</subscriptionId>  
+          <resourceGroup>OpenClassroom</resourceGroup>  
+          <appName>pizzeriaocdemo01</appName>  
+          <pricingTier>P1v2</pricingTier>  
+          <region>francecentral</region>  
+          <appServicePlanName>ASP-OpenClassroom-89ab</appServicePlanName>  
+          <appServicePlanResourceGroup>OpenClassroom</appServicePlanResourceGroup>  
+          <runtime> 
+            <os>Windows</os>  
+            <javaVersion>Java 11</javaVersion>  
+            <webContainer>Tomcat 9.0</webContainer> 
+          </runtime>  
           <deployment>
             <resources>
-              <resource>
-                <directory>${project.basedir}/target</directory>
-                <includes>
-                  <include>*.war</include>
-                </includes>
-              </resource>
-            </resources>
+              <resource> 
+                <directory>${project.basedir}/target</directory>  
+                <includes> 
+                  <include>*.war</include> 
+                </includes> 
+              </resource> 
+            </resources> 
           </deployment>
+
         </configuration>
-      </plugin>
+      </plugin> 
     </plugins> 
   </build> 
 </project>
